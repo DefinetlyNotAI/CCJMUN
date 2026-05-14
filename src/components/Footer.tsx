@@ -1,7 +1,7 @@
 import {Link} from "react-router-dom"
 import {Mail, MapPin} from "lucide-react"
 import {Separator} from "@/components/ui/separator"
-import {socialLinks} from "@/lib/config/socials"
+import {socialLinks} from "../data/socials"
 import {links} from "@/data/footer.ts";
 
 export function Footer() {

@@ -6,7 +6,7 @@ import {Textarea} from "@/components/ui/textarea"
 import {Label} from "@/components/ui/label"
 import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select"
 import {CircleCheck as CheckCircle, Mail, MapPin, Send} from "lucide-react"
-import {socialLinks} from "@/lib/config/socials"
+import {socialLinks} from "../data/socials"
 
 export function Contact() {
     const [submitted, setSubmitted] = useState(false)

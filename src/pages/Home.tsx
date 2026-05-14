@@ -179,7 +179,7 @@ export function Home() {
                         </p>
                         <h2 className="text-4xl font-bold text-[#2b174f]">Mark Your Calendar</h2>
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div className="grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-6 justify-center">
                         {CalendarDates.map(({ date, label, color }) => (
                             <Card
                                 key={date}

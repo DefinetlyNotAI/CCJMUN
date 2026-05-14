@@ -8,15 +8,15 @@ interface TimeUnit {
 
 export function CountdownTimer() {
     const [timeUnits, setTimeUnits] = useState<TimeUnit[]>([
-        {label: 'Days', value: 0},
-        {label: 'Hours', value: 0},
-        {label: 'Minutes', value: 0},
-        {label: 'Seconds', value: 0},
+        { label: 'Days', value: 0 },
+        { label: 'Hours', value: 0 },
+        { label: 'Minutes', value: 0 },
+        { label: 'Seconds', value: 0 },
     ])
 
     useEffect(() => {
         const calculateCountdown = () => {
-            const conferenceStart = new Date('2026-03-06T08:00:00').getTime()
+            const conferenceStart = new Date('2026-07-17T08:00:00').getTime()
             const now = new Date().getTime()
             const difference = conferenceStart - now
 
@@ -27,10 +27,10 @@ export function CountdownTimer() {
                 const seconds = Math.floor((difference / 1000) % 60)
 
                 setTimeUnits([
-                    {label: 'Days', value: days},
-                    {label: 'Hours', value: hours},
-                    {label: 'Minutes', value: minutes},
-                    {label: 'Seconds', value: seconds},
+                    { label: 'Days', value: days },
+                    { label: 'Hours', value: hours },
+                    { label: 'Minutes', value: minutes },
+                    { label: 'Seconds', value: seconds },
                 ])
             }
         }
@@ -43,7 +43,7 @@ export function CountdownTimer() {
     return (
         <div className="bg-white/5 border border-white/10 rounded-lg p-4 md:p-6 backdrop-blur-sm">
             <div className="flex items-center gap-2 mb-3 md:mb-4">
-                <CalendarDays className="size-4 md:size-5 text-[#f2b652]"/>
+                <CalendarDays className="size-4 md:size-5 text-[#f2b652]" />
                 <p className="text-white/60 text-xs md:text-sm tracking-widest uppercase font-semibold">
                     Time Until Conference
                 </p>
