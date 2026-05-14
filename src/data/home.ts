@@ -11,5 +11,5 @@ export const stats = [
     {icon: Users, value: "350+", label: "Delegates"},
     {icon: Globe, value: "8", label: "Committees"},
     {icon: CalendarDays, value: "2", label: "Days"},
-    {icon: MapPin, value: "Cairo", label: "Egypt"},
+    {icon: MapPin, value: "Online", label: "UAE"},
 ]

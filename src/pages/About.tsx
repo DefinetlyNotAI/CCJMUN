@@ -76,22 +76,18 @@ export function About() {
                                 an immersive, academically rigorous diplomatic experience that develops leadership,
                                 critical thinking, and global awareness.
                             </p>
-                            <p className="text-gray-600 leading-relaxed mb-5">
-                                Since our inaugural conference, CCJMUN has grown into one of the most respected
-                                student-run MUNs in the region, attracting delegates from schools across Egypt and the
-                                Arab world.
-                            </p>
                             <p className="text-gray-600 leading-relaxed">
                                 Our secretariat, committees, and staff are entirely student-run - a testament to the
                                 talent, dedication, and vision of the young people who make CCJMUN what it is.
                             </p>
                         </div>
-                        <div className="relative">
-                            <div className="absolute -bottom-4 -right-4 w-full h-full bg-[#2b174f]/10 rounded-lg"/>
+                        <div className="relative w-full max-w-10xl">
+                            <div className="absolute -bottom-4 -right-4 w-full h-full bg-[#2b174f]/10 rounded-lg" />
+
                             <img
-                                src="/cover.jpeg"
+                                src="/bg.jpeg"
                                 alt="CCJMUN Conference"
-                                className="relative rounded-lg shadow-xl w-full object-cover h-96 border border-[#f2b652]/20"
+                                className="relative w-full h-96 md:h-112 lg:h-128 object-cover object-[50%_30%] rounded-lg shadow-xl border border-[#f2b652]/20"
                             />
                         </div>
                     </div>
@@ -113,73 +109,30 @@ export function About() {
                         </p>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {values.map(({icon: Icon, title, description}) => (
+                        {values.map(({ icon: Icon, title, description }) => (
                             <div
                                 key={title}
-                                className="bg-white rounded-lg p-8 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 hover:border-[#f2b652]/30 group"
+                                className="bg-white rounded-lg p-8 shadow-sm border border-gray-100
+            transition-all duration-300
+            hover:-translate-y-2 hover:scale-[1.02]
+            hover:shadow-2xl hover:shadow-black/10
+            hover:border-[#f2b652]/40
+            group"
                             >
                                 <div
-                                    className="w-12 h-12 rounded-lg bg-[#2b174f] flex items-center justify-center mb-5 group-hover:bg-[#f2b652] transition-colors">
-                                    <Icon className="size-6 text-white group-hover:text-[#2b174f] transition-colors"/>
+                                    className="w-12 h-12 rounded-lg bg-[#2b174f] flex items-center justify-center mb-5
+                group-hover:bg-[#f2b652] transition-colors duration-300"
+                                >
+                                    <Icon className="size-6 text-white group-hover:text-[#2b174f] transition-colors" />
                                 </div>
-                                <h3 className="text-[#2b174f] font-bold text-lg mb-3">{title}</h3>
-                                <p className="text-gray-500 text-sm leading-relaxed">{description}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
 
-            {/* Timeline / History */}
-            <section className="py-24 bg-[#2b174f]">
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-14">
-                        <p className="text-[#f2b652] text-sm tracking-widest uppercase font-semibold mb-3">
-                            Our Journey
-                        </p>
-                        <h2 className="text-4xl font-bold text-white mb-4">
-                            Building Excellence Year by Year
-                        </h2>
-                    </div>
-                    <div className="space-y-8 relative">
-                        <div className="absolute left-6 top-0 bottom-0 w-px bg-[#f2b652]/30"/>
-                        {[
-                            {
-                                year: "2022",
-                                title: "CCJMUN Founded",
-                                desc: "The inaugural CCJMUN conference welcomed 120 delegates across 4 committees."
-                            },
-                            {
-                                year: "2023",
-                                title: "Rapid Growth",
-                                desc: "Year two saw us double in size, introducing two new specialized committees."
-                            },
-                            {
-                                year: "2024",
-                                title: "Regional Recognition",
-                                desc: "CCJMUN was recognized as one of the top 10 student-run MUNs in North Africa."
-                            },
-                            {
-                                year: "2025",
-                                title: "International Delegates",
-                                desc: "For the first time, delegations from outside Egypt joined our conference."
-                            },
-                            {
-                                year: "2026",
-                                title: "CCJMUN 2026",
-                                desc: "Our most ambitious conference yet - 8 committees, 350+ delegates, global impact."
-                            },
-                        ].map(({year, title, desc}) => (
-                            <div key={year} className="flex gap-6 pl-14 relative">
-                                <div
-                                    className="absolute left-0 top-1 w-12 h-12 rounded-full bg-[#f2b652] flex items-center justify-center shrink-0">
-                                    <span
-                                        className="text-[#2b174f] text-xs font-bold leading-tight text-center">{year}</span>
-                                </div>
-                                <div>
-                                    <h3 className="text-white font-bold text-lg mb-1">{title}</h3>
-                                    <p className="text-white/60 text-sm leading-relaxed">{desc}</p>
-                                </div>
+                                <h3 className="text-[#2b174f] font-bold text-lg mb-3">
+                                    {title}
+                                </h3>
+
+                                <p className="text-gray-500 text-sm leading-relaxed">
+                                    {description}
+                                </p>
                             </div>
                         ))}
                     </div>

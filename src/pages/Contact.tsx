@@ -85,8 +85,8 @@ export function Contact() {
                                     </div>
                                     <div>
                                         <p className="text-gray-400 text-xs uppercase tracking-wider mb-1">Location</p>
-                                        <p className="text-[#2b174f] font-semibold">CCJ Campus</p>
-                                        <p className="text-gray-400 text-sm mt-0.5">Cairo, Egypt</p>
+                                        <p className="text-[#2b174f] font-semibold">Digital</p>
+                                        <p className="text-gray-400 text-sm mt-0.5">UAE</p>
                                     </div>
                                 </div>
                             </div>
