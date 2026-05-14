@@ -1,11 +1,7 @@
 import {useState} from 'react'
 import {Input} from '@/components/ui/input'
 import {Search, X} from 'lucide-react'
-import type {DifficultyLevel} from "@/types";
-
-interface CommitteeFilterProps {
-    onFilterChange: (filters: { search: string; difficulty: DifficultyLevel | null }) => void
-}
+import type {CommitteeFilterProps, DifficultyLevel} from "@/types";
 
 const difficultyLevels: DifficultyLevel[] = ['Beginner', 'Intermediate', 'Advanced', 'Expert']
 

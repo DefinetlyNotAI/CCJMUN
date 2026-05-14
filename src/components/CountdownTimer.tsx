@@ -1,10 +1,6 @@
 import {useEffect, useState} from 'react'
 import {CalendarDays} from 'lucide-react'
-
-interface TimeUnit {
-    label: string
-    value: number
-}
+import type {TimeUnit} from "@/types";
 
 export function CountdownTimer() {
     const [timeUnits, setTimeUnits] = useState<TimeUnit[]>([

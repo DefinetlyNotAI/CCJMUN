@@ -1,20 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 import * as React from "react"
-
-type Theme = "dark" | "light" | "system"
-type ResolvedTheme = "dark" | "light"
-
-type ThemeProviderProps = {
-    children: React.ReactNode
-    defaultTheme?: Theme
-    storageKey?: string
-    disableTransitionOnChange?: boolean
-}
-
-type ThemeProviderState = {
-    theme: Theme
-    setTheme: (theme: Theme) => void
-}
+import type {ResolvedTheme, Theme, ThemeProviderProps, ThemeProviderState} from "@/types";
 
 const COLOR_SCHEME_QUERY = "(prefers-color-scheme: dark)"
 const THEME_VALUES: Theme[] = ["dark", "light", "system"]

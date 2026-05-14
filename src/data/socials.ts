@@ -1,4 +1,4 @@
-import {InstagramIcon} from "../components/ui/InstagramIcon";
+import {InstagramIcon} from "../components/InstagramIcon";
 import type {SocialLink} from "@/types";
 
 export const socialLinks: SocialLink[] = [

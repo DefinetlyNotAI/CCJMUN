@@ -1,5 +1,6 @@
 import type { LucideIcon } from "lucide-react";
-import type {ComponentType} from "react";
+import  {type ComponentType} from "react";
+import * as React from "react";
 
 export interface StatItem {
     icon: LucideIcon;
@@ -154,4 +155,31 @@ export interface ValueItem {
     icon: LucideIcon;
     title: string;
     description: string;
+}
+export interface CommitteeFilterProps {
+    onFilterChange: (filters: { search: string; difficulty: DifficultyLevel | null }) => void
+}
+
+export interface TimeUnit {
+    label: string
+    value: number
+}
+export interface NavLink {
+    label: string;
+    href: string;
+}
+
+export type Theme = "dark" | "light" | "system"
+export type ResolvedTheme = "dark" | "light"
+
+export interface ThemeProviderProps {
+    children: React.ReactNode
+    defaultTheme?: Theme
+    storageKey?: string
+    disableTransitionOnChange?: boolean
+}
+
+export interface ThemeProviderState {
+    theme: Theme
+    setTheme: (theme: Theme) => void
 }

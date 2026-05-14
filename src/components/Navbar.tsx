@@ -4,17 +4,8 @@ import {Menu, X} from "lucide-react"
 import {Button} from "@/components/ui/button"
 import {Sheet, SheetClose, SheetContent, SheetTrigger} from "@/components/ui/sheet"
 import {cn} from "@/lib/utils"
+import {navLinks} from "@/data/navbar.ts";
 
-const navLinks = [
-    {label: "Home", href: "/"},
-    {label: "About", href: "/about"},
-    {label: "Team", href: "/team"},
-    {label: "Committees", href: "/committees"},
-    {label: "Resources", href: "/resources"},
-    {label: "Schedule", href: "/schedule"},
-    {label: "FAQs", href: "/faqs"},
-    {label: "Contact", href: "/contact"},
-]
 
 export function Navbar() {
     const location = useLocation()
