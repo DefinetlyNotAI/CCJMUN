@@ -1,3 +1,4 @@
+import * as React from "react"
 import {useState} from "react"
 import {Button} from "@/components/ui/button"
 import {Input} from "@/components/ui/input"
@@ -9,9 +10,44 @@ import {socialLinks} from "@/lib/config/socials"
 
 export function Contact() {
     const [submitted, setSubmitted] = useState(false)
+    const [formData, setFormData] = useState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        inquiryType: "",
+        school: "",
+        subject: "",
+        message: "",
+    })
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleChange = (
+        e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    ) => {
+        setFormData({
+            ...formData,
+            [e.target.id]: e.target.value,
+        })
+    }
+
+    const handleInquiryChange = (value: string) => {
+        setFormData({
+            ...formData,
+            inquiryType: value,
+        })
+    }
+
+    const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
         e.preventDefault()
+
+        const body = `${formData.message}
+
+By ${formData.firstName} ${formData.lastName},
+Representation: ${formData.school || "Self-Represented"}`
+
+        window.location.href = `mailto:PLACEHOLDER@EMAIL.com?subject=${encodeURIComponent(
+            `${formData.inquiryType} | ${formData.subject}`
+        )}&body=${encodeURIComponent(body)}`
+
         setSubmitted(true)
     }
 
@@ -37,6 +73,7 @@ export function Contact() {
                 </div>
             </section>
 
+            {/* Email submission section */}
             <section className="py-20 bg-white">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
@@ -56,9 +93,9 @@ export function Contact() {
                                     </div>
                                     <div>
                                         <p className="text-gray-400 text-xs uppercase tracking-wider mb-1">Email</p>
-                                        <a href="mailto:contact@ccjmun.org"
+                                        <a href="mailto:EMAIL@PLACEHOLDER.com"
                                            className="text-[#2b174f] font-semibold hover:text-[#f2b652] transition-colors">
-                                            contact@ccjmun.org
+                                            EMAIL@PLACEHOLDER.com
                                         </a>
                                         <p className="text-gray-400 text-sm mt-0.5">General inquiries & registration
                                             help</p>
@@ -71,11 +108,11 @@ export function Contact() {
                                     </div>
                                     <div>
                                         <p className="text-gray-400 text-xs uppercase tracking-wider mb-1">Secretariat</p>
-                                        <a href="mailto:sg@ccjmun.org"
+                                        <a href="mailto:SG_EMAIL@PLACEHOLDER.com"
                                            className="text-[#2b174f] font-semibold hover:text-[#f2b652] transition-colors">
-                                            sg@ccjmun.org
+                                            SG_EMAIL@PLACEHOLDER.com
                                         </a>
-                                        <p className="text-gray-400 text-sm mt-0.5">Secretary-General's office</p>
+                                        <p className="text-gray-400 text-sm mt-0.5">Secretary General's Email</p>
                                     </div>
                                 </div>
                                 <div className="flex items-start gap-4">
@@ -85,7 +122,7 @@ export function Contact() {
                                     </div>
                                     <div>
                                         <p className="text-gray-400 text-xs uppercase tracking-wider mb-1">Location</p>
-                                        <p className="text-[#2b174f] font-semibold">Digital</p>
+                                        <p className="text-[#2b174f] font-semibold">Digital Conference</p>
                                         <p className="text-gray-400 text-sm mt-0.5">UAE</p>
                                     </div>
                                 </div>
@@ -120,8 +157,9 @@ export function Contact() {
                                 <div className="flex flex-col items-center justify-center h-full text-center py-12">
                                     <CheckCircle className="size-16 text-green-500 mb-4"/>
                                     <h3 className="text-[#2b174f] font-bold text-xl mb-2">Message Sent!</h3>
-                                    <p className="text-gray-500 text-sm">Thank you for reaching out. We'll get back to
-                                        you within 48 hours.</p>
+                                    <p className="text-gray-500 text-sm">Thank you for reaching out.
+                                        Click send in your mail client and We'll get back to you within 48 hours.
+                                    </p>
                                     <Button
                                         className="mt-6 bg-[#2b174f] text-white hover:bg-[#2b174f]/90"
                                         onClick={() => setSubmitted(false)}
@@ -137,37 +175,57 @@ export function Contact() {
                                         <div className="space-y-1.5">
                                             <Label htmlFor="firstName" className="text-[#2b174f] text-sm font-medium">First
                                                 Name</Label>
-                                            <Input id="firstName" required placeholder="Alexandra"
-                                                   className="border-gray-200 focus-visible:ring-[#2b174f]/30 focus-visible:border-[#2b174f]"/>
+                                            <Input
+                                                id="firstName"
+                                                required
+                                                placeholder="Muhammad"
+                                                value={formData.firstName}
+                                                onChange={handleChange}
+                                                className="border-gray-200 focus-visible:ring-[#2b174f]/30 focus-visible:border-[#2b174f]"
+                                            />
                                         </div>
                                         <div className="space-y-1.5">
                                             <Label htmlFor="lastName" className="text-[#2b174f] text-sm font-medium">Last
                                                 Name</Label>
-                                            <Input id="lastName" required placeholder="Nour"
-                                                   className="border-gray-200 focus-visible:ring-[#2b174f]/30 focus-visible:border-[#2b174f]"/>
+                                            <Input
+                                                id="lastName"
+                                                required
+                                                placeholder="Ahmed"
+                                                value={formData.lastName}
+                                                onChange={handleChange}
+                                                className="border-gray-200 focus-visible:ring-[#2b174f]/30 focus-visible:border-[#2b174f]"
+                                            />
                                         </div>
                                     </div>
 
                                     <div className="space-y-1.5">
                                         <Label htmlFor="email" className="text-[#2b174f] text-sm font-medium">Email
                                             Address</Label>
-                                        <Input id="email" type="email" required placeholder="you@school.edu"
-                                               className="border-gray-200 focus-visible:ring-[#2b174f]/30 focus-visible:border-[#2b174f]"/>
+                                        <Input
+                                            id="email"
+                                            type="email"
+                                            required
+                                            placeholder="your@email.com"
+                                            value={formData.email}
+                                            onChange={handleChange}
+                                            className="border-gray-200 focus-visible:ring-[#2b174f]/30 focus-visible:border-[#2b174f]"
+                                        />
                                     </div>
 
                                     <div className="space-y-1.5">
                                         <Label className="text-[#2b174f] text-sm font-medium">Inquiry Type</Label>
-                                        <Select>
+                                        <Select onValueChange={handleInquiryChange}>
                                             <SelectTrigger className="border-gray-200 focus:ring-[#2b174f]/30">
-                                                <SelectValue placeholder="Select inquiry type"/>
+                                                <SelectValue placeholder="Select inquiry type" />
                                             </SelectTrigger>
+
                                             <SelectContent>
-                                                <SelectItem value="registration">Registration</SelectItem>
-                                                <SelectItem value="committees">Committees</SelectItem>
-                                                <SelectItem value="resources">Resources</SelectItem>
-                                                <SelectItem value="logistics">Logistics</SelectItem>
-                                                <SelectItem value="media">Media & Press</SelectItem>
-                                                <SelectItem value="other">Other</SelectItem>
+                                                <SelectItem value="Registration">Registration</SelectItem>
+                                                <SelectItem value="Committees">Committees</SelectItem>
+                                                <SelectItem value="Resources">Resources</SelectItem>
+                                                <SelectItem value="Logistics">Logistics</SelectItem>
+                                                <SelectItem value="Media & Press">Media & Press</SelectItem>
+                                                <SelectItem value="Other">Other</SelectItem>
                                             </SelectContent>
                                         </Select>
                                     </div>
@@ -175,8 +233,24 @@ export function Contact() {
                                     <div className="space-y-1.5">
                                         <Label htmlFor="school" className="text-[#2b174f] text-sm font-medium">School /
                                             Organization</Label>
-                                        <Input id="school" placeholder="Your School Name"
-                                               className="border-gray-200 focus-visible:ring-[#2b174f]/30 focus-visible:border-[#2b174f]"/>
+                                        <Input
+                                            id="school"
+                                            placeholder="Your School Name | If by yourself type: 'Self-Represented'"
+                                            value={formData.school}
+                                            onChange={handleChange}
+                                            className="border-gray-200 focus-visible:ring-[#2b174f]/30 focus-visible:border-[#2b174f]"
+                                        />
+                                    </div>
+
+                                    <div className="space-y-1.5">
+                                        <Label htmlFor="subject" className="text-[#2b174f] text-sm font-medium">Email Subject</Label>
+                                        <Input
+                                            id="subject"
+                                            placeholder="What is the email for?"
+                                            value={formData.subject}
+                                            onChange={handleChange}
+                                            className="border-gray-200 focus-visible:ring-[#2b174f]/30 focus-visible:border-[#2b174f]"
+                                        />
                                     </div>
 
                                     <div className="space-y-1.5">
@@ -186,6 +260,8 @@ export function Contact() {
                                             id="message"
                                             required
                                             placeholder="Tell us how we can help..."
+                                            value={formData.message}
+                                            onChange={handleChange}
                                             className="border-gray-200 focus-visible:ring-[#2b174f]/30 focus-visible:border-[#2b174f] min-h-28"
                                         />
                                     </div>
