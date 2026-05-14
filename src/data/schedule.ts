@@ -16,7 +16,7 @@ export interface ScheduleDay {
 export const schedule: ScheduleDay[] = [
     {
         day: "Day 1",
-        date: "Friday, March 6, 2026",
+        date: "Friday, July 17, 2026",
         events: [
             {
                 time: "7:30 AM - 8:45 AM",
@@ -71,7 +71,7 @@ export const schedule: ScheduleDay[] = [
     },
     {
         day: "Day 2",
-        date: "Saturday, March 7, 2026",
+        date: "Saturday, July 18, 2026",
         events: [
             {
                 time: "8:30 AM - 9:00 AM",

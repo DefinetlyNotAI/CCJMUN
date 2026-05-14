@@ -4,8 +4,9 @@ import {
     CircleAlert,
     CircleCheck,
     ExternalLink,
+    Lock
 } from "lucide-react"
-import {keyDetails, pricingTiers, steps} from "@/data/registration.ts";
+import {pricingTiers, steps} from "@/data/registration.ts";
 
 export function Registration() {
     return (
@@ -72,13 +73,12 @@ export function Registration() {
                         {pricingTiers.map((tier) => (
                             <Card
                                 key={tier.name}
-                                className={`border-2 overflow-hidden ${
+                                className={`border-2 overflow-hidden relative ${
                                     tier.highlight
                                         ? "border-[#f2b652] shadow-lg shadow-[#f2b652]/10"
                                         : "border-gray-200"
-                                }`}
+                                } ${tier.isExpired ? "opacity-60 pointer-events-none" : ""}`}
                             >
-                                {/* Reserved banner space to prevent layout shift */}
                                 <div className="h-8 flex items-center justify-center">
                                     {tier.highlight ? (
                                         <div className="bg-[#f2b652] text-[#2b174f] text-xs font-bold tracking-widest uppercase text-center py-2 w-full">
@@ -102,28 +102,21 @@ export function Registration() {
 
                                     <div className="space-y-3 mb-5">
                                         <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                                <span className="text-gray-500 text-sm">
-                                    Per Delegate
-                                </span>
+                                            <span className="text-gray-500 text-sm">Per Delegate</span>
                                             <span className="text-[#2b174f] font-bold text-lg">
-                                    {tier.perDelegate}
-                                </span>
-                                        </div>
-
-                                        <div className="flex justify-between items-center py-2">
-                                <span className="text-gray-500 text-sm">
-                                    Per Delegation (8+)
-                                </span>
-                                            <span className="text-[#2b174f] font-bold text-lg">
-                                    {tier.delegation}
-                                </span>
+                            {tier.perDelegate}
+                        </span>
                                         </div>
                                     </div>
 
-                                    <p className="text-gray-400 text-xs italic">
-                                        {tier.note}
-                                    </p>
+                                    <p className="text-gray-400 text-xs italic">{tier.note}</p>
                                 </CardContent>
+
+                                {tier.isExpired && (
+                                    <div className="absolute inset-0 flex items-center justify-center bg-white/70">
+                                        <Lock className="w-10 h-10 text-gray-600" />
+                                    </div>
+                                )}
                             </Card>
                         ))}
                     </div>
@@ -157,46 +150,36 @@ export function Registration() {
                 </div>
             </section>
 
-            {/* Key Details */}
-            <section className="py-20 bg-[#2b174f]">
-                <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-12">
-                        <p className="text-[#f2b652] text-sm tracking-widest uppercase font-semibold mb-2">
-                            At a Glance
-                        </p>
-                        <h2 className="text-3xl font-bold text-white">Key Details</h2>
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                        {keyDetails.map(({icon: Icon, label, value}) => (
-                            <div key={label}
-                                 className="bg-white/5 border border-white/10 rounded-lg p-5 hover:border-[#f2b652]/30 hover:bg-white/10 transition-all">
-                                <Icon className="size-6 text-[#f2b652] mb-3"/>
-                                <p className="text-white/50 text-xs uppercase tracking-wider mb-1">{label}</p>
-                                <p className="text-white font-semibold text-sm">{value}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
             {/* Important Notes */}
-            <section className="py-16 bg-white">
+            {/* Important Notes */}
+            <section className="py-16 bg-[#2b174f]">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="space-y-4">
-                        <div className="flex gap-3 p-4 bg-green-50 border border-green-200 rounded-lg">
-                            <CircleCheck className="size-5 text-green-600 shrink-0 mt-0.5"/>
-                            <p className="text-green-800 text-sm">Country assignments are allocated on a first-come,
-                                first-served basis. Early registration guarantees better choices.</p>
+                    <div className="border border-white/10 rounded-xl overflow-hidden bg-white/5 backdrop-blur">
+
+                        <div className="px-6 py-4 border-b border-white/10">
+                            <h3 className="text-white font-bold text-lg">
+                                Important Information
+                            </h3>
+                            <p className="text-white/60 text-sm mt-1">
+                                Key rules and registration conditions
+                            </p>
                         </div>
-                        <div className="flex gap-3 p-4 bg-amber-50 border border-amber-200 rounded-lg">
-                            <CircleAlert className="size-5 text-amber-600 shrink-0 mt-0.5"/>
-                            <p className="text-amber-800 text-sm">Registration fees are non-refundable after February 1,
-                                2026. Please confirm participation before payment.</p>
-                        </div>
-                        <div className="flex gap-3 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-                            <CircleCheck className="size-5 text-blue-600 shrink-0 mt-0.5"/>
-                            <p className="text-blue-800 text-sm">Individual delegates not affiliated with a school may
-                                register directly. Contact us for details.</p>
+
+                        <div className="divide-y divide-white/10">
+
+                            <div className="flex gap-4 p-6">
+                                <CircleCheck className="size-5 text-green-400 shrink-0 mt-0.5" />
+                                <p className="text-white/80 text-sm leading-relaxed">
+                                    Country assignments are allocated on a first-come, first-served basis. Early registration improves selection options.
+                                </p>
+                            </div>
+
+                            <div className="flex gap-4 p-6">
+                                <CircleAlert className="size-5 text-amber-300 shrink-0 mt-0.5" />
+                                <p className="text-white/80 text-sm leading-relaxed">
+                                    Registration fees are non-refundable. Confirm participation before completing payment.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
