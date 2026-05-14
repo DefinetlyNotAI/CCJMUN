@@ -4,7 +4,7 @@ export const teamMembers: DepartmentMembers = {
     SG: {
         "secretary-general": {
             id: "secretary-general",
-            name: "PLACEHOLDER NAME",
+            name: "Hamza Mohamed Alwahsh",
             role: "Secretary General",
             bio: "PLACEHOLDER BIO",
             imageUrl: undefined
@@ -14,7 +14,7 @@ export const teamMembers: DepartmentMembers = {
     DSG: {
         "deputy-secretary-general": {
             id: "deputy-secretary-general",
-            name: "PLACEHOLDER NAME",
+            name: "Jenna Awad",
             role: "Deputy Secretary General",
             bio: "PLACEHOLDER BIO",
             imageUrl: undefined
@@ -24,9 +24,10 @@ export const teamMembers: DepartmentMembers = {
     IT: {
         "it-head": {
             id: "it-head",
-            name: "PLACEHOLDER NAME",
+            name: "Shahm Najeeb",
             role: "Head",
-            bio: "PLACEHOLDER BIO",
+            bio: "Runs the tech side of the Model United Nations, keeping the website, registration, " +
+                "and live systems working without breaking. Has hid an Easter egg in the website ;)",
             imageUrl: undefined
         }
     },
