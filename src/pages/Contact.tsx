@@ -143,7 +143,7 @@ Representation: ${formData.school || "Self-Represented"}`
                                                 aria-label={social.ariaLabel}
                                             >
                                                 <Icon
-                                                    className="text-white group-hover:text-[#2b174f] size-5 transition-colors"/>
+                                                    className="w-6 h-6 text-[#f2b652]"/>
                                             </a>
                                         )
                                     })}
