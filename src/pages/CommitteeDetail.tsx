@@ -2,7 +2,7 @@ import { useParams, useNavigate, Link } from "react-router-dom"
 import { committees, difficultyColors } from "@/data/committees"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
-import { ChevronLeft, ChevronRight, Download, UserPlus } from "lucide-react"
+import { ChevronLeft, ChevronRight, Download, User, UserPlus } from "lucide-react"
 
 export function CommitteeDetail() {
     const { id } = useParams<{ id: string }>()
@@ -108,30 +108,33 @@ export function CommitteeDetail() {
             {committee.chairs && committee.chairs.length > 0 && (
                 <section className="py-16">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <h2 className="text-3xl font-bold text-white mb-12">Meet the Chairs</h2>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <h2 className="text-3xl font-bold text-white mb-12">
+                            Meet the {committee.chairs.length === 1 ? "Chair" : "Chairs"}
+                        </h2>
+                        <div className={`grid grid-cols-1 gap-8 ${committee.chairs.length > 1 ? "md:grid-cols-2" : ""}`}>
                             {committee.chairs.map((chair, index) => (
                                 <Card
                                     key={index}
                                     className="overflow-hidden bg-white border-purple-200 hover:shadow-xl transition-all duration-300 group"
                                 >
-                                    {/* Chair Image Placeholder */}
-                                    {chair.imageUrl ? (
-                                        <div className="h-72 bg-gradient-to-br from-[#6d28d9] to-[#7c3aed] overflow-hidden">
+                                    <div className="h-72 bg-gradient-to-br from-[#6d28d9] to-[#7c3aed] overflow-hidden">
+                                        {chair.imageUrl ? (
                                             <img
                                                 src={chair.imageUrl}
                                                 alt={chair.name}
                                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                                             />
-                                        </div>
-                                    ) : (
-                                        <div className="h-72 bg-gradient-to-br from-[#6d28d9] to-[#7c3aed] flex items-center justify-center">
-                                            <div className="text-center">
-                                                <div className="text-white/40 text-5xl mb-2">👤</div>
-                                                <p className="text-white/40 text-sm">Chair Portrait</p>
+                                        ) : (
+                                            <div className="w-full h-full flex items-center justify-center">
+                                                <div className="text-center">
+                                                    <div className="w-24 h-24 rounded-full border border-white/15 bg-white/10 flex items-center justify-center mx-auto mb-3">
+                                                        <User className="size-12 text-white/50" />
+                                                    </div>
+                                                    <p className="text-white/50 text-sm">Chair Portrait</p>
+                                                </div>
                                             </div>
-                                        </div>
-                                    )}
+                                        )}
+                                    </div>
 
                                     <CardHeader className="pb-2 pt-6 px-6 bg-white">
                                         <h3 className="text-2xl font-bold text-[#6d28d9]">{chair.name}</h3>

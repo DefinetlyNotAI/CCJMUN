@@ -17,13 +17,13 @@ export const committees: Committee[] = [
                 name: "Alexandra Chen",
                 role: "Chair",
                 intro: "Alexandra brings 8 years of experience in diplomatic negotiations and international security policy. She has led multiple UNSC simulations and is passionate about fostering rigorous debate.",
-                imageUrl: "/chairs/alexandra.jpg"
+                imageUrl: undefined
             },
             {
                 name: "Dr. James Okonkwo",
                 role: "Vice Chair",
                 intro: "An expert in conflict resolution, Dr. Okonkwo specializes in African geopolitics and has published extensively on multilateral peacekeeping mechanisms.",
-                imageUrl: "/chairs/james.jpg"
+                imageUrl: undefined
             }
         ]
     },
@@ -43,7 +43,7 @@ export const committees: Committee[] = [
                 name: "Maria Santos",
                 role: "Chair",
                 intro: "Maria is a human rights advocate with a background in international law. She has served on several UN committees and excels at facilitating consensus-building.",
-                imageUrl: "/chairs/maria.jpg"
+                imageUrl: undefined
             }
         ]
     },
@@ -63,7 +63,7 @@ export const committees: Committee[] = [
                 name: "Dr. Priya Kapoor",
                 role: "Chair",
                 intro: "A public health expert with 12 years of field experience, Dr. Kapoor focuses on global health equity and sustainable development.",
-                imageUrl: "/chairs/priya.jpg"
+                imageUrl: undefined
             }
         ]
     },
@@ -83,7 +83,7 @@ export const committees: Committee[] = [
                 name: "Ahmed Hassan",
                 role: "Chair",
                 intro: "Ahmed specializes in development economics and sustainable development goals. He brings practical experience from NGO work in emerging markets.",
-                imageUrl: "/chairs/ahmed.jpg"
+                imageUrl: undefined
             }
         ]
     },
@@ -102,7 +102,7 @@ export const committees: Committee[] = [
                 name: "Justice Rebecca Moore",
                 role: "Chief Judge",
                 intro: "Justice Moore is a seasoned international law expert with experience in prosecutorial and judicial roles. She ensures procedural excellence and fair representation.",
-                imageUrl: "/chairs/rebecca.jpg"
+                imageUrl: undefined
             }
         ]
     },
@@ -122,7 +122,7 @@ export const committees: Committee[] = [
                 name: "Dr. Mikhail Petrov",
                 role: "Chair",
                 intro: "Dr. Petrov specializes in strategic weapons policy and technological governance. His research informs international disarmament frameworks.",
-                imageUrl: "/chairs/mikhail.jpg"
+                imageUrl: undefined
             }
         ]
     },
@@ -141,7 +141,7 @@ export const committees: Committee[] = [
                 name: "Dr. Sophia Zhang",
                 role: "Crisis Director",
                 intro: "Dr. Zhang designs and moderates dynamic crisis scenarios. Her unpredictable briefings keep delegates sharp and engaged throughout the simulation.",
-                imageUrl: "/chairs/sophia.jpg"
+                imageUrl: undefined
             }
         ]
     },
@@ -161,7 +161,7 @@ export const committees: Committee[] = [
                 name: "Patricia Nakamura",
                 role: "Chair",
                 intro: "Patricia brings warmth and expertise to complex social issues. Her mentorship style makes GA3 an excellent entry point for new delegates.",
-                imageUrl: "/chairs/patricia.jpg"
+                imageUrl: undefined
             }
         ]
     },
