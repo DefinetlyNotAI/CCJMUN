@@ -4,7 +4,7 @@ import {Navbar} from "@/components/Navbar"
 import {Footer} from "@/components/Footer"
 import {Home} from "@/pages/Home"
 import {About} from "@/pages/About"
-import {Secretariat} from "@/pages/Secretariat"
+import {Team} from "./pages/Team"
 import {Committees} from "@/pages/Committees"
 import {Resources} from "@/pages/Resources"
 import {Registration} from "@/pages/Registration"
@@ -39,7 +39,7 @@ function AppRoutes() {
                 <Routes>
                     <Route path="/" element={<Home/>}/>
                     <Route path="/about" element={<About/>}/>
-                    <Route path="/secretariat" element={<Secretariat/>}/>
+                    <Route path="/team" element={<Team/>}/>
                     <Route path="/committees" element={<Committees/>}/>
                     <Route path="/resources" element={<Resources/>}/>
                     <Route path="/registration" element={<Registration/>}/>
