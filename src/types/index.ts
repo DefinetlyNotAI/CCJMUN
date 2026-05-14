@@ -1,99 +1,148 @@
-import type { LucideIcon } from "lucide-react";
-import  {type ComponentType} from "react";
-import * as React from "react";
+import type { LucideIcon } from "lucide-react"
+import type { ComponentType, ReactNode } from "react"
 
-export interface StatItem {
-    icon: LucideIcon;
-    value: string;
-    label: string;
+/* =========================
+   Helper Types
+========================= */
+
+interface ClassNameProps {
+    className?: string
 }
+
+interface LucideIconProps {
+    icon: LucideIcon
+}
+
+/* =========================
+   Core UI / Generic Types
+========================= */
+
+export interface NavLink {
+    label: string
+    href: string
+}
+
+export interface SocialLink {
+    id: string
+    name: string
+    url: string
+    icon: ComponentType<ClassNameProps>
+    ariaLabel: string
+}
+
+export interface TimeUnit {
+    label: string
+    value: number
+}
+
+/* =========================
+   Stats / Content Blocks
+========================= */
+
+export interface StatItem extends LucideIconProps {
+    value: string
+    label: string
+}
+
+export interface ValueItem extends LucideIconProps {
+    title: string
+    description: string
+}
+
+/* =========================
+   Calendar / Schedule
+========================= */
+
 export interface CalendarDate {
-    date: string;
-    label: string;
-    color: string;
-}
-export interface PricingTier {
-    name: string;
-    deadline: string;
-    perDelegate: string;
-    note: string;
-    highlight: boolean;
-    isExpired: boolean;
+    date: string
+    label: string
+    color: string
 }
 
-export interface StepItem {
-    num: string;
-    title: string;
-    desc: string;
-}
+export type EventType =
+    | "ceremony"
+    | "committee"
+    | "social"
+    | "break"
+    | "registration"
 
-export interface BackgroundGuide {
-    name: string;
-    committee: string;
-    size: string;
-    status: "available" | "classified";
-    path?: string;
-}
-export interface StudyMaterial {
-    icon: LucideIcon;
-    title: string;
-    description: string;
-    type: string;
-    link?: string;
-}
-export interface OnlineResource {
-    title: string;
-    url: string;
-    desc: string;
-}
-
-export type EventTypes = "ceremony" | "committee" | "social" | "break" | "registration"
-interface ScheduleEvent {
+export interface ScheduleEvent {
     time: string
     title: string
     description: string
-    type: EventTypes
+    type: EventType
 }
-export interface TypeConfigItem {
-    label: string;
-    bg: string;
-    text: string;
-    border: string;
-    icon: LucideIcon;
-}
+
 export interface ScheduleDay {
     day: string
     date: string
     events: ScheduleEvent[]
 }
 
-export type DifficultyLevel = "Beginner" | "Intermediate" | "Advanced" | "Expert"
-export interface SearchFilters {
-    search: string;
-    difficulty: DifficultyLevel | null;
+export interface TypeConfigItem {
+    label: string
+    bg: string
+    text: string
+    border: string
+    icon: LucideIcon
 }
-export type InquiryType =
-    | "Registration"
-    | "Committees"
-    | "Resources"
-    | "Logistics"
-    | "Media & Press"
-    | "Other";
-export interface ContactFormData {
-    firstName: string;
-    lastName: string;
-    email: string;
-    inquiryType: InquiryType;
-    school: string;
-    subject: string;
-    message: string;
-}
-export type Category = "All" | FAQ["category"];
 
-export interface FAQGroup {
-    category: Category;
-    items: FAQ[];
+/* =========================
+   Pricing / Steps
+========================= */
+
+export interface PricingTier {
+    name: string
+    deadline: string
+    perDelegate: string
+    note: string
+    highlight: boolean
+    isExpired: boolean
 }
+
+export interface StepItem {
+    num: string
+    title: string
+    desc: string
+}
+
+/* =========================
+   Resources / Materials
+========================= */
+
+export interface StudyMaterial extends LucideIconProps {
+    title: string
+    description: string
+    type: string
+    link?: string
+}
+
+export interface OnlineResource {
+    title: string
+    url: string
+    desc: string
+}
+
+/* =========================
+   Documents / Guides
+========================= */
+
+type BGGuideStatus = "available" | "classified"
+
+export interface BackgroundGuide {
+    name: string
+    committee: string
+    size: string
+    status: BGGuideStatus
+    path?: string
+}
+
+/* =========================
+   Committee / Academic
+========================= */
+
+export type DifficultyLevel = "Beginner" | "Intermediate" | "Advanced" | "Expert"
+
 export interface Committee {
     id: string
     name: string
@@ -105,34 +154,61 @@ export interface Committee {
     size: string
     backgroundGuideUrl?: string
 }
+
+export interface TCommitteeFilter {
+    search: string
+    difficulty: DifficultyLevel | null
+}
+
+export interface CommitteeFilterProps {
+    onFilterChange: (filters: TCommitteeFilter) => void
+}
+
+/* =========================
+   FAQ
+========================= */
+
 export interface FAQ {
     question: string
     answer: string
     category: string
 }
 
-export interface NavLink {
-    label: string;
-    href: string;
+export type FAQCategory = FAQ["category"]
+export type Category = "All" | FAQCategory
+
+export interface FAQGroup {
+    category: Category
+    items: FAQ[]
 }
 
-export interface SocialLink {
-    id: string
-    name: string
-    url: string
-    icon: ComponentType<{ className?: string }>
-    ariaLabel: string
+/* =========================
+   Contact / Forms
+========================= */
+
+export type InquiryType =
+    | "Registration"
+    | "Committees"
+    | "Resources"
+    | "Logistics"
+    | "Media & Press"
+    | "Other"
+
+export interface ContactFormData {
+    firstName: string
+    lastName: string
+    email: string
+    inquiryType: InquiryType
+    school: string
+    subject: string
+    message: string
 }
 
-interface TeamMember {
-    id: string
-    name: string
-    role: Role
-    bio: string
-    imageUrl?: string
-}
+/* =========================
+   Team / Organization
+========================= */
 
-type Role =
+export type Role =
     | "Secretary General"
     | "Deputy Secretary General"
     | "Head"
@@ -149,31 +225,25 @@ export type Department =
     | "Public Relations"
     | "Academics"
 
-export type DepartmentMembers = Record<string, TeamMember>
-
-export interface ValueItem {
-    icon: LucideIcon;
-    title: string;
-    description: string;
-}
-export interface CommitteeFilterProps {
-    onFilterChange: (filters: { search: string; difficulty: DifficultyLevel | null }) => void
+export interface TeamMember {
+    id: string
+    name: string
+    role: Role
+    bio: string
+    imageUrl?: string
 }
 
-export interface TimeUnit {
-    label: string
-    value: number
-}
-export interface NavLink {
-    label: string;
-    href: string;
-}
+export type DepartmentMembers = Record<Department, Record<string, TeamMember>>
+
+/* =========================
+   Theme
+========================= */
 
 export type Theme = "dark" | "light" | "system"
 export type ResolvedTheme = "dark" | "light"
 
 export interface ThemeProviderProps {
-    children: React.ReactNode
+    children: ReactNode
     defaultTheme?: Theme
     storageKey?: string
     disableTransitionOnChange?: boolean

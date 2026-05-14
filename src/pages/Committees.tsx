@@ -5,11 +5,11 @@ import {Button} from "@/components/ui/button"
 import {Card, CardContent, CardHeader} from "@/components/ui/card"
 import {ChevronRight, Download, UserPlus, Users} from "lucide-react"
 import {CommitteeFilter} from "@/components/CommitteeFilter"
-import type {DifficultyLevel, SearchFilters} from "@/types";
+import type {DifficultyLevel, TCommitteeFilter} from "@/types";
 
 
 export function Committees() {
-    const [filters, setFilters] = useState<SearchFilters>({
+    const [filters, setFilters] = useState<TCommitteeFilter>({
         search: '',
         difficulty: null,
     })

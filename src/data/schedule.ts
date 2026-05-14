@@ -1,5 +1,5 @@
 import {ClipboardList, Coffee, PartyPopper, Presentation, Trophy} from "lucide-react"
-import type {EventTypes, ScheduleDay, TypeConfigItem} from "@/types";
+import type {EventType, ScheduleDay, TypeConfigItem} from "@/types";
 
 export const schedule: ScheduleDay[] = [
     {
@@ -107,7 +107,7 @@ export const schedule: ScheduleDay[] = [
     },
 ];
 
-export const typeConfig: Record<EventTypes, TypeConfigItem> = {
+export const typeConfig: Record<EventType, TypeConfigItem> = {
     ceremony: {
         label: "Ceremony",
         bg: "bg-[#f2b652]/20",

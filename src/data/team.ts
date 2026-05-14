@@ -1,6 +1,6 @@
-import type {Department, DepartmentMembers} from "@/types";
+import type {DepartmentMembers} from "@/types";
 
-export const teamMembers: Record<Department, DepartmentMembers> = {
+export const teamMembers: DepartmentMembers = {
     SG: {
         "secretary-general": {
             id: "secretary-general",
