@@ -1,38 +1,6 @@
-import {schedule} from "@/data/schedule"
+import {schedule, typeConfig} from "@/data/schedule"
 import {cn} from "@/lib/utils"
-import {Calendar, ClipboardList, Clock, Coffee, PartyPopper, Presentation, Trophy} from "lucide-react"
-
-const typeConfig = {
-    ceremony: {
-        label: "Ceremony",
-        bg: "bg-[#f2b652]/20",
-        text: "text-[#2b174f]",
-        border: "border-[#f2b652]",
-        icon: Trophy
-    },
-    committee: {
-        label: "Committee",
-        bg: "bg-[#2b174f]/5",
-        text: "text-[#2b174f]",
-        border: "border-[#2b174f]",
-        icon: Presentation
-    },
-    social: {
-        label: "Social",
-        bg: "bg-purple-50",
-        text: "text-purple-800",
-        border: "border-purple-300",
-        icon: PartyPopper
-    },
-    break: {label: "Break", bg: "bg-gray-50", text: "text-gray-600", border: "border-gray-300", icon: Coffee},
-    registration: {
-        label: "Registration",
-        bg: "bg-blue-50",
-        text: "text-blue-800",
-        border: "border-blue-300",
-        icon: ClipboardList
-    },
-}
+import {Calendar, Clock} from "lucide-react"
 
 export function Schedule() {
     return (
@@ -107,15 +75,17 @@ export function Schedule() {
                                                     )}
                                                 >
                                                     <div
-                                                        className="absolute -left-[33px] top-5 w-4 h-4 rounded-full bg-[#f2b652] border-2 border-white"/>
-                                                    <div className="flex flex-col sm:flex-row sm:items-start gap-3">
-                                                        <div className="shrink-0">
+                                                        className="absolute -left-8.25 top-5 w-4 h-4 rounded-full bg-[#f2b652] border-2 border-white"/>
+                                                    <div className="grid grid-cols-[140px_1fr] gap-4 sm:gap-6 items-start">
+                                                        <div className="flex justify-start">
                                                             <div
-                                                                className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold border ${config.bg} ${config.text} ${config.border} w-fit`}>
-                                                                <Icon className="size-3"/>
+                                                                className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold border ${config.bg} ${config.text} ${config.border}`}
+                                                            >
+                                                                <Icon className="size-3" />
                                                                 {config.label}
                                                             </div>
                                                         </div>
+
                                                         <div className="flex-1">
                                                             <div className="flex items-center gap-2 mb-1 flex-wrap">
                                                                 <Clock className="size-3.5 text-gray-400 shrink-0"/>
@@ -142,7 +112,7 @@ export function Schedule() {
                 <div className="max-w-4xl mx-auto px-4 text-center">
                     <p className="text-white/60 text-sm leading-relaxed max-w-2xl mx-auto">
                         Schedule is subject to minor changes. Final confirmed schedule will be distributed to all
-                        registered delegates two weeks before the conference via email.
+                        registered delegates before the conference via email.
                     </p>
                 </div>
             </section>

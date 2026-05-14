@@ -1,3 +1,5 @@
+import {ClipboardList, Coffee, PartyPopper, Presentation, Trophy} from "lucide-react"
+
 interface ScheduleEvent {
     time: string
     title: string
@@ -17,45 +19,52 @@ export const schedule: ScheduleDay[] = [
         date: "Friday, March 6, 2026",
         events: [
             {
-                time: "8:00 AM - 9:30 AM",
-                title: "Delegate Registration & Check-In",
-                description: "Collect your delegate badges, welcome packets, and committee materials at the main registration desk.",
+                time: "7:30 AM - 8:45 AM",
+                title: "Virtual Check-In & Tech Setup",
+                description:
+                    "Delegates join the conference platform, test audio and video, and receive committee room links and digital credentials.",
                 type: "registration",
             },
             {
-                time: "9:30 AM - 11:00 AM",
-                title: "Opening Ceremony",
-                description: "A grand welcome to CCJMUN 2026. Keynote address by the Secretary-General, special guest speaker, and the ceremonial reading of the conference theme.",
+                time: "9:00 AM - 10:30 AM",
+                title: "Opening Ceremony (Livestream)",
+                description:
+                    "Conference opening broadcast featuring the Secretary-General’s address, keynote speaker, and introduction of committees and agenda.",
                 type: "ceremony",
             },
             {
-                time: "11:00 AM - 11:15 AM",
+                time: "10:30 AM - 10:45 AM",
                 title: "Break",
-                description: "Refreshments provided in the main hall foyer.",
+                description:
+                    "Short break for technical reset and committee room allocation.",
                 type: "break",
             },
             {
-                time: "11:15 AM - 1:30 PM",
+                time: "10:45 AM - 1:00 PM",
                 title: "Committee Session I",
-                description: "Opening of the speakers list. Delegates deliver opening speeches and begin general debate.",
+                description:
+                    "Roll call, opening speeches, and formal establishment of speakers list. Initial position sharing begins.",
                 type: "committee",
             },
             {
-                time: "1:30 PM - 2:30 PM",
-                title: "Lunch Break",
-                description: "Lunch provided on campus. Networking opportunity for delegates from different schools.",
+                time: "1:00 PM - 1:45 PM",
+                title: "Break",
+                description:
+                    "Lunch break and informal networking via breakout lounges.",
                 type: "break",
             },
             {
-                time: "2:30 PM - 5:00 PM",
+                time: "1:45 PM - 4:15 PM",
                 title: "Committee Session II",
-                description: "Moderated and unmoderated caucuses. Introduction and debate of working papers.",
+                description:
+                    "Moderated caucuses, unmoderated caucuses in breakout rooms, and drafting of working papers.",
                 type: "committee",
             },
             {
-                time: "6:00 PM - 9:00 PM",
-                title: "Delegate Social Night",
-                description: "An informal evening gathering for delegates to network, socialize, and unwind. Themed activities and entertainment.",
+                time: "5:30 PM - 7:00 PM",
+                title: "Virtual Delegate Social",
+                description:
+                    "Online social session with interactive activities, games, and cross-committee networking rooms.",
                 type: "social",
             },
         ],
@@ -67,39 +76,77 @@ export const schedule: ScheduleDay[] = [
             {
                 time: "8:30 AM - 9:00 AM",
                 title: "Morning Check-In",
-                description: "Doors open. Delegates are welcome to arrive and review their notes before sessions begin.",
+                description:
+                    "Delegates rejoin the platform, review overnight updates, and enter committee rooms.",
                 type: "registration",
             },
             {
-                time: "9:00 AM - 12:00 PM",
+                time: "9:00 AM - 11:30 AM",
                 title: "Committee Session III",
-                description: "Continuation of working paper debates. Merging and amending draft resolutions.",
+                description:
+                    "Continuation of debate, merging blocs, and refinement of working papers into draft resolutions.",
                 type: "committee",
             },
             {
-                time: "12:00 PM - 1:00 PM",
-                title: "Lunch Break",
-                description: "Lunch served on campus. Committee directors hold informal Q&A sessions.",
+                time: "11:30 AM - 12:15 PM",
+                title: "Break",
+                description:
+                    "Short break with optional mentor Q&A sessions.",
                 type: "break",
             },
             {
-                time: "1:00 PM - 4:00 PM",
+                time: "12:15 PM - 2:45 PM",
                 title: "Committee Session IV",
-                description: "Final voting procedures. Passage of resolutions and concluding committee statements.",
+                description:
+                    "Finalization of draft resolutions, voting procedure, and formal adoption of resolutions.",
                 type: "committee",
             },
             {
-                time: "4:15 PM - 4:45 PM",
-                title: "Break & Preparation",
-                description: "Delegates prepare for the closing ceremony.",
+                time: "2:45 PM - 3:15 PM",
+                title: "Break & Transition",
+                description:
+                    "Delegates prepare for closing ceremony and move to main broadcast room.",
                 type: "break",
             },
             {
-                time: "5:00 PM - 7:00 PM",
+                time: "3:15 PM - 4:30 PM",
                 title: "Closing Ceremony & Awards",
-                description: "Recognition of outstanding delegates, Best Delegate, Outstanding Delegate, and Verbal Commendation awards across all committees. Closing remarks by the Secretary-General.",
+                description:
+                    "Final remarks by the Secretary-General, announcement of awards, and official closure of CCJMUN 2026.",
                 type: "ceremony",
             },
         ],
     },
-]
+];
+
+export const typeConfig = {
+    ceremony: {
+        label: "Ceremony",
+        bg: "bg-[#f2b652]/20",
+        text: "text-[#2b174f]",
+        border: "border-[#f2b652]",
+        icon: Trophy
+    },
+    committee: {
+        label: "Committee",
+        bg: "bg-[#2b174f]/5",
+        text: "text-[#2b174f]",
+        border: "border-[#2b174f]",
+        icon: Presentation
+    },
+    social: {
+        label: "Social",
+        bg: "bg-purple-50",
+        text: "text-purple-800",
+        border: "border-purple-300",
+        icon: PartyPopper
+    },
+    break: {label: "Break", bg: "bg-gray-50", text: "text-gray-600", border: "border-gray-300", icon: Coffee},
+    registration: {
+        label: "Registration",
+        bg: "bg-blue-50",
+        text: "text-blue-800",
+        border: "border-blue-300",
+        icon: ClipboardList
+    },
+}
