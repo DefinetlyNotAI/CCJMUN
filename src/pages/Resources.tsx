@@ -102,39 +102,59 @@ export function Resources() {
                         <h2 className="text-3xl font-bold text-[#2b174f]">Guides & Handbooks</h2>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        {studyMaterials.map(({icon: Icon, title, description, type, link}) => (
-                            <Card key={title}
-                                  className="border border-gray-100 bg-white transition-all duration-200 ease-out group hover:-translate-y-1 hover:shadow-xl hover:border-[#f2b652]/60">
+                        {studyMaterials.map(({ icon: Icon, title, description, type, link }) => (
+                            <Card
+                                key={title}
+                                className="border border-gray-100 bg-white transition-all duration-200 ease-out group hover:-translate-y-1 hover:shadow-xl hover:border-[#f2b652]/60"
+                            >
                                 <CardContent className="p-6 flex gap-5 items-start">
-                                    <div
-                                        className="w-12 h-12 rounded-lg bg-[#2b174f] flex items-center justify-center shrink-0 group-hover:bg-[#f2b652] transition-colors">
-                                        <Icon
-                                            className="size-6 text-white group-hover:text-[#2b174f] transition-colors"/>
+                                    <div className="w-12 h-12 rounded-lg bg-[#2b174f] flex items-center justify-center shrink-0 group-hover:bg-[#f2b652] transition-colors">
+                                        <Icon className="size-6 text-white group-hover:text-[#2b174f] transition-colors" />
                                     </div>
+
                                     <div className="flex-1">
                                         <div className="flex items-center gap-2 mb-1">
                                             <h3 className="text-[#2b174f] font-bold text-base">{title}</h3>
-                                            <Badge variant="outline"
-                                                   className="text-xs border-gray-200 text-gray-500">{type}</Badge>
+                                            <Badge variant="outline" className="text-xs border-gray-200 text-gray-500">
+                                                {type}
+                                            </Badge>
                                         </div>
+
                                         <p className="text-gray-500 text-sm leading-relaxed mb-4">{description}</p>
-                                        <Button
-                                            size="sm"
-                                            variant="outline"
-                                            className="border-[#2b174f] text-[#2b174f] bg-transparent text-xs tracking-wider uppercase font-semibold hover:bg-[#2b174f]! hover:text-white! hover:border-[#2b174f]!"
-                                            asChild
-                                        >
-                                            <a
-                                                href={link}
-                                                download
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="flex items-center"
+
+                                        {link ? (
+                                            <Button
+                                                size="sm"
+                                                variant="outline"
+                                                className="border-[#2b174f] text-[#2b174f] bg-transparent text-xs tracking-wider uppercase font-semibold hover:bg-[#2b174f]! hover:text-white! hover:border-[#2b174f]!"
+                                                asChild
                                             >
-                                                <Download className="size-3.5 mr-1.5" />
-                                                Download
-                                            </a>
-                                        </Button>
+                                                <a
+                                                    href={link}
+                                                    download
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="flex items-center"
+                                                >
+                                                    <Download className="size-3.5 mr-1.5" />
+                                                    Download
+                                                </a>
+                                            </Button>
+                                        ) : (
+                                            <Button
+                                                size="sm"
+                                                variant="outline"
+                                                disabled={true}
+                                                className="w-full border-gray-200 text-gray-400 text-xs"
+                                            >
+                                                <span className="flex items-center justify-center gap-1.5">
+                                                    <Download className="size-3.5" />
+                                                    <span>
+                                                        "To be released"
+                                                    </span>
+                                                </span>
+                                            </Button>
+                                        )}
                                     </div>
                                 </CardContent>
                             </Card>

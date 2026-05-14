@@ -17,28 +17,28 @@ export const studyMaterials = [
         title: "Rules of Procedure",
         description: "Complete CCJMUN Rules of Procedure - the official parliamentary guide for all committees.",
         type: "PDF",
-        link: "/materials/rules-of-procedure.pdf"
+        link: undefined
     },
     {
         icon: FileText,
         title: "Delegate Handbook",
         description: "Comprehensive handbook covering everything from arriving at conference to writing resolutions.",
         type: "PDF",
-        link: "/materials/delegate-handbook.pdf"
+        link: undefined
     },
     {
         icon: Globe,
         title: "Position Paper Guide",
         description: "Step-by-step guide on researching and writing an outstanding position paper.",
         type: "PDF",
-        link: "/materials/position-paper-guide.pdf"
+        link: undefined
     },
     {
         icon: BookOpen,
         title: "Resolution Writing Guide",
         description: "Learn the structure of operative and preambulatory clauses with worked examples.",
         type: "PDF",
-        link: "/materials/resolution-writing-guide.pdf"
+        link: undefined
     },
 ]
 
