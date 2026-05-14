@@ -23,75 +23,91 @@ export function Committees() {
     })
 
     return (
-        <div className="min-h-screen pt-16">
+        <div className="min-h-screen pt-16 bg-white">
             {/* Hero */}
-            <section className="relative py-32 overflow-hidden bg-[#7c3aed]">
+            <section className="relative py-28 md:py-32 overflow-hidden bg-[#2b174f]">
                 <div
-                    className="absolute inset-0 opacity-10 bg-cover bg-center"
+                    className="absolute inset-0 opacity-20 bg-cover bg-center"
                     style={{backgroundImage: "url('/bg.jpeg')"}}
                 />
                 <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
                     <p className="text-[#f2b652] text-sm tracking-widest uppercase font-semibold mb-3">
                         CCJMUN 2026
                     </p>
-                    <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+                    <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
                         Committees
                     </h1>
                     <div className="divider-gold mx-auto w-32 mb-6"/>
-                    <p className="text-white/75 text-xl leading-relaxed max-w-2xl mx-auto">
+                    <p className="text-white/75 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
                         Eight meticulously crafted committees addressing the world's most pressing challenges. Find your
                         arena, represent your nation, change the world.
                     </p>
                 </div>
             </section>
 
-            {/* Legend */}
-            <section className="bg-[#6d28d9] border-b border-purple-800 py-5">
+            {/* Overview */}
+            <section className="py-16 bg-white border-b border-gray-100">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="max-w-3xl mb-8">
+                        <p className="text-[#f2b652] text-sm tracking-widest uppercase font-semibold mb-3">
+                            Committee Directory
+                        </p>
+                        <h2 className="text-3xl md:text-4xl font-bold text-[#2b174f] mb-4">
+                            Explore the conference lineup
+                        </h2>
+                        <p className="text-gray-600 leading-relaxed text-lg">
+                            Use filters to find the committee that matches your experience level and interests.
+                        </p>
+                    </div>
+
                     <div className="flex flex-wrap items-center gap-3">
-                        <span
-                            className="text-purple-100 text-sm tracking-wider uppercase font-medium mr-2">Difficulty:</span>
+                        <span className="text-gray-500 text-sm tracking-wider uppercase font-medium mr-2">
+                            Difficulty:
+                        </span>
                         {(["Beginner", "Intermediate", "Advanced", "Expert"] as DifficultyLevel[]).map((level) => (
                             <span
                                 key={level}
                                 className={`text-xs font-semibold px-3 py-1 rounded-full border ${difficultyColors[level]}`}
                             >
-                {level}
-              </span>
+                                {level}
+                            </span>
                         ))}
                     </div>
                 </div>
             </section>
 
             {/* Committees Grid */}
-            <section className="py-16 bg-[#7c3aed]">
+            <section className="py-16 bg-gray-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <CommitteeFilter onFilterChange={setFilters}/>
-                    {filteredCommittees.length > 0 ? (
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                            {filteredCommittees.map((committee) => (
-                                <Link to={`/committees/${committee.id}`} key={committee.id}>
-                                    <Card
-                                        className="overflow-hidden border border-purple-200 hover:border-[#f2b652]/40 hover:shadow-xl transition-all duration-300 bg-white group flex flex-col cursor-pointer"
-                                    >
-                                    {/* Card Header Band */}
-                                    <div className="h-2 bg-[#6d28d9] group-hover:bg-[#f2b652] transition-colors"/>
+                    <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-4 sm:p-6 mb-10">
+                        <CommitteeFilter onFilterChange={setFilters}/>
+                    </div>
 
-                                    <CardHeader className="pb-3 pt-6 px-6 flex-shrink-0">
-                                        <div className="flex items-start justify-between gap-4">
-                                            <div className="flex-1">
-                                                <div className="flex items-center gap-3 mb-2 flex-wrap">
-                        <span
-                            className="bg-[#6d28d9] text-[#f2b652] text-xs font-bold px-3 py-1 rounded-sm tracking-widest uppercase">
-                          {committee.abbreviation}
-                        </span>
+                    {filteredCommittees.length > 0 ? (
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 auto-rows-fr">
+                            {filteredCommittees.map((committee) => (
+                                <Card
+                                    key={committee.id}
+                                    className="overflow-hidden border border-gray-100 bg-white group flex h-full min-h-[33rem] flex-col shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:border-[#f2b652]/40"
+                                >
+                                    <div className="h-2 bg-[#2b174f] transition-colors group-hover:bg-[#f2b652]"/>
+
+                                    <CardHeader className="pb-4 pt-6 px-6 flex-shrink-0">
+                                        <div className="flex items-start justify-between gap-4 flex-wrap">
+                                            <div className="flex-1 min-w-0">
+                                                <div className="flex items-center gap-3 mb-3 flex-wrap">
+                                                    <span className="bg-[#2b174f] text-[#f2b652] text-xs font-bold px-3 py-1 rounded-sm tracking-widest uppercase">
+                                                        {committee.abbreviation}
+                                                    </span>
                                                     <span
                                                         className={`text-xs font-semibold px-2.5 py-1 rounded-full border ${difficultyColors[committee.difficulty]}`}
                                                     >
-                          {committee.difficulty}
-                        </span>
+                                                        {committee.difficulty}
+                                                    </span>
                                                 </div>
-                                                <h3 className="text-[#6d28d9] font-bold text-lg leading-snug">{committee.name}</h3>
+                                                <h3 className="text-[#2b174f] font-bold text-xl leading-snug">
+                                                    {committee.name}
+                                                </h3>
                                             </div>
                                             <div className="flex items-center gap-1 text-gray-400 text-xs shrink-0">
                                                 <Users className="size-3.5"/>
@@ -101,94 +117,116 @@ export function Committees() {
                                     </CardHeader>
 
                                     <CardContent className="px-6 pb-6 flex flex-col flex-grow">
-                                        <p className="text-gray-500 text-sm leading-relaxed mb-5 flex-grow">{committee.description}</p>
+                                        <p className="text-gray-600 text-sm leading-relaxed mb-5 flex-grow line-clamp-4">
+                                            {committee.description}
+                                        </p>
 
                                         {/* Topics */}
                                         <div className="space-y-3 mb-6">
                                             <p className="text-xs tracking-widest uppercase text-gray-400 font-semibold">Topics</p>
                                             <div className="flex items-start gap-2">
                                                 <ChevronRight className="size-4 text-[#f2b652] mt-0.5 shrink-0"/>
-                                                <p className="text-[#6d28d9] text-sm font-medium leading-snug">{committee.topic1}</p>
+                                                <p className="text-[#2b174f] text-sm font-medium leading-snug">
+                                                    {committee.topic1}
+                                                </p>
                                             </div>
                                             {committee.topic2 && (
                                                 <div className="flex items-start gap-2">
                                                     <ChevronRight className="size-4 text-[#f2b652] mt-0.5 shrink-0"/>
-                                                    <p className="text-[#6d28d9] text-sm font-medium leading-snug">{committee.topic2}</p>
+                                                    <p className="text-[#2b174f] text-sm font-medium leading-snug">
+                                                        {committee.topic2}
+                                                    </p>
                                                 </div>
                                             )}
                                         </div>
 
                                         {/* Actions */}
-                                        <div className="flex gap-3 flex-wrap mt-auto">
+                                        <div className="mt-auto flex flex-col sm:flex-row gap-3">
                                             {committee.backgroundGuideUrl === "CONFIDENTIAL" ? (
                                                 <Button
                                                     variant="outline"
                                                     size="sm"
                                                     disabled
-                                                    className="border-gray-200 text-gray-400 tracking-wider text-xs font-semibold uppercase cursor-not-allowed"
+                                                    className="w-full sm:w-auto border-gray-200 text-gray-400 tracking-wider text-xs font-semibold uppercase cursor-not-allowed"
                                                     title="Background guide is classified"
                                                 >
                                                     <Download className="size-3.5 mr-1.5"/>
                                                     Classified
                                                 </Button>
                                             ) : committee.backgroundGuideUrl ? (
-                                                <a href={committee.backgroundGuideUrl} download>
-                                                    <Button
-                                                        variant="outline"
-                                                        size="sm"
-                                                        className="border-[#6d28d9] text-[#6d28d9] hover:bg-[#6d28d9] hover:text-white tracking-wider text-xs font-semibold uppercase"
-                                                    >
+                                                <Button
+                                                    asChild
+                                                    variant="outline"
+                                                    size="sm"
+                                                    className="w-full sm:w-auto border-[#2b174f] text-[#2b174f] hover:bg-[#2b174f] hover:text-white tracking-wider text-xs font-semibold uppercase"
+                                                >
+                                                    <a href={committee.backgroundGuideUrl} download>
                                                         <Download className="size-3.5 mr-1.5"/>
                                                         Background Guide
-                                                    </Button>
-                                                </a>
+                                                    </a>
+                                                </Button>
                                             ) : (
                                                 <Button
                                                     variant="outline"
                                                     size="sm"
                                                     disabled
-                                                    className="border-gray-200 text-gray-400 tracking-wider text-xs font-semibold uppercase"
+                                                    className="w-full sm:w-auto border-gray-200 text-gray-400 tracking-wider text-xs font-semibold uppercase"
                                                 >
                                                     <Download className="size-3.5 mr-1.5"/>
                                                     Coming Soon
                                                 </Button>
                                             )}
-                                            <Link to="/registration">
-                                                <Button
-                                                    size="sm"
-                                                    className="bg-[#f2b652] text-[#6d28d9] hover:bg-[#f2b652]/90 tracking-wider text-xs font-semibold uppercase"
-                                                >
+
+                                            <Button
+                                                asChild
+                                                size="sm"
+                                                variant="outline"
+                                                className="w-full sm:w-auto border-[#2b174f] text-[#2b174f] hover:bg-[#2b174f] hover:text-white tracking-wider text-xs font-semibold uppercase"
+                                            >
+                                                <Link to={`/committees/${committee.id}`}>
+                                                    <ChevronRight className="size-3.5 mr-1.5"/>
+                                                    View Details
+                                                </Link>
+                                            </Button>
+
+                                            <Button
+                                                asChild
+                                                size="sm"
+                                                className="w-full sm:w-auto bg-[#f2b652] text-[#2b174f] hover:bg-[#f2b652]/90 tracking-wider text-xs font-semibold uppercase"
+                                            >
+                                                <Link to="/registration">
                                                     <UserPlus className="size-3.5 mr-1.5"/>
                                                     Register
-                                                </Button>
-                                            </Link>
+                                                </Link>
+                                            </Button>
                                         </div>
                                     </CardContent>
                                 </Card>
-                                </Link>
                             ))}
                         </div>
                     ) : (
                         <div className="text-center py-12">
-                            <p className="text-white/70 text-lg">No committees match your search criteria.</p>
+                            <p className="text-gray-600 text-lg">No committees match your search criteria.</p>
                         </div>
                     )}
                 </div>
             </section>
 
             {/* CTA */}
-            <section className="py-16 bg-[#6d28d9]">
+            <section className="py-16 bg-[#2b174f]">
                 <div className="max-w-3xl mx-auto px-4 text-center">
                     <h2 className="text-3xl font-bold text-white mb-4">Found Your Committee?</h2>
-                    <p className="text-white/60 mb-8 text-lg">
+                    <p className="text-white/65 mb-8 text-lg">
                         Register now to secure your position and begin your preparation journey.
                     </p>
-                    <Link to="/registration">
-                        <Button
-                            className="bg-[#f2b652] text-[#6d28d9] hover:bg-[#f2b652]/90 font-semibold tracking-wider uppercase px-10 py-5 text-base">
+                    <Button
+                        asChild
+                        className="bg-[#f2b652] text-[#2b174f] hover:bg-[#f2b652]/90 font-semibold tracking-wider uppercase px-10 py-5 text-base"
+                    >
+                        <Link to="/registration">
                             Register for CCJMUN 2026
-                        </Button>
-                    </Link>
+                        </Link>
+                    </Button>
                 </div>
             </section>
         </div>
