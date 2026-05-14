@@ -23,7 +23,7 @@ export function Footer() {
                         </div>
                         <p className="text-white/70 text-sm leading-relaxed max-w-sm mt-3">
                             CCJ Model United Nations - Where young diplomats shape the future. Join us for an
-                            unforgettable conference experience on March 6-7, 2026.
+                            unforgettable conference experience on July 17-18, 2026.
                         </p>
                         <div className="flex gap-3 mt-6">
                             {socialLinks.map((social) => {

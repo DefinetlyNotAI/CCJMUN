@@ -1,68 +1,11 @@
 import {Button} from "@/components/ui/button"
 import {Card, CardContent} from "@/components/ui/card"
 import {
-    CalendarDays,
-    CircleAlert as AlertCircle,
-    CircleCheck as CheckCircle,
-    DollarSign,
+    CircleAlert,
+    CircleCheck,
     ExternalLink,
-    Users
 } from "lucide-react"
-
-const pricingTiers = [
-    {
-        name: "Early Bird",
-        deadline: "January 15, 2026",
-        perDelegate: "$35",
-        delegation: "$280",
-        note: "Best value - register early to save",
-        highlight: true,
-    },
-    {
-        name: "Regular",
-        deadline: "February 10, 2026",
-        perDelegate: "$45",
-        delegation: "$350",
-        note: "Standard rate for all schools",
-        highlight: false,
-    },
-]
-
-const steps = [
-    {
-        num: "01",
-        title: "Review Committee Choices",
-        desc: "Browse our Committees page and select your preferred committees and country assignments."
-    },
-    {
-        num: "02",
-        title: "Confirm with Faculty Advisor",
-        desc: "School delegations must register through their faculty advisor. Coordinate country preferences and fee payments."
-    },
-    {
-        num: "03",
-        title: "Complete Registration Form",
-        desc: "Click the registration link below and fill out the delegation or individual registration form."
-    },
-    {
-        num: "04",
-        title: "Submit Payment",
-        desc: "Pay registration fees via bank transfer or the secure payment portal linked in the confirmation email."
-    },
-    {
-        num: "05",
-        title: "Receive Confirmation",
-        desc: "You'll receive a confirmation email with your committee assignment, country allocation, and welcome materials."
-    },
-]
-
-const keyDetails = [
-    {icon: CalendarDays, label: "Early Registration Closes", value: "January 15, 2026"},
-    {icon: CalendarDays, label: "Regular Registration Closes", value: "February 10, 2026"},
-    {icon: CalendarDays, label: "Conference Dates", value: "March 6-7, 2026"},
-    {icon: Users, label: "Max Delegation Size", value: "12 delegates per school"},
-    {icon: DollarSign, label: "Individual Registration", value: "Available for unaffiliated delegates"},
-]
+import {keyDetails, pricingTiers, steps} from "@/data/registration.ts";
 
 export function Registration() {
     return (
@@ -82,8 +25,8 @@ export function Registration() {
                     </h1>
                     <div className="divider-gold mx-auto w-32 mb-6"/>
                     <p className="text-white/75 text-xl leading-relaxed max-w-2xl mx-auto">
-                        Secure your position at CCJMUN 2026. Register early for the best committee selections and
-                        special rates.
+                        Secure your position at CCJMUN 2026.<br/>
+                        Register early for the best committee selections and special rates.
                     </p>
                 </div>
             </section>
@@ -93,13 +36,22 @@ export function Registration() {
                 <div className="max-w-3xl mx-auto px-4 text-center">
                     <h2 className="text-2xl font-bold text-[#2b174f] mb-2">Ready to Register?</h2>
                     <p className="text-[#2b174f]/70 mb-6">Click below to access the official registration form.</p>
+
                     <Button
                         size="lg"
                         className="bg-[#2b174f] text-white hover:bg-[#2b174f]/90 font-semibold tracking-widest uppercase px-12 py-6 text-base shadow-lg"
+                        asChild
                     >
-                        <ExternalLink className="size-5 mr-2"/>
-                        Open Registration Form
+                        <a
+                            href="https://registration_link_placeholder.example.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <ExternalLink className="size-5 mr-2" />
+                            Open Registration Form
+                        </a>
                     </Button>
+
                     <p className="text-[#2b174f]/50 text-sm mt-3">Opens in a new tab</p>
                 </div>
             </section>
@@ -111,35 +63,66 @@ export function Registration() {
                         <p className="text-[#f2b652] text-sm tracking-widest uppercase font-semibold mb-2">
                             Fees
                         </p>
-                        <h2 className="text-3xl font-bold text-[#2b174f]">Registration Pricing</h2>
+                        <h2 className="text-3xl font-bold text-[#2b174f]">
+                            Registration Pricing
+                        </h2>
                     </div>
+
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
                         {pricingTiers.map((tier) => (
                             <Card
                                 key={tier.name}
-                                className={`border-2 overflow-hidden ${tier.highlight ? "border-[#f2b652] shadow-lg shadow-[#f2b652]/10" : "border-gray-200"}`}
+                                className={`border-2 overflow-hidden ${
+                                    tier.highlight
+                                        ? "border-[#f2b652] shadow-lg shadow-[#f2b652]/10"
+                                        : "border-gray-200"
+                                }`}
                             >
-                                {tier.highlight && (
-                                    <div
-                                        className="bg-[#f2b652] text-[#2b174f] text-xs font-bold tracking-widest uppercase text-center py-2">
-                                        Best Value
-                                    </div>
-                                )}
-                                <CardContent className={`p-7 ${tier.highlight ? "" : "mt-0"}`}>
-                                    <h3 className="text-[#2b174f] font-bold text-xl mb-1">{tier.name}</h3>
-                                    <p className="text-gray-400 text-sm mb-5">Deadline: {tier.deadline}</p>
+                                {/* Reserved banner space to prevent layout shift */}
+                                <div className="h-8 flex items-center justify-center">
+                                    {tier.highlight ? (
+                                        <div className="bg-[#f2b652] text-[#2b174f] text-xs font-bold tracking-widest uppercase text-center py-2 w-full">
+                                            Best Value
+                                        </div>
+                                    ) : (
+                                        <div className="bg-gray-100 text-gray-500 text-xs font-semibold tracking-widest uppercase text-center py-2 w-full">
+                                            Standard
+                                        </div>
+                                    )}
+                                </div>
+
+                                <CardContent className="p-7">
+                                    <h3 className="text-[#2b174f] font-bold text-xl mb-1">
+                                        {tier.name}
+                                    </h3>
+
+                                    <p className="text-gray-400 text-sm mb-5">
+                                        Deadline: {tier.deadline}
+                                    </p>
+
                                     <div className="space-y-3 mb-5">
-                                        <div
-                                            className="flex justify-between items-center py-2 border-b border-gray-100">
-                                            <span className="text-gray-500 text-sm">Per Delegate</span>
-                                            <span className="text-[#2b174f] font-bold text-lg">{tier.perDelegate}</span>
+                                        <div className="flex justify-between items-center py-2 border-b border-gray-100">
+                                <span className="text-gray-500 text-sm">
+                                    Per Delegate
+                                </span>
+                                            <span className="text-[#2b174f] font-bold text-lg">
+                                    {tier.perDelegate}
+                                </span>
                                         </div>
+
                                         <div className="flex justify-between items-center py-2">
-                                            <span className="text-gray-500 text-sm">Per Delegation (8+)</span>
-                                            <span className="text-[#2b174f] font-bold text-lg">{tier.delegation}</span>
+                                <span className="text-gray-500 text-sm">
+                                    Per Delegation (8+)
+                                </span>
+                                            <span className="text-[#2b174f] font-bold text-lg">
+                                    {tier.delegation}
+                                </span>
                                         </div>
                                     </div>
-                                    <p className="text-gray-400 text-xs italic">{tier.note}</p>
+
+                                    <p className="text-gray-400 text-xs italic">
+                                        {tier.note}
+                                    </p>
                                 </CardContent>
                             </Card>
                         ))}
@@ -201,17 +184,17 @@ export function Registration() {
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="space-y-4">
                         <div className="flex gap-3 p-4 bg-green-50 border border-green-200 rounded-lg">
-                            <CheckCircle className="size-5 text-green-600 shrink-0 mt-0.5"/>
+                            <CircleCheck className="size-5 text-green-600 shrink-0 mt-0.5"/>
                             <p className="text-green-800 text-sm">Country assignments are allocated on a first-come,
                                 first-served basis. Early registration guarantees better choices.</p>
                         </div>
                         <div className="flex gap-3 p-4 bg-amber-50 border border-amber-200 rounded-lg">
-                            <AlertCircle className="size-5 text-amber-600 shrink-0 mt-0.5"/>
+                            <CircleAlert className="size-5 text-amber-600 shrink-0 mt-0.5"/>
                             <p className="text-amber-800 text-sm">Registration fees are non-refundable after February 1,
                                 2026. Please confirm participation before payment.</p>
                         </div>
                         <div className="flex gap-3 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-                            <CheckCircle className="size-5 text-blue-600 shrink-0 mt-0.5"/>
+                            <CircleCheck className="size-5 text-blue-600 shrink-0 mt-0.5"/>
                             <p className="text-blue-800 text-sm">Individual delegates not affiliated with a school may
                                 register directly. Contact us for details.</p>
                         </div>
