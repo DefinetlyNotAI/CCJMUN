@@ -52,93 +52,109 @@ export function FAQs() {
                 </div>
             </section>
 
-            {/* Search & Filter */}
-            <section className="bg-white border-b border-gray-100 py-8 sticky top-16 z-30 shadow-sm">
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex flex-col sm:flex-row gap-4">
-                        <div className="relative flex-1">
-                            <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-gray-400"/>
-                            <Input
-                                placeholder="Search questions..."
-                                value={search}
-                                onChange={(e) => setSearch(e.target.value)}
-                                className="pl-10 border-gray-200 focus-visible:ring-[#2b174f]/30 focus-visible:border-[#2b174f]"
-                            />
-                        </div>
-                        <div className="flex flex-wrap gap-2">
-                            {categories.map((cat) => (
-                                <button
-                                    key={cat}
-                                    onClick={() => setActiveCategory(cat)}
-                                    className={`px-3 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase transition-colors border ${
-                                        activeCategory === cat
-                                            ? "bg-[#2b174f] text-white border-[#2b174f]"
-                                            : "bg-transparent text-gray-500 border-gray-200 hover:border-[#2b174f] hover:text-[#2b174f]"
-                                    }`}
-                                >
-                                    {cat}
-                                </button>
-                            ))}
+            {/* FAQ Section */}
+            <section className="relative bg-gray-50">
+                {/* Sticky Search & Filter */}
+                <div className="bg-white border-b border-gray-100 py-8 sticky top-16 z-30 shadow-sm">
+                    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div className="flex flex-col gap-4">
+                            <div className="relative w-full">
+                                <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-gray-400" />
+                                <Input
+                                    placeholder="Search questions..."
+                                    value={search}
+                                    onChange={(e) => setSearch(e.target.value)}
+                                    className="pl-10 border-gray-200 focus-visible:ring-[#2b174f]/30 focus-visible:border-[#2b174f]"
+                                />
+                            </div>
+
+                            <div className="flex flex-wrap gap-2">
+                                {categories.map((cat) => (
+                                    <button
+                                        key={cat}
+                                        onClick={() => setActiveCategory(cat)}
+                                        className={`px-3 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase transition-colors border ${
+                                            activeCategory === cat
+                                                ? "bg-[#2b174f] text-white border-[#2b174f]"
+                                                : "bg-transparent text-gray-500 border-gray-200 hover:border-[#2b174f] hover:text-[#2b174f]"
+                                        }`}
+                                    >
+                                        {cat}
+                                    </button>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>
-            </section>
 
-            {/* FAQ Content */}
-            <section className="py-16 bg-gray-50">
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                    {filtered.length === 0 ? (
-                        <div className="text-center py-20">
-                            <p className="text-gray-400 text-lg">No questions match your search.</p>
-                            <button
-                                onClick={() => {
-                                    setSearch("");
-                                    setActiveCategory("All")
-                                }}
-                                className="mt-4 text-[#f2b652] text-sm underline hover:no-underline"
-                            >
-                                Clear filters
-                            </button>
-                        </div>
-                    ) : (
-                        <div className="space-y-12">
-                            {(activeCategory === "All" ? grouped : grouped.filter(g => g.category === activeCategory)).map(({
-                                                                                                                                category,
-                                                                                                                                items
-                                                                                                                            }) => (
-                                <div key={category}>
-                                    <div className="flex items-center gap-3 mb-6">
-                                        <Badge
-                                            variant="outline"
-                                            className="border-[#f2b652] text-[#2b174f] bg-[#f2b652]/10 text-xs tracking-widest uppercase font-semibold px-3 py-1"
-                                        >
-                                            {category}
-                                        </Badge>
-                                        <span
-                                            className="text-gray-300 text-sm">{items.length} question{items.length !== 1 ? "s" : ""}</span>
-                                    </div>
-                                    <Accordion type="single" collapsible className="space-y-2">
-                                        {items.map((faq, i) => (
-                                            <AccordionItem
-                                                key={i}
-                                                value={`${category}-${i}`}
-                                                className="bg-white border border-gray-100 rounded-lg overflow-hidden px-0 data-[state=open]:border-[#f2b652]/40 data-[state=open]:shadow-sm transition-all"
+                {/* FAQ Content */}
+                <div className="py-16">
+                    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                        {filtered.length === 0 ? (
+                            <div className="text-center py-20">
+                                <p className="text-gray-400 text-lg">
+                                    No questions match your search.
+                                </p>
+
+                                <button
+                                    onClick={() => {
+                                        setSearch("");
+                                        setActiveCategory("All");
+                                    }}
+                                    className="mt-4 text-[#f2b652] text-sm underline hover:no-underline"
+                                >
+                                    Clear filters
+                                </button>
+                            </div>
+                        ) : (
+                            <div className="space-y-12">
+                                {(activeCategory === "All"
+                                        ? grouped
+                                        : grouped.filter(
+                                            (g) => g.category === activeCategory
+                                        )
+                                ).map(({ category, items }) => (
+                                    <div key={category}>
+                                        <div className="flex items-center gap-3 mb-6">
+                                            <Badge
+                                                variant="outline"
+                                                className="border-[#f2b652] text-[#2b174f] bg-[#f2b652]/10 text-xs tracking-widest uppercase font-semibold px-3 py-1"
                                             >
-                                                <AccordionTrigger
-                                                    className="px-6 py-4 text-left text-[#2b174f] font-semibold text-sm hover:no-underline hover:text-[#2b174f] leading-snug">
-                                                    {faq.question}
-                                                </AccordionTrigger>
-                                                <AccordionContent
-                                                    className="px-6 pb-5 text-gray-500 text-sm leading-relaxed">
-                                                    {faq.answer}
-                                                </AccordionContent>
-                                            </AccordionItem>
-                                        ))}
-                                    </Accordion>
-                                </div>
-                            ))}
-                        </div>
-                    )}
+                                                {category}
+                                            </Badge>
+
+                                            <span className="text-gray-300 text-sm">
+                                    {items.length} question
+                                                {items.length !== 1 ? "s" : ""}
+                                </span>
+                                        </div>
+
+                                        <Accordion
+                                            type="single"
+                                            collapsible
+                                            className="space-y-2"
+                                        >
+                                            {items.map((faq, i) => (
+                                                <AccordionItem
+                                                    key={i}
+                                                    value={`${category}-${i}`}
+                                                    className="bg-white border border-gray-100 rounded-lg overflow-hidden px-0 data-[state=open]:border-[#f2b652]/40 data-[state=open]:shadow-sm transition-all"
+                                                >
+                                                    <AccordionTrigger className="px-6 py-4 text-left text-[#2b174f] font-semibold text-sm hover:no-underline hover:text-[#2b174f] leading-snug">
+                                                        {faq.question}
+                                                    </AccordionTrigger>
+
+                                                    <AccordionContent className="px-6 pb-5 text-gray-500 text-sm leading-relaxed">
+                                                        {faq.answer}
+                                                    </AccordionContent>
+                                                </AccordionItem>
+                                            ))}
+                                        </Accordion>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                    </div>
                 </div>
             </section>
 

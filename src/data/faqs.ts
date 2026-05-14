@@ -9,78 +9,102 @@ export const faqs: FAQ[] = [
         category: "General",
         question: "What is CCJMUN?",
         answer:
-            "CCJMUN (CCJ Model United Nations) is an annual student-run diplomatic simulation conference. Delegates represent countries and debate pressing global issues within the framework of United Nations committees, developing skills in research, public speaking, negotiation, and international affairs.",
+            "CCJMUN (CCJ Model United Nations) is a student-run online Model United Nations conference where delegates simulate United Nations committees, debate international issues, and draft resolutions in a virtual diplomatic environment.",
     },
     {
         category: "General",
-        question: "Do I need prior MUN experience to attend?",
+        question: "Is CCJMUN 2026 fully online?",
         answer:
-            "Not at all! CCJMUN welcomes delegates of all experience levels. We have beginner-friendly committees like GA3, and our staff is available to guide first-time delegates throughout the conference. We also offer a pre-conference workshop for newcomers.",
+            "Yes. All committee sessions, ceremonies, and social activities will be conducted online through our official conference platforms. Delegates can participate remotely from anywhere in the world.",
     },
     {
         category: "General",
-        question: "How many delegates typically attend CCJMUN?",
+        question: "Do I need prior MUN experience to participate?",
         answer:
-            "CCJMUN hosts approximately 300-400 delegates from schools across the region and internationally. It is one of the most prestigious student-run conferences in the area.",
+            "No. CCJMUN welcomes both first-time and experienced delegates. Beginner-friendly committees and guidance from chairs and staff are available throughout the conference.",
+    },
+    {
+        category: "General",
+        question: "What platform will the conference use?",
+        answer:
+            "Committee sessions and ceremonies will be hosted through designated online meeting platforms. Registered delegates will receive all access links, schedules, and instructions before the conference begins.",
     },
     {
         category: "Registration",
         question: "How do I register for CCJMUN 2026?",
         answer:
-            "Registration is done through your school's faculty advisor. Schools register as delegations via the official registration link on our Registration page. Individual registration is available for unaffiliated delegates.",
+            "Delegates may register through their school delegation or independently if individual registration is available. Registration forms and instructions can be found on the Registration page.",
     },
     {
         category: "Registration",
         question: "What is the registration deadline?",
         answer:
-            "Early registration closes on January 15, 2026, and regular registration closes on February 10, 2026. We strongly encourage early registration as committees fill up quickly.",
+            "Registration deadlines and committee allocation timelines are listed on the Registration page. Early registration is recommended due to limited committee capacity.",
     },
     {
         category: "Registration",
-        question: "What are the registration fees?",
+        question: "Will delegates receive digital credentials?",
         answer:
-            "Registration fees vary by delegation size and registration period. Early bird rates are available. Please refer to the Registration page for the full fee schedule.",
+            "Yes. Delegates will receive digital badges, committee assignments, and access credentials before the conference.",
     },
     {
-        category: "Dress Code",
-        question: "What is the dress code for CCJMUN?",
+        category: "Technology",
+        question: "What equipment do I need to participate?",
         answer:
-            "Western business attire is the standard for committee sessions. For male delegates: suit, tie, and dress shoes. For female delegates: business suit, formal blouse, or conservative dress. Traditional formal attire from your country is also acceptable. The Delegate Social Night has a relaxed smart-casual dress code.",
+            "Delegates should have a stable internet connection, a working microphone, and preferably a webcam. A laptop or desktop computer is strongly recommended for debate, research, and resolution writing.",
+    },
+    {
+        category: "Technology",
+        question: "What happens if I disconnect during committee?",
+        answer:
+            "Delegates who disconnect should rejoin using the same committee link as soon as possible. Chairs and technical staff will assist delegates experiencing technical difficulties.",
+    },
+    {
+        category: "Technology",
+        question: "Do I need to keep my camera on?",
+        answer:
+            "Delegates are generally expected to keep cameras on during formal sessions unless facing technical limitations or receiving permission from committee staff.",
     },
     {
         category: "Preparation",
         question: "How should I prepare for my committee?",
         answer:
-            "Begin by thoroughly reading your committee's background guide. Research your assigned country's foreign policy positions on the topic. Draft your opening speech and prepare at minimum two working papers. Familiarize yourself with Rules of Procedure, available in our Resources section.",
+            "Delegates should research their assigned country's policies, study the agenda topics, review Rules of Procedure, and prepare opening speeches before the conference.",
     },
     {
         category: "Preparation",
         question: "Where can I find the background guides?",
         answer:
-            "Background guides are available for download on both the Committees page (individual committee guides) and the Resources page (general study materials). They will be released six weeks before the conference.",
+            "Background guides and preparation resources will be released on the Committees and Resources pages before the conference.",
     },
     {
-        category: "Logistics",
-        question: "Where is CCJMUN 2026 held?",
+        category: "Preparation",
+        question: "Will there be training for first-time delegates?",
         answer:
-            "CCJMUN 2026 will be held at the school campus. The exact venue address and room assignments will be communicated via email to registered delegates two weeks before the conference.",
+            "Yes. CCJMUN plans to provide introductory workshops and preparation resources to help new delegates understand debate procedure and resolution writing.",
     },
     {
-        category: "Logistics",
-        question: "Is parking available at the venue?",
+        category: "Conference",
+        question: "How do unmoderated caucuses work online?",
         answer:
-            "Yes, parking is available at the venue free of charge. Carpooling is encouraged. Detailed directions and a campus map will be included in your delegate welcome packet.",
+            "During unmoderated caucuses, delegates may be moved into breakout rooms or collaborate through designated communication channels to draft resolutions and negotiate with other blocs.",
     },
     {
-        category: "Logistics",
-        question: "Are meals provided during the conference?",
+        category: "Conference",
+        question: "Are virtual social events included?",
         answer:
-            "Lunch is provided on both conference days. Morning and afternoon refreshments are also available. Please indicate any dietary restrictions or allergies during registration.",
+            "Yes. CCJMUN includes online networking and social activities designed to help delegates interact outside of formal debate.",
     },
     {
         category: "Awards",
         question: "What awards are given at CCJMUN?",
         answer:
-            "Awards are given per committee: Best Delegate, Outstanding Delegate, and Verbal Commendation. A Best Delegation award is given to the school with the most distinguished overall performance across all committees.",
+            "Awards may include Best Delegate, Outstanding Delegate, Honorable Mention, and Verbal Commendation depending on committee size and performance.",
+    },
+    {
+        category: "Awards",
+        question: "How are delegates evaluated in an online conference?",
+        answer:
+            "Delegates are evaluated based on diplomacy, participation, public speaking, policy accuracy, collaboration, and overall contribution during committee sessions.",
     },
 ]
