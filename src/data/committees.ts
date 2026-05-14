@@ -81,7 +81,7 @@ export const committees: Committee[] = [
             "The Ad Hoc Crisis Committee responds to rapidly evolving global emergencies in real time. Delegates must think on their feet, adapt policy, and exercise decisive leadership under pressure.",
         difficulty: "Expert",
         size: "25 delegates",
-        backgroundGuideUrl: undefined,
+        backgroundGuideUrl: "CONFIDENTIAL",
     },
     {
         id: "ga3",

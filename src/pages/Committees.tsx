@@ -25,9 +25,9 @@ export function Committees() {
     return (
         <div className="min-h-screen pt-16">
             {/* Hero */}
-            <section className="relative py-32 overflow-hidden bg-[#2b174f]">
+            <section className="relative py-32 overflow-hidden bg-[#7c3aed]">
                 <div
-                    className="absolute inset-0 opacity-20 bg-cover bg-center"
+                    className="absolute inset-0 opacity-10 bg-cover bg-center"
                     style={{backgroundImage: "url('/bg.jpeg')"}}
                 />
                 <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
@@ -46,11 +46,11 @@ export function Committees() {
             </section>
 
             {/* Legend */}
-            <section className="bg-white border-b border-gray-100 py-5">
+            <section className="bg-[#6d28d9] border-b border-purple-800 py-5">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex flex-wrap items-center gap-3">
                         <span
-                            className="text-gray-500 text-sm tracking-wider uppercase font-medium mr-2">Difficulty:</span>
+                            className="text-purple-100 text-sm tracking-wider uppercase font-medium mr-2">Difficulty:</span>
                         {(["Beginner", "Intermediate", "Advanced", "Expert"] as DifficultyLevel[]).map((level) => (
                             <span
                                 key={level}
@@ -64,7 +64,7 @@ export function Committees() {
             </section>
 
             {/* Committees Grid */}
-            <section className="py-16 bg-gray-50">
+            <section className="py-16 bg-[#7c3aed]">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <CommitteeFilter onFilterChange={setFilters}/>
                     {filteredCommittees.length > 0 ? (
@@ -72,17 +72,17 @@ export function Committees() {
                             {filteredCommittees.map((committee) => (
                                 <Card
                                     key={committee.id}
-                                    className="overflow-hidden border border-gray-100 hover:border-[#f2b652]/40 hover:shadow-xl transition-all duration-300 bg-white group"
+                                    className="overflow-hidden border border-purple-200 hover:border-[#f2b652]/40 hover:shadow-xl transition-all duration-300 bg-white group flex flex-col"
                                 >
                                     {/* Card Header Band */}
-                                    <div className="h-2 bg-[#2b174f] group-hover:bg-[#f2b652] transition-colors"/>
+                                    <div className="h-2 bg-[#6d28d9] group-hover:bg-[#f2b652] transition-colors"/>
 
-                                    <CardHeader className="pb-3 pt-6 px-6">
+                                    <CardHeader className="pb-3 pt-6 px-6 flex-shrink-0">
                                         <div className="flex items-start justify-between gap-4">
                                             <div className="flex-1">
                                                 <div className="flex items-center gap-3 mb-2 flex-wrap">
                         <span
-                            className="bg-[#2b174f] text-[#f2b652] text-xs font-bold px-3 py-1 rounded-sm tracking-widest uppercase">
+                            className="bg-[#6d28d9] text-[#f2b652] text-xs font-bold px-3 py-1 rounded-sm tracking-widest uppercase">
                           {committee.abbreviation}
                         </span>
                                                     <span
@@ -91,7 +91,7 @@ export function Committees() {
                           {committee.difficulty}
                         </span>
                                                 </div>
-                                                <h3 className="text-[#2b174f] font-bold text-lg leading-snug">{committee.name}</h3>
+                                                <h3 className="text-[#6d28d9] font-bold text-lg leading-snug">{committee.name}</h3>
                                             </div>
                                             <div className="flex items-center gap-1 text-gray-400 text-xs shrink-0">
                                                 <Users className="size-3.5"/>
@@ -100,32 +100,43 @@ export function Committees() {
                                         </div>
                                     </CardHeader>
 
-                                    <CardContent className="px-6 pb-6">
-                                        <p className="text-gray-500 text-sm leading-relaxed mb-5">{committee.description}</p>
+                                    <CardContent className="px-6 pb-6 flex flex-col flex-grow">
+                                        <p className="text-gray-500 text-sm leading-relaxed mb-5 flex-grow">{committee.description}</p>
 
                                         {/* Topics */}
                                         <div className="space-y-3 mb-6">
                                             <p className="text-xs tracking-widest uppercase text-gray-400 font-semibold">Topics</p>
                                             <div className="flex items-start gap-2">
                                                 <ChevronRight className="size-4 text-[#f2b652] mt-0.5 shrink-0"/>
-                                                <p className="text-[#2b174f] text-sm font-medium leading-snug">{committee.topic1}</p>
+                                                <p className="text-[#6d28d9] text-sm font-medium leading-snug">{committee.topic1}</p>
                                             </div>
                                             {committee.topic2 && (
                                                 <div className="flex items-start gap-2">
                                                     <ChevronRight className="size-4 text-[#f2b652] mt-0.5 shrink-0"/>
-                                                    <p className="text-[#2b174f] text-sm font-medium leading-snug">{committee.topic2}</p>
+                                                    <p className="text-[#6d28d9] text-sm font-medium leading-snug">{committee.topic2}</p>
                                                 </div>
                                             )}
                                         </div>
 
                                         {/* Actions */}
-                                        <div className="flex gap-3 flex-wrap">
-                                            {committee.backgroundGuideUrl ? (
+                                        <div className="flex gap-3 flex-wrap mt-auto">
+                                            {committee.backgroundGuideUrl === "CONFIDENTIAL" ? (
+                                                <Button
+                                                    variant="outline"
+                                                    size="sm"
+                                                    disabled
+                                                    className="border-gray-200 text-gray-400 tracking-wider text-xs font-semibold uppercase cursor-not-allowed"
+                                                    title="Background guide is classified"
+                                                >
+                                                    <Download className="size-3.5 mr-1.5"/>
+                                                    Classified
+                                                </Button>
+                                            ) : committee.backgroundGuideUrl ? (
                                                 <a href={committee.backgroundGuideUrl} download>
                                                     <Button
                                                         variant="outline"
                                                         size="sm"
-                                                        className="border-[#2b174f] text-[#2b174f] hover:bg-[#2b174f] hover:text-white tracking-wider text-xs font-semibold uppercase"
+                                                        className="border-[#6d28d9] text-[#6d28d9] hover:bg-[#6d28d9] hover:text-white tracking-wider text-xs font-semibold uppercase"
                                                     >
                                                         <Download className="size-3.5 mr-1.5"/>
                                                         Background Guide
@@ -139,13 +150,13 @@ export function Committees() {
                                                     className="border-gray-200 text-gray-400 tracking-wider text-xs font-semibold uppercase"
                                                 >
                                                     <Download className="size-3.5 mr-1.5"/>
-                                                    Guide Coming Soon
+                                                    Coming Soon
                                                 </Button>
                                             )}
                                             <Link to="/registration">
                                                 <Button
                                                     size="sm"
-                                                    className="bg-[#f2b652] text-[#2b174f] hover:bg-[#f2b652]/90 tracking-wider text-xs font-semibold uppercase"
+                                                    className="bg-[#f2b652] text-[#6d28d9] hover:bg-[#f2b652]/90 tracking-wider text-xs font-semibold uppercase"
                                                 >
                                                     <UserPlus className="size-3.5 mr-1.5"/>
                                                     Register
@@ -158,14 +169,14 @@ export function Committees() {
                         </div>
                     ) : (
                         <div className="text-center py-12">
-                            <p className="text-gray-500 text-lg">No committees match your search criteria.</p>
+                            <p className="text-white/70 text-lg">No committees match your search criteria.</p>
                         </div>
                     )}
                 </div>
             </section>
 
             {/* CTA */}
-            <section className="py-16 bg-[#2b174f]">
+            <section className="py-16 bg-[#6d28d9]">
                 <div className="max-w-3xl mx-auto px-4 text-center">
                     <h2 className="text-3xl font-bold text-white mb-4">Found Your Committee?</h2>
                     <p className="text-white/60 mb-8 text-lg">
@@ -173,7 +184,7 @@ export function Committees() {
                     </p>
                     <Link to="/registration">
                         <Button
-                            className="bg-[#f2b652] text-[#2b174f] hover:bg-[#f2b652]/90 font-semibold tracking-wider uppercase px-10 py-5 text-base">
+                            className="bg-[#f2b652] text-[#6d28d9] hover:bg-[#f2b652]/90 font-semibold tracking-wider uppercase px-10 py-5 text-base">
                             Register for CCJMUN 2026
                         </Button>
                     </Link>
