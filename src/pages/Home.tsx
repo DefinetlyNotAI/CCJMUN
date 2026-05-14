@@ -2,17 +2,10 @@ import {Link} from "react-router-dom"
 import {Button} from "@/components/ui/button"
 import {Card, CardContent} from "@/components/ui/card"
 import {Badge} from "@/components/ui/badge"
-import {ArrowRight, CalendarDays, ChevronDown, Globe, MapPin, Users} from "lucide-react"
+import {ArrowRight, ChevronDown} from "lucide-react"
 import {CountdownTimer} from "@/components/CountdownTimer"
 import {CommitteeCarousel} from "@/components/CommitteeCarousel"
-import {TestimonialsSection} from "@/components/TestimonialsSection"
-
-const stats = [
-    {icon: Users, value: "350+", label: "Delegates"},
-    {icon: Globe, value: "8", label: "Committees"},
-    {icon: CalendarDays, value: "2", label: "Days"},
-    {icon: MapPin, value: "Cairo", label: "Egypt"},
-]
+import {CalendarDates, stats} from "@/data/home.ts";
 
 export function Home() {
     return (
@@ -21,69 +14,76 @@ export function Home() {
             <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
                 {/* Background Image */}
                 <div
-                    className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                    style={{backgroundImage: "url('/bg.jpeg')"}}
+                    className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
+                    style={{ backgroundImage: "url('/bg.jpeg')" }}
                 />
+
                 {/* Overlay */}
-                <div className="absolute inset-0 bg-[#2b174f]/75"/>
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#2b174f]/60"/>
+                <div className="absolute inset-0 bg-[#2b174f]/75 z-10" />
+                <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-[#2b174f]/60 z-10" />
 
-                {/* Content */}
-                <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
-                    <Badge
-                        variant="outline"
-                        className="border-[#f2b652]/60 text-[#f2b652] bg-[#f2b652]/10 tracking-widest text-xs uppercase mb-8 px-4 py-1.5"
-                    >
-                        March 6 – 7, 2026 · Cairo, Egypt
-                    </Badge>
+                {/* Cover Image */}
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-full z-20">
+                    <img
+                        src="/cover.jpeg"
+                        alt="CCJMUN 2026"
+                        className="w-full h-[60vh] object-cover border border-white/10 shadow-2xl shadow-black/50"
+                    />
+                </div>
 
-                    <div className="mb-6">
-                        <img
-                            src="/cover.jpeg"
-                            alt="CCJMUN 2026"
-                            className="mx-auto w-full max-w-2xl rounded-lg shadow-2xl shadow-black/50 border border-white/10"
-                        />
-                    </div>
+                {/* Full-size content card overlay */}
+                <div className="absolute inset-0 z-30 bg-black/20 backdrop-blur-md border border-white/10">
+                    {/* Content positioned under navbar */}
+                    <div className="relative mt-24 text-center px-4 max-w-5xl mx-auto">
+                        <Badge
+                            variant="outline"
+                            className="border-[#f2b652]/60 text-[#f2b652] bg-[#f2b652]/10 tracking-widest text-xs uppercase mb-8 px-4 py-1.5"
+                        >
+                            July 17 - 18, 2026 · Online, UAE
+                        </Badge>
 
-                    <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight mb-4 leading-tight">
-                        Where Diplomacy <br/>
-                        <span className="text-gold-shimmer">Meets Excellence</span>
-                    </h1>
+                        <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight mb-4 leading-tight">
+                            Where Diplomacy <br />
+                            <span className="text-gold-shimmer">Meets Excellence</span>
+                        </h1>
 
-                    <p className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-                        CCJ Model United Nations 2026 invites young leaders to debate, negotiate, and resolve the
-                        world's most pressing challenges in a prestigious two-day conference.
-                    </p>
+                        <p className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+                            CCJ Model United Nations 2026 invites young leaders to debate, negotiate, and resolve the world's most pressing challenges in a prestigious two-day conference.
+                        </p>
 
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
-                        <Link to="/registration">
-                            <Button
-                                size="lg"
-                                className="bg-[#f2b652] text-[#2b174f] hover:bg-[#f2b652]/90 font-semibold tracking-widest uppercase px-10 py-6 text-base shadow-lg shadow-[#f2b652]/20"
-                            >
-                                Register Now
-                                <ArrowRight className="ml-2 size-4"/>
-                            </Button>
-                        </Link>
-                        <Link to="/committees">
-                            <Button
-                                size="lg"
-                                variant="outline"
-                                className="border-white/60 text-white bg-white/5 hover:bg-white/15 hover:border-white font-semibold tracking-widest uppercase px-10 py-6 text-base"
-                            >
-                                Explore Committees
-                            </Button>
-                        </Link>
-                    </div>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
+                            <Link to="/registration">
+                                <Button
+                                    size="lg"
+                                    className="bg-[#f2b652] text-[#2b174f] hover:bg-[#f2b652]/90 font-semibold tracking-widest uppercase px-10 py-6 text-base shadow-lg shadow-[#f2b652]/20"
+                                >
+                                    Register Now
+                                    <ArrowRight className="ml-2 size-4" />
+                                </Button>
+                            </Link>
 
-                    <div className="max-w-lg mx-auto">
-                        <CountdownTimer/>
+                            <Link to="/committees">
+                                <Button
+                                    size="lg"
+                                    variant="outline"
+                                    className="border-white/60 text-white bg-white/5 hover:bg-white/15 hover:border-white font-semibold tracking-widest uppercase px-10 py-6 text-base"
+                                >
+                                    Explore Committees
+                                </Button>
+                            </Link>
+                        </div>
+
+                        <div className="max-w-lg mx-auto">
+                            <CountdownTimer />
+                        </div>
+
+                        <br />
                     </div>
                 </div>
 
                 {/* Scroll indicator */}
-                <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/40 animate-bounce">
-                    <ChevronDown className="size-6"/>
+                <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/40 animate-bounce z-40">
+                    <ChevronDown className="size-6" />
                 </div>
             </section>
 
@@ -127,10 +127,9 @@ export function Home() {
                             <Link to="/about">
                                 <Button
                                     variant="outline"
-                                    className="border-[#2b174f] text-[#2b174f] hover:bg-[#2b174f] hover:text-white tracking-wider uppercase font-semibold"
-                                >
+                                    className="border-[#2b174f] text-[#2b174f] bg-transparent tracking-wider uppercase font-semibold hover:bg-[#2b174f]! hover:text-white! hover:border-[#2b174f]!"                                >
                                     Learn More
-                                    <ArrowRight className="ml-2 size-4"/>
+                                    <ArrowRight className="ml-2 size-4" />
                                 </Button>
                             </Link>
                         </div>
@@ -181,18 +180,18 @@ export function Home() {
                         <h2 className="text-4xl font-bold text-[#2b174f]">Mark Your Calendar</h2>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {[
-                            {date: "Jan 15, 2026", label: "Early Registration Closes", color: "border-[#f2b652]"},
-                            {date: "Feb 1, 2026", label: "Background Guides Released", color: "border-[#2b174f]"},
-                            {date: "Feb 10, 2026", label: "Final Registration Deadline", color: "border-[#f2b652]"},
-                            {date: "Mar 6–7, 2026", label: "Conference Days", color: "border-[#2b174f]"},
-                        ].map(({date, label, color}) => (
-                            <Card key={date}
-                                  className={`border-l-4 ${color} shadow-sm hover:shadow-md transition-shadow`}>
+                        {CalendarDates.map(({ date, label, color }) => (
+                            <Card
+                                key={date}
+                                className={`border-l-4 ${color} shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300`}
+                            >
                                 <CardContent className="p-5">
-                                    <div
-                                        className="text-[#f2b652] text-sm font-semibold mb-1 tracking-wider">{date}</div>
-                                    <div className="text-[#2b174f] font-semibold text-sm leading-snug">{label}</div>
+                                    <div className="text-[#f2b652] text-sm font-semibold mb-1 tracking-wider">
+                                        {date}
+                                    </div>
+                                    <div className="text-[#2b174f] font-semibold text-sm leading-snug">
+                                        {label}
+                                    </div>
                                 </CardContent>
                             </Card>
                         ))}
@@ -209,14 +208,11 @@ export function Home() {
                         </p>
                         <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Explore Your Arena</h2>
                         <div
-                            className="w-24 h-1 bg-gradient-to-r from-transparent via-[#f2b652] to-transparent mx-auto"/>
+                            className="w-24 h-1 bg-linear-to-r from-transparent via-[#f2b652] to-transparent mx-auto"/>
                     </div>
                     <CommitteeCarousel/>
                 </div>
             </section>
-
-            {/* Testimonials */}
-            <TestimonialsSection/>
 
             {/* CTA */}
             <section className="py-20 bg-[#f2b652]">

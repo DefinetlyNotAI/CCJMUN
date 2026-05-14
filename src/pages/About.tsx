@@ -53,7 +53,7 @@ export function About() {
                     </h1>
                     <div className="divider-gold mx-auto w-32 mb-6"/>
                     <p className="text-white/75 text-xl leading-relaxed">
-                        CCJMUN is a movement — a gathering of young minds united by a belief that diplomacy, dialogue,
+                        CCJMUN is a movement - a gathering of young minds united by a belief that diplomacy, dialogue,
                         and determination can change the world.
                     </p>
                 </div>
@@ -82,7 +82,7 @@ export function About() {
                                 Arab world.
                             </p>
                             <p className="text-gray-600 leading-relaxed">
-                                Our secretariat, committees, and staff are entirely student-run — a testament to the
+                                Our secretariat, committees, and staff are entirely student-run - a testament to the
                                 talent, dedication, and vision of the young people who make CCJMUN what it is.
                             </p>
                         </div>
@@ -167,7 +167,7 @@ export function About() {
                             {
                                 year: "2026",
                                 title: "CCJMUN 2026",
-                                desc: "Our most ambitious conference yet — 8 committees, 350+ delegates, global impact."
+                                desc: "Our most ambitious conference yet - 8 committees, 350+ delegates, global impact."
                             },
                         ].map(({year, title, desc}) => (
                             <div key={year} className="flex gap-6 pl-14 relative">

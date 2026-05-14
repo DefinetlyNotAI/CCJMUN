@@ -46,7 +46,7 @@ export const secretariatMembers: Record<string, SecretariatMember> = {
         id: "head-of-logistics",
         name: "Rami Aziz",
         role: "Head of Logistics",
-        bio: "Rami ensures every operational detail is executed flawlessly — from venue management to delegate hospitality. His problem-solving skills keep everything running on schedule.",
+        bio: "Rami ensures every operational detail is executed flawlessly - from venue management to delegate hospitality. His problem-solving skills keep everything running on schedule.",
         imageUrl: undefined,
     },
     "chief-of-staff": {

@@ -88,7 +88,7 @@ export const committees: Committee[] = [
         id: "ad-hoc",
         name: "Ad Hoc Crisis Committee",
         abbreviation: "AD HOC",
-        topic1: "Classified — Crisis revealed at conference",
+        topic1: "Classified - Crisis revealed at conference",
         description:
             "The Ad Hoc Crisis Committee responds to rapidly evolving global emergencies in real time. Delegates must think on their feet, adapt policy, and exercise decisive leadership under pressure.",
         difficulty: "Expert",

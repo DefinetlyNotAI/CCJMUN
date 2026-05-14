@@ -15,7 +15,7 @@ const pricingTiers = [
         deadline: "January 15, 2026",
         perDelegate: "$35",
         delegation: "$280",
-        note: "Best value — register early to save",
+        note: "Best value - register early to save",
         highlight: true,
     },
     {
@@ -59,7 +59,7 @@ const steps = [
 const keyDetails = [
     {icon: CalendarDays, label: "Early Registration Closes", value: "January 15, 2026"},
     {icon: CalendarDays, label: "Regular Registration Closes", value: "February 10, 2026"},
-    {icon: CalendarDays, label: "Conference Dates", value: "March 6–7, 2026"},
+    {icon: CalendarDays, label: "Conference Dates", value: "March 6-7, 2026"},
     {icon: Users, label: "Max Delegation Size", value: "12 delegates per school"},
     {icon: DollarSign, label: "Individual Registration", value: "Available for unaffiliated delegates"},
 ]

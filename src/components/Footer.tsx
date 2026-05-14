@@ -2,6 +2,7 @@ import {Link} from "react-router-dom"
 import {Mail, MapPin} from "lucide-react"
 import {Separator} from "@/components/ui/separator"
 import {socialLinks} from "@/lib/config/socials"
+import {links} from "@/data/footer.ts";
 
 export function Footer() {
     return (
@@ -21,8 +22,8 @@ export function Footer() {
               </span>
                         </div>
                         <p className="text-white/70 text-sm leading-relaxed max-w-sm mt-3">
-                            CCJ Model United Nations — Where young diplomats shape the future. Join us for an
-                            unforgettable conference experience on March 6–7, 2026.
+                            CCJ Model United Nations - Where young diplomats shape the future. Join us for an
+                            unforgettable conference experience on March 6-7, 2026.
                         </p>
                         <div className="flex gap-3 mt-6">
                             {socialLinks.map((social) => {
@@ -49,15 +50,7 @@ export function Footer() {
                             Quick Links
                         </h3>
                         <ul className="space-y-2">
-                            {[
-                                {label: "Home", href: "/"},
-                                {label: "About Us", href: "/about"},
-                                {label: "Secretariat", href: "/secretariat"},
-                                {label: "Committees", href: "/committees"},
-                                {label: "Resources", href: "/resources"},
-                                {label: "Schedule", href: "/schedule"},
-                                {label: "FAQs", href: "/faqs"},
-                            ].map((link) => (
+                            {links.map((link) => (
                                 <li key={link.href}>
                                     <Link
                                         to={link.href}
@@ -79,16 +72,16 @@ export function Footer() {
                             <div className="flex items-start gap-3">
                                 <Mail className="size-4 text-[#f2b652] mt-0.5 shrink-0"/>
                                 <a
-                                    href="mailto:contact@ccjmun.org"
+                                    href="mailto:EMAIL@PLACEHOLDER.com"
                                     className="text-white/60 hover:text-[#f2b652] text-sm transition-colors"
                                 >
-                                    contact@ccjmun.org
+                                    EMAIL PLACEHOLDER
                                 </a>
                             </div>
                             <div className="flex items-start gap-3">
                                 <MapPin className="size-4 text-[#f2b652] mt-0.5 shrink-0"/>
                                 <span className="text-white/60 text-sm">
-                  CCJ Campus, Cairo, Egypt
+                  Online, United Arab Emirates
                 </span>
                             </div>
                         </div>
@@ -107,7 +100,7 @@ export function Footer() {
 
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-white/40">
                     <p>© 2026 CCJMUN. All rights reserved.</p>
-                    <p>Crafted with passion by the CCJMUN Secretariat</p>
+                    <p>Crafted with passion by Shahm Najeeb</p>
                 </div>
             </div>
         </footer>

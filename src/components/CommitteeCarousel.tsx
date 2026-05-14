@@ -33,41 +33,48 @@ export function CommitteeCarousel() {
 
     return (
         <div className="space-y-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 items-stretch">
                 {visibleCommittees.map((committee) => (
                     <Card
                         key={committee.id}
-                        className="overflow-hidden border border-[#f2b652]/20 hover:border-[#f2b652]/60 hover:shadow-lg hover:shadow-[#f2b652]/10 transition-all duration-300 bg-white/5 backdrop-blur-sm group"
+                        className="h-full flex flex-col overflow-hidden border border-[#f2b652]/20 hover:border-[#f2b652]/60 hover:shadow-lg hover:shadow-[#f2b652]/10 transition-all duration-300 bg-white/5 backdrop-blur-sm group"
                     >
-                        <div className="h-1 bg-[#f2b652] group-hover:h-2 transition-all"/>
+                        <div className="h-1 bg-[#f2b652] group-hover:h-2 transition-all" />
+
                         <CardHeader className="pb-3">
                             <div className="flex items-start justify-between gap-2">
                                 <div>
-                  <span className="bg-[#f2b652] text-[#2b174f] text-xs font-bold px-2 py-0.5 rounded-sm">
-                    {committee.abbreviation}
-                  </span>
-                                    <h3 className="text-white font-bold text-sm md:text-base mt-2 line-clamp-2">
+                        <span className="bg-[#f2b652] text-[#2b174f] text-xs font-bold px-2 py-0.5 rounded-sm">
+                            {committee.abbreviation}
+                        </span>
+
+                                    <h3 className="text-white font-bold text-sm md:text-base mt-2 line-clamp-2 min-h-10">
                                         {committee.name}
                                     </h3>
                                 </div>
+
                                 <div className="flex items-center gap-1 text-[#f2b652]/60 text-xs shrink-0">
-                                    <Users className="size-3.5"/>
+                                    <Users className="size-3.5" />
                                     <span>{committee.size}</span>
                                 </div>
                             </div>
                         </CardHeader>
-                        <CardContent className="space-y-3">
-                            <p className="text-white/70 text-xs leading-relaxed line-clamp-2">
+
+                        <CardContent className="space-y-3 flex flex-col flex-1">
+                            <p className="text-white/70 text-xs leading-relaxed line-clamp-2 min-h-10">
                                 {committee.description}
                             </p>
-                            <Link to="/registration">
-                                <Button
-                                    size="sm"
-                                    className="w-full bg-[#f2b652] text-[#2b174f] hover:bg-[#f2b652]/90 text-xs font-semibold uppercase"
-                                >
-                                    Explore
-                                </Button>
-                            </Link>
+
+                            <div className="mt-auto">
+                                <Link to={`/committees/${committee.id}`}>
+                                    <Button
+                                        size="sm"
+                                        className="w-full bg-[#f2b652] text-[#2b174f] hover:bg-[#f2b652]/90 text-xs font-semibold uppercase"
+                                    >
+                                        Explore
+                                    </Button>
+                                </Link>
+                            </div>
                         </CardContent>
                     </Card>
                 ))}

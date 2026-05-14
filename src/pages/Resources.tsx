@@ -11,14 +11,14 @@ const backgroundGuides = [
     {name: "ICC Background Guide", committee: "ICC", size: "2.6 MB", status: "available"},
     {name: "DISEC Background Guide", committee: "DISEC", size: "2.2 MB", status: "available"},
     {name: "GA3 Background Guide", committee: "GA3", size: "1.5 MB", status: "available"},
-    {name: "Ad Hoc Crisis Guide", committee: "AD HOC", size: "—", status: "classified"},
+    {name: "Ad Hoc Crisis Guide", committee: "AD HOC", size: "-", status: "classified"},
 ]
 
 const studyMaterials = [
     {
         icon: Gavel,
         title: "Rules of Procedure",
-        description: "Complete CCJMUN Rules of Procedure — the official parliamentary guide for all committees.",
+        description: "Complete CCJMUN Rules of Procedure - the official parliamentary guide for all committees.",
         type: "PDF",
     },
     {

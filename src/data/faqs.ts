@@ -21,7 +21,7 @@ export const faqs: FAQ[] = [
         category: "General",
         question: "How many delegates typically attend CCJMUN?",
         answer:
-            "CCJMUN hosts approximately 300–400 delegates from schools across the region and internationally. It is one of the most prestigious student-run conferences in the area.",
+            "CCJMUN hosts approximately 300-400 delegates from schools across the region and internationally. It is one of the most prestigious student-run conferences in the area.",
     },
     {
         category: "Registration",

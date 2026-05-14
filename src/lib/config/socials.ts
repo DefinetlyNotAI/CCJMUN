@@ -1,5 +1,5 @@
 import {type ComponentType} from 'react'
-import {Camera, Globe, MessageCircle} from 'lucide-react'
+import {Camera, MessageCircle} from 'lucide-react'
 
 export interface SocialLink {
     id: string
@@ -23,12 +23,5 @@ export const socialLinks: SocialLink[] = [
         url: 'https://twitter.com/ccjmun',
         icon: MessageCircle,
         ariaLabel: 'Follow us on Twitter',
-    },
-    {
-        id: 'linkedin',
-        name: 'LinkedIn',
-        url: 'https://linkedin.com/company/ccjmun',
-        icon: Globe,
-        ariaLabel: 'Connect with us on LinkedIn',
     },
 ]
