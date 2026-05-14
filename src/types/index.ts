@@ -153,6 +153,12 @@ export interface Committee {
     difficulty: DifficultyLevel
     size: string
     backgroundGuideUrl?: string
+    chairs?: {
+        name: string
+        role: string
+        intro: string
+        imageUrl?: string
+    }[]
 }
 
 export interface TCommitteeFilter {

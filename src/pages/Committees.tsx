@@ -70,10 +70,10 @@ export function Committees() {
                     {filteredCommittees.length > 0 ? (
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                             {filteredCommittees.map((committee) => (
-                                <Card
-                                    key={committee.id}
-                                    className="overflow-hidden border border-purple-200 hover:border-[#f2b652]/40 hover:shadow-xl transition-all duration-300 bg-white group flex flex-col"
-                                >
+                                <Link to={`/committees/${committee.id}`} key={committee.id}>
+                                    <Card
+                                        className="overflow-hidden border border-purple-200 hover:border-[#f2b652]/40 hover:shadow-xl transition-all duration-300 bg-white group flex flex-col cursor-pointer"
+                                    >
                                     {/* Card Header Band */}
                                     <div className="h-2 bg-[#6d28d9] group-hover:bg-[#f2b652] transition-colors"/>
 
@@ -165,6 +165,7 @@ export function Committees() {
                                         </div>
                                     </CardContent>
                                 </Card>
+                                </Link>
                             ))}
                         </div>
                     ) : (

@@ -12,6 +12,20 @@ export const committees: Committee[] = [
         difficulty: "Expert",
         size: "15 delegates",
         backgroundGuideUrl: "#",
+        chairs: [
+            {
+                name: "Alexandra Chen",
+                role: "Chair",
+                intro: "Alexandra brings 8 years of experience in diplomatic negotiations and international security policy. She has led multiple UNSC simulations and is passionate about fostering rigorous debate.",
+                imageUrl: "/chairs/alexandra.jpg"
+            },
+            {
+                name: "Dr. James Okonkwo",
+                role: "Vice Chair",
+                intro: "An expert in conflict resolution, Dr. Okonkwo specializes in African geopolitics and has published extensively on multilateral peacekeeping mechanisms.",
+                imageUrl: "/chairs/james.jpg"
+            }
+        ]
     },
     {
         id: "unhrc",
@@ -24,6 +38,14 @@ export const committees: Committee[] = [
         difficulty: "Intermediate",
         size: "47 delegates",
         backgroundGuideUrl: "#",
+        chairs: [
+            {
+                name: "Maria Santos",
+                role: "Chair",
+                intro: "Maria is a human rights advocate with a background in international law. She has served on several UN committees and excels at facilitating consensus-building.",
+                imageUrl: "/chairs/maria.jpg"
+            }
+        ]
     },
     {
         id: "who",
@@ -36,6 +58,14 @@ export const committees: Committee[] = [
         difficulty: "Intermediate",
         size: "35 delegates",
         backgroundGuideUrl: "#",
+        chairs: [
+            {
+                name: "Dr. Priya Kapoor",
+                role: "Chair",
+                intro: "A public health expert with 12 years of field experience, Dr. Kapoor focuses on global health equity and sustainable development.",
+                imageUrl: "/chairs/priya.jpg"
+            }
+        ]
     },
     {
         id: "ecosoc",
@@ -48,6 +78,14 @@ export const committees: Committee[] = [
         difficulty: "Intermediate",
         size: "54 delegates",
         backgroundGuideUrl: "#",
+        chairs: [
+            {
+                name: "Ahmed Hassan",
+                role: "Chair",
+                intro: "Ahmed specializes in development economics and sustainable development goals. He brings practical experience from NGO work in emerging markets.",
+                imageUrl: "/chairs/ahmed.jpg"
+            }
+        ]
     },
     {
         id: "icc",
@@ -59,6 +97,14 @@ export const committees: Committee[] = [
         difficulty: "Advanced",
         size: "20 delegates",
         backgroundGuideUrl: "#",
+        chairs: [
+            {
+                name: "Justice Rebecca Moore",
+                role: "Chief Judge",
+                intro: "Justice Moore is a seasoned international law expert with experience in prosecutorial and judicial roles. She ensures procedural excellence and fair representation.",
+                imageUrl: "/chairs/rebecca.jpg"
+            }
+        ]
     },
     {
         id: "disec",
@@ -71,6 +117,14 @@ export const committees: Committee[] = [
         difficulty: "Advanced",
         size: "60 delegates",
         backgroundGuideUrl: "#",
+        chairs: [
+            {
+                name: "Dr. Mikhail Petrov",
+                role: "Chair",
+                intro: "Dr. Petrov specializes in strategic weapons policy and technological governance. His research informs international disarmament frameworks.",
+                imageUrl: "/chairs/mikhail.jpg"
+            }
+        ]
     },
     {
         id: "ad-hoc",
@@ -82,6 +136,14 @@ export const committees: Committee[] = [
         difficulty: "Expert",
         size: "25 delegates",
         backgroundGuideUrl: "CONFIDENTIAL",
+        chairs: [
+            {
+                name: "Dr. Sophia Zhang",
+                role: "Crisis Director",
+                intro: "Dr. Zhang designs and moderates dynamic crisis scenarios. Her unpredictable briefings keep delegates sharp and engaged throughout the simulation.",
+                imageUrl: "/chairs/sophia.jpg"
+            }
+        ]
     },
     {
         id: "ga3",
@@ -94,6 +156,14 @@ export const committees: Committee[] = [
         difficulty: "Beginner",
         size: "100 delegates",
         backgroundGuideUrl: "#",
+        chairs: [
+            {
+                name: "Patricia Nakamura",
+                role: "Chair",
+                intro: "Patricia brings warmth and expertise to complex social issues. Her mentorship style makes GA3 an excellent entry point for new delegates.",
+                imageUrl: "/chairs/patricia.jpg"
+            }
+        ]
     },
 ]
 

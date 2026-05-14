@@ -6,6 +6,7 @@ import {Home} from "@/pages/Home"
 import {About} from "@/pages/About"
 import {Team} from "./pages/Team"
 import {Committees} from "@/pages/Committees"
+import {CommitteeDetail} from "@/pages/CommitteeDetail"
 import {Resources} from "@/pages/Resources"
 import {Registration} from "@/pages/Registration"
 import {Schedule} from "@/pages/Schedule"
@@ -41,6 +42,7 @@ function AppRoutes() {
                     <Route path="/about" element={<About/>}/>
                     <Route path="/team" element={<Team/>}/>
                     <Route path="/committees" element={<Committees/>}/>
+                    <Route path="/committees/:id" element={<CommitteeDetail/>}/>
                     <Route path="/resources" element={<Resources/>}/>
                     <Route path="/registration" element={<Registration/>}/>
                     <Route path="/schedule" element={<Schedule/>}/>
