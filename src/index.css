@@ -140,3 +140,29 @@
     height: 3px;
     background: linear-gradient(90deg, transparent, #f2b652, transparent);
 }
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #f2b652, #f2b652);
+    border-radius: 6px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #ffd700, #f2b652);
+    background-clip: padding-box;
+}
+
+html {
+    scrollbar-width: thin;
+    scrollbar-color: #f2b652 transparent;
+}
