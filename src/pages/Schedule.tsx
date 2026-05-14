@@ -4,9 +4,9 @@ import {Calendar, Clock} from "lucide-react"
 
 export function Schedule() {
     return (
-        <div className="min-h-screen pt-16">
+        <div className="min-h-screen pt-16 bg-white">
             {/* Hero */}
-            <section className="relative py-32 overflow-hidden bg-[#2b174f]">
+            <section className="relative py-24 md:py-32 overflow-hidden bg-[#2b174f]">
                 <div
                     className="absolute inset-0 opacity-20 bg-cover bg-center"
                     style={{backgroundImage: "url('/bg.jpeg')"}}
@@ -15,11 +15,11 @@ export function Schedule() {
                     <p className="text-[#f2b652] text-sm tracking-widest uppercase font-semibold mb-3">
                         Conference Program
                     </p>
-                    <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+                    <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
                         Schedule
                     </h1>
                     <div className="divider-gold mx-auto w-32 mb-6"/>
-                    <p className="text-white/75 text-xl leading-relaxed max-w-2xl mx-auto">
+                    <p className="text-white/75 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
                         Two days of diplomatic excellence. Every moment crafted for maximum impact, learning, and
                         collaboration.
                     </p>
@@ -29,7 +29,7 @@ export function Schedule() {
             {/* Quick Overview */}
             <section className="bg-white border-b border-gray-100 py-6">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex flex-wrap gap-5 justify-center">
+                    <div className="flex flex-wrap gap-3 sm:gap-5 justify-start sm:justify-center">
                         {Object.entries(typeConfig).map(([key, {label, bg, text, border, icon: Icon}]) => (
                             <div key={key}
                                  className={`flex items-center gap-2 px-3 py-1.5 rounded-full border ${bg} ${text} ${border}`}>
@@ -48,21 +48,21 @@ export function Schedule() {
                         {schedule.map((day) => (
                             <div key={day.day}>
                                 {/* Day Header */}
-                                <div className="flex items-center gap-4 mb-8">
+                                <div className="flex items-start sm:items-center gap-4 mb-8">
                                     <div
-                                        className="w-16 h-16 rounded-full bg-[#2b174f] flex items-center justify-center shrink-0">
+                                        className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#2b174f] flex items-center justify-center shrink-0">
                                         <Calendar className="size-7 text-[#f2b652]"/>
                                     </div>
                                     <div>
-                                        <h2 className="text-2xl font-bold text-[#2b174f]">{day.day}</h2>
+                                        <h2 className="text-xl sm:text-2xl font-bold text-[#2b174f]">{day.day}</h2>
                                         <p className="text-gray-500 text-sm">{day.date}</p>
                                     </div>
                                 </div>
 
                                 {/* Events */}
-                                <div className="relative ml-8">
-                                    <div className="absolute left-0 top-0 bottom-0 w-px bg-[#f2b652]/30"/>
-                                    <div className="space-y-4 pl-8">
+                                <div className="relative md:ml-8">
+                                    <div className="hidden md:block absolute left-0 top-0 bottom-0 w-px bg-[#f2b652]/30"/>
+                                    <div className="space-y-4 md:pl-8">
                                         {day.events.map((event, i) => {
                                             const config = typeConfig[event.type]
                                             const Icon = config.icon
@@ -70,13 +70,13 @@ export function Schedule() {
                                                 <div
                                                     key={i}
                                                     className={cn(
-                                                        "relative bg-white rounded-lg border-l-4 p-5 shadow-sm hover:shadow-md transition-all",
+                                                        "relative bg-white rounded-lg border-l-4 p-4 sm:p-5 shadow-sm hover:shadow-md transition-all",
                                                         config.border
                                                     )}
                                                 >
                                                     <div
-                                                        className="absolute -left-8.25 top-5 w-4 h-4 rounded-full bg-[#f2b652] border-2 border-white"/>
-                                                    <div className="grid grid-cols-[140px_1fr] gap-4 sm:gap-6 items-start">
+                                                        className="hidden md:block absolute -left-[2.125rem] top-5 w-4 h-4 rounded-full bg-[#f2b652] border-2 border-white"/>
+                                                    <div className="grid grid-cols-1 md:grid-cols-[140px_1fr] gap-4 sm:gap-6 items-start">
                                                         <div className="flex justify-start">
                                                             <div
                                                                 className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold border ${config.bg} ${config.text} ${config.border}`}
@@ -92,7 +92,9 @@ export function Schedule() {
                                                                 <span
                                                                     className="text-gray-400 text-xs font-mono">{event.time}</span>
                                                             </div>
-                                                            <h3 className="text-[#2b174f] font-bold text-base mb-1">{event.title}</h3>
+                                                            <h3 className="text-[#2b174f] font-bold text-base mb-1 leading-snug break-words">
+                                                                {event.title}
+                                                            </h3>
                                                             <p className="text-gray-500 text-sm leading-relaxed">{event.description}</p>
                                                         </div>
                                                     </div>
