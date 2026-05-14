@@ -32,31 +32,6 @@ export function Registration() {
                 </div>
             </section>
 
-            {/* Register Button Prominent */}
-            <section className="bg-[#f2b652] py-10 border-b border-[#f2b652]/20">
-                <div className="max-w-3xl mx-auto px-4 text-center">
-                    <h2 className="text-2xl font-bold text-[#2b174f] mb-2">Ready to Register?</h2>
-                    <p className="text-[#2b174f]/70 mb-6">Click below to access the official registration form.</p>
-
-                    <Button
-                        size="lg"
-                        className="bg-[#2b174f] text-white hover:bg-[#2b174f]/90 font-semibold tracking-widest uppercase px-12 py-6 text-base shadow-lg"
-                        asChild
-                    >
-                        <a
-                            href="https://registration_link_placeholder.example.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <ExternalLink className="size-5 mr-2" />
-                            Open Registration Form
-                        </a>
-                    </Button>
-
-                    <p className="text-[#2b174f]/50 text-sm mt-3">Opens in a new tab</p>
-                </div>
-            </section>
-
             {/* Pricing */}
             <section className="py-20 bg-white">
                 <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -150,7 +125,31 @@ export function Registration() {
                 </div>
             </section>
 
-            {/* Important Notes */}
+            {/* Register Button Prominent */}
+            <section className="bg-[#f2b652] py-10 border-b border-[#f2b652]/20">
+                <div className="max-w-3xl mx-auto px-4 text-center">
+                    <h2 className="text-2xl font-bold text-[#2b174f] mb-2">Ready to Register?</h2>
+                    <p className="text-[#2b174f]/70 mb-6">Click below to access the official registration form.</p>
+
+                    <Button
+                        size="lg"
+                        className="bg-[#2b174f] text-white hover:bg-[#2b174f]/90 font-semibold tracking-widest uppercase px-12 py-6 text-base shadow-lg"
+                        asChild
+                    >
+                        <a
+                            href="https://registration_link_placeholder.example.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <ExternalLink className="size-5 mr-2" />
+                            Open Registration Form
+                        </a>
+                    </Button>
+
+                    <p className="text-[#2b174f]/50 text-sm mt-3">Opens in a new tab</p>
+                </div>
+            </section>
+
             {/* Important Notes */}
             <section className="py-16 bg-[#2b174f]">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
