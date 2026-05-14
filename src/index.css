@@ -1,0 +1,142 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+    --radius-sm: calc(var(--radius) - 4px);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) + 4px);
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-destructive: var(--destructive);
+    --color-destructive-foreground: var(--destructive-foreground);
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+    --color-chart-1: var(--chart-1);
+    --color-chart-2: var(--chart-2);
+    --color-chart-3: var(--chart-3);
+    --color-chart-4: var(--chart-4);
+    --color-chart-5: var(--chart-5);
+    --color-sidebar: var(--sidebar);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-ring: var(--sidebar-ring);
+    --color-ccjmun-primary: var(--ccjmun-primary);
+    --color-ccjmun-secondary: var(--ccjmun-secondary);
+}
+
+:root {
+    --radius: 0.5rem;
+
+    /* CCJMUN Brand Colors */
+    --ccjmun-primary: #2b174f;
+    --ccjmun-secondary: #f2b652;
+
+    /* Map to shadcn tokens */
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.13 0.05 293);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.13 0.05 293);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.13 0.05 293);
+    --primary: oklch(0.22 0.1 293);
+    --primary-foreground: oklch(0.985 0 0);
+    --secondary: oklch(0.8 0.13 65);
+    --secondary-foreground: oklch(0.13 0.05 293);
+    --muted: oklch(0.97 0.01 293);
+    --muted-foreground: oklch(0.45 0.05 293);
+    --accent: oklch(0.8 0.13 65);
+    --accent-foreground: oklch(0.13 0.05 293);
+    --destructive: oklch(0.577 0.245 27.325);
+    --destructive-foreground: oklch(0.985 0 0);
+    --border: oklch(0.88 0.02 293);
+    --input: oklch(0.88 0.02 293);
+    --ring: oklch(0.22 0.1 293);
+    --chart-1: oklch(0.646 0.222 41.116);
+    --chart-2: oklch(0.6 0.118 184.704);
+    --chart-3: oklch(0.398 0.07 227.392);
+    --chart-4: oklch(0.828 0.189 84.429);
+    --chart-5: oklch(0.769 0.188 70.08);
+    --sidebar: oklch(0.22 0.1 293);
+    --sidebar-foreground: oklch(0.985 0 0);
+    --sidebar-primary: oklch(0.8 0.13 65);
+    --sidebar-primary-foreground: oklch(0.13 0.05 293);
+    --sidebar-accent: oklch(0.3 0.1 293);
+    --sidebar-accent-foreground: oklch(0.985 0 0);
+    --sidebar-border: oklch(0.3 0.08 293);
+    --sidebar-ring: oklch(0.5 0.08 293);
+
+    --font-didot: "Didot", "Bodoni MT", "Playfair Display", "GFS Didot", "Libre Baskerville", serif;
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+        font-family: "Didot", "Bodoni MT", "Playfair Display", "GFS Didot", "Libre Baskerville", serif;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: "Didot", "Bodoni MT", "Playfair Display", "GFS Didot", "Libre Baskerville", serif;
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
+}
+
+.text-gold-shimmer {
+    background: linear-gradient(90deg, #f2b652 0%, #ffd700 40%, #f2b652 60%, #c8860a 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 4s linear infinite;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.7s ease-out forwards;
+}
+
+.divider-gold {
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #f2b652, transparent);
+}
