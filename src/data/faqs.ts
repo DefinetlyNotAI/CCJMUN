@@ -1,8 +1,4 @@
-export interface FAQ {
-    question: string
-    answer: string
-    category: string
-}
+import type {FAQ} from "@/types";
 
 export const faqs: FAQ[] = [
     {

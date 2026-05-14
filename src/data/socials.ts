@@ -1,13 +1,5 @@
-import {type ComponentType} from 'react'
 import {InstagramIcon} from "../components/ui/InstagramIcon";
-
-export interface SocialLink {
-    id: string
-    name: string
-    url: string
-    icon: ComponentType<{ className?: string }>
-    ariaLabel: string
-}
+import type {SocialLink} from "@/types";
 
 export const socialLinks: SocialLink[] = [
     {

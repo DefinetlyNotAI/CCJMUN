@@ -1,35 +1,4 @@
-export interface TeamMember {
-    id: string
-    name: string
-    role: Role
-    bio: string
-    imageUrl?: string
-}
-
-export type SGRole = "Secretary General"
-export type DSGRole = "Deputy Secretary General"
-
-export type CoSRole = "Chief of Staff"
-
-export type DepartmentRole = "Head" | "Lead" | "Member"
-
-export type Role =
-    | SGRole
-    | DSGRole
-    | CoSRole
-    | DepartmentRole
-
-export type Department =
-    | "SG"
-    | "DSG"
-    | "Chief of Staff"
-    | "IT"
-    | "Delegate Affairs"
-    | "Crisis"
-    | "Public Relations"
-    | "Academics"
-
-type DepartmentMembers = Record<string, TeamMember>
+import type {Department, DepartmentMembers} from "@/types";
 
 export const teamMembers: Record<Department, DepartmentMembers> = {
     SG: {

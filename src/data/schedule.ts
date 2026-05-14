@@ -1,17 +1,5 @@
 import {ClipboardList, Coffee, PartyPopper, Presentation, Trophy} from "lucide-react"
-
-interface ScheduleEvent {
-    time: string
-    title: string
-    description: string
-    type: "ceremony" | "committee" | "social" | "break" | "registration"
-}
-
-export interface ScheduleDay {
-    day: string
-    date: string
-    events: ScheduleEvent[]
-}
+import type {EventTypes, ScheduleDay, TypeConfigItem} from "@/types";
 
 export const schedule: ScheduleDay[] = [
     {
@@ -119,7 +107,7 @@ export const schedule: ScheduleDay[] = [
     },
 ];
 
-export const typeConfig = {
+export const typeConfig: Record<EventTypes, TypeConfigItem> = {
     ceremony: {
         label: "Ceremony",
         bg: "bg-[#f2b652]/20",
@@ -141,7 +129,13 @@ export const typeConfig = {
         border: "border-purple-300",
         icon: PartyPopper
     },
-    break: {label: "Break", bg: "bg-gray-50", text: "text-gray-600", border: "border-gray-300", icon: Coffee},
+    break: {
+        label: "Break",
+        bg: "bg-gray-50",
+        text: "text-gray-600",
+        border: "border-gray-300",
+        icon: Coffee
+    },
     registration: {
         label: "Registration",
         bg: "bg-blue-50",

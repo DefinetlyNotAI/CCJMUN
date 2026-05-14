@@ -1,20 +1,15 @@
 import {useState} from "react"
 import {Link} from "react-router-dom"
-import {committees, type DifficultyLevel} from "@/data/committees"
+import {committees, difficultyColors} from "@/data/committees"
 import {Button} from "@/components/ui/button"
 import {Card, CardContent, CardHeader} from "@/components/ui/card"
 import {ChevronRight, Download, UserPlus, Users} from "lucide-react"
 import {CommitteeFilter} from "@/components/CommitteeFilter"
+import type {DifficultyLevel, SearchFilters} from "@/types";
 
-const difficultyColors: Record<DifficultyLevel, string> = {
-    Beginner: "bg-green-100 text-green-800 border-green-200",
-    Intermediate: "bg-blue-100 text-blue-800 border-blue-200",
-    Advanced: "bg-orange-100 text-orange-800 border-orange-200",
-    Expert: "bg-red-100 text-red-800 border-red-200",
-}
 
 export function Committees() {
-    const [filters, setFilters] = useState<{ search: string; difficulty: DifficultyLevel | null }>({
+    const [filters, setFilters] = useState<SearchFilters>({
         search: '',
         difficulty: null,
     })

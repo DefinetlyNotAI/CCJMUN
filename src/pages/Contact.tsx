@@ -7,14 +7,15 @@ import {Label} from "@/components/ui/label"
 import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select"
 import {CircleCheck as CheckCircle, Mail, MapPin, Send} from "lucide-react"
 import {socialLinks} from "../data/socials"
+import type {ContactFormData, InquiryType} from "@/types";
 
 export function Contact() {
     const [submitted, setSubmitted] = useState(false)
-    const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState<ContactFormData>({
         firstName: "",
         lastName: "",
         email: "",
-        inquiryType: "",
+        inquiryType: "Other",
         school: "",
         subject: "",
         message: "",
@@ -29,7 +30,7 @@ export function Contact() {
         })
     }
 
-    const handleInquiryChange = (value: string) => {
+    const handleInquiryChange = (value: InquiryType) => {
         setFormData({
             ...formData,
             inquiryType: value,

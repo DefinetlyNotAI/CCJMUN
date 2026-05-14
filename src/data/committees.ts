@@ -1,16 +1,4 @@
-export type DifficultyLevel = "Beginner" | "Intermediate" | "Advanced" | "Expert"
-
-export interface Committee {
-    id: string
-    name: string
-    abbreviation: string
-    topic1: string
-    topic2?: string
-    description: string
-    difficulty: DifficultyLevel
-    size: string
-    backgroundGuideUrl?: string
-}
+import type {Committee, DifficultyLevel} from "@/types";
 
 export const committees: Committee[] = [
     {
@@ -108,3 +96,10 @@ export const committees: Committee[] = [
         backgroundGuideUrl: "#",
     },
 ]
+
+export const difficultyColors: Record<DifficultyLevel, string> = {
+    Beginner: "bg-green-100 text-green-800 border-green-200",
+    Intermediate: "bg-blue-100 text-blue-800 border-blue-200",
+    Advanced: "bg-orange-100 text-orange-800 border-orange-200",
+    Expert: "bg-red-100 text-red-800 border-red-200",
+}

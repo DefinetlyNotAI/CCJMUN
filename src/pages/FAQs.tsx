@@ -6,12 +6,13 @@ import {Input} from "@/components/ui/input"
 import {Search} from "lucide-react"
 import {Link} from "react-router-dom"
 import {Button} from "@/components/ui/button"
+import type {Category, FAQ, FAQGroup} from "@/types";
 
 export function FAQs() {
     const [search, setSearch] = useState("")
-    const [activeCategory, setActiveCategory] = useState("All")
+    const [activeCategory, setActiveCategory] = useState<Category>("All")
 
-    const categories = ["All", ...Array.from(new Set(faqs.map((f) => f.category)))]
+    const categories: Category[] = ["All", ...Array.from(new Set(faqs.map((f: FAQ) => f.category)))]
 
     const filtered = faqs.filter((faq) => {
         const matchesSearch =
@@ -22,9 +23,9 @@ export function FAQs() {
         return matchesSearch && matchesCategory
     })
 
-    const grouped = categories
+    const grouped: FAQGroup[] = categories
         .filter((cat) => cat !== "All")
-        .map((cat) => ({
+        .map((cat): FAQGroup => ({
             category: cat,
             items: filtered.filter((f) => f.category === cat),
         }))
