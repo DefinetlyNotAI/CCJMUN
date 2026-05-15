@@ -5,7 +5,7 @@ import {Button} from "@/components/ui/button"
 import {Card, CardContent, CardHeader} from "@/components/ui/card"
 import {ChevronRight, Download, UserPlus, Users} from "lucide-react"
 import {CommitteeFilter} from "@/components/CommitteeFilter"
-import type {DifficultyLevel, TCommitteeFilter} from "@/types";
+import type {TCommitteeFilter} from "@/types";
 
 
 export function Committees() {
@@ -46,7 +46,7 @@ export function Committees() {
             </section>
 
             {/* Overview */}
-            <section className="py-16 bg-white border-b border-gray-100">
+            <section className="pt-16 pb-1 bg-white border-b border-gray-100">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="max-w-3xl mb-8">
                         <p className="text-[#f2b652] text-sm tracking-widest uppercase font-semibold mb-3">
@@ -59,25 +59,11 @@ export function Committees() {
                             Use filters to find the committee that matches your experience level and interests.
                         </p>
                     </div>
-
-                    <div className="flex flex-wrap items-center gap-3">
-                        <span className="text-gray-500 text-sm tracking-wider uppercase font-medium mr-2">
-                            Difficulty:
-                        </span>
-                        {(["Beginner", "Intermediate", "Advanced", "Expert"] as DifficultyLevel[]).map((level) => (
-                            <span
-                                key={level}
-                                className={`text-xs font-semibold px-3 py-1 rounded-full border ${difficultyColors[level]}`}
-                            >
-                                {level}
-                            </span>
-                        ))}
-                    </div>
                 </div>
             </section>
 
             {/* Committees Grid */}
-            <section className="py-16 bg-gray-50">
+            <section className="py-4 bg-gray-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-4 sm:p-6 mb-10">
                         <CommitteeFilter onFilterChange={setFilters}/>
