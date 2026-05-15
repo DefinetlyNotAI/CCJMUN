@@ -143,6 +143,15 @@ export interface BackgroundGuide {
 
 export type DifficultyLevel = "Beginner" | "Intermediate" | "Advanced" | "Expert"
 
+type ChairRole = "Chair" | "Vice Chair"
+
+interface Chairs {
+    name: string
+    role: ChairRole
+    intro: string
+    imageUrl?: string
+}
+
 export interface Committee {
     id: string
     name: string
@@ -153,12 +162,7 @@ export interface Committee {
     difficulty: DifficultyLevel
     size: string
     backgroundGuideUrl?: string
-    chairs?: {
-        name: string
-        role: string
-        intro: string
-        imageUrl?: string
-    }[]
+    chairs?: Chairs[]
 }
 
 export interface TCommitteeFilter {

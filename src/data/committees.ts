@@ -5,24 +5,24 @@ export const committees: Committee[] = [
         id: "unsc",
         name: "United Nations Security Council",
         abbreviation: "UNSC",
-        topic1: "Addressing the Escalation of Conflicts in the Horn of Africa",
-        topic2: "Reforming the Veto Power Mechanism in an Era of Multipolar Tensions",
+        topic1: "TOPIC 1 PLACEHOLDER",
+        topic2: "TOPIC 2 PLACEHOLDER",
         description:
             "The UNSC holds primary responsibility for international peace and security. Delegates will grapple with real-time geopolitical crises and the structural tensions within the Council itself.",
         difficulty: "Expert",
-        size: "15 delegates",
+        size: "~MAX NUMBER delegates",
         backgroundGuideUrl: undefined,
         chairs: [
             {
-                name: "Alexandra Chen",
+                name: "CHAIR NAME PLACEHOLDER",
                 role: "Chair",
-                intro: "Alexandra brings 8 years of experience in diplomatic negotiations and international security policy. She has led multiple UNSC simulations and is passionate about fostering rigorous debate.",
+                intro: "CHAIR BIO PLACEHOLDER",
                 imageUrl: undefined
             },
             {
-                name: "Dr. James Okonkwo",
+                name: "CHAIR NAME PLACEHOLDER",
                 role: "Vice Chair",
-                intro: "An expert in conflict resolution, Dr. Okonkwo specializes in African geopolitics and has published extensively on multilateral peacekeeping mechanisms.",
+                intro: "CHAIR BIO PLACEHOLDER",
                 imageUrl: undefined
             }
         ]
@@ -31,18 +31,18 @@ export const committees: Committee[] = [
         id: "unhrc",
         name: "United Nations Human Rights Council",
         abbreviation: "UNHRC",
-        topic1: "Digital Surveillance and the Right to Privacy in Authoritarian States",
-        topic2: "Protecting Stateless Populations: Pathways to Legal Recognition",
+        topic1: "TOPIC 1 PLACEHOLDER",
+        topic2: "TOPIC 2 PLACEHOLDER",
         description:
             "The UNHRC addresses the most pressing human rights violations globally. Delegates will draft resolutions that balance state sovereignty with universal human dignity.",
         difficulty: "Intermediate",
-        size: "47 delegates",
+        size: "~MAX NUMBER delegates",
         backgroundGuideUrl: undefined,
         chairs: [
             {
-                name: "Maria Santos",
+                name: "CHAIR NAME PLACEHOLDER",
                 role: "Chair",
-                intro: "Maria is a human rights advocate with a background in international law. She has served on several UN committees and excels at facilitating consensus-building.",
+                intro: "CHAIR BIO PLACEHOLDER",
                 imageUrl: undefined
             }
         ]
@@ -51,18 +51,18 @@ export const committees: Committee[] = [
         id: "who",
         name: "World Health Organization",
         abbreviation: "WHO",
-        topic1: "Pandemic Preparedness: Strengthening Global Health Architecture Post-COVID-19",
-        topic2: "Addressing Mental Health Crises in Conflict Zones",
+        topic1: "TOPIC 1 PLACEHOLDER",
+        topic2: "TOPIC 2 PLACEHOLDER",
         description:
             "The WHO committee tackles global health challenges requiring coordinated international responses. Delegates will develop comprehensive public health frameworks.",
         difficulty: "Intermediate",
-        size: "35 delegates",
+        size: "~MAX NUMBER delegates",
         backgroundGuideUrl: undefined,
         chairs: [
             {
-                name: "Dr. Priya Kapoor",
+                name: "CHAIR NAME PLACEHOLDER",
                 role: "Chair",
-                intro: "A public health expert with 12 years of field experience, Dr. Kapoor focuses on global health equity and sustainable development.",
+                intro: "CHAIR BIO PLACEHOLDER",
                 imageUrl: undefined
             }
         ]
@@ -71,18 +71,18 @@ export const committees: Committee[] = [
         id: "ecosoc",
         name: "Economic and Social Council",
         abbreviation: "ECOSOC",
-        topic1: "Debt Relief Mechanisms for Developing Nations in the Post-Pandemic Economy",
-        topic2: "Sustainable Urbanization and Inclusive Infrastructure Development",
+        topic1: "TOPIC 1 PLACEHOLDER",
+        topic2: "TOPIC 2 PLACEHOLDER",
         description:
             "ECOSOC serves as the principal body for coordination on economic, social, and environmental issues. Delegates will craft policies bridging development gaps globally.",
         difficulty: "Intermediate",
-        size: "54 delegates",
+        size: "~MAX NUMBER delegates",
         backgroundGuideUrl: undefined,
         chairs: [
             {
-                name: "Ahmed Hassan",
+                name: "CHAIR NAME PLACEHOLDER",
                 role: "Chair",
-                intro: "Ahmed specializes in development economics and sustainable development goals. He brings practical experience from NGO work in emerging markets.",
+                intro: "CHAIR BIO PLACEHOLDER",
                 imageUrl: undefined
             }
         ]
@@ -91,17 +91,17 @@ export const committees: Committee[] = [
         id: "icc",
         name: "International Criminal Court",
         abbreviation: "ICC",
-        topic1: "The Trial of Former State Leaders for Crimes Against Humanity",
+        topic1: "TOPIC 1 PLACEHOLDER",
         description:
             "A specialized committee simulating proceedings of the ICC. Delegates take on roles of prosecution, defense, and judges in a high-stakes international legal drama.",
         difficulty: "Advanced",
-        size: "20 delegates",
+        size: "~MAX NUMBER delegates",
         backgroundGuideUrl: undefined,
         chairs: [
             {
-                name: "Justice Rebecca Moore",
-                role: "Chief Judge",
-                intro: "Justice Moore is a seasoned international law expert with experience in prosecutorial and judicial roles. She ensures procedural excellence and fair representation.",
+                name: "CHAIR NAME PLACEHOLDER",
+                role: "Chair",
+                intro: "CHAIR BIO PLACEHOLDER",
                 imageUrl: undefined
             }
         ]
@@ -110,18 +110,18 @@ export const committees: Committee[] = [
         id: "disec",
         name: "Disarmament and International Security Committee",
         abbreviation: "DISEC",
-        topic1: "Regulation of Autonomous Weapons Systems and Lethal AI in Warfare",
-        topic2: "Nuclear Non-Proliferation in the Context of Emerging Geopolitical Alliances",
+        topic1: "TOPIC 1 PLACEHOLDER",
+        topic2: "TOPIC 2 PLACEHOLDER",
         description:
             "DISEC addresses disarmament challenges in a rapidly evolving technological landscape. Delegates will navigate the complex interplay of national security and global stability.",
         difficulty: "Advanced",
-        size: "60 delegates",
+        size: "~MAX NUMBER delegates",
         backgroundGuideUrl: undefined,
         chairs: [
             {
-                name: "Dr. Mikhail Petrov",
+                name: "CHAIR NAME PLACEHOLDER",
                 role: "Chair",
-                intro: "Dr. Petrov specializes in strategic weapons policy and technological governance. His research informs international disarmament frameworks.",
+                intro: "CHAIR BIO PLACEHOLDER",
                 imageUrl: undefined
             }
         ]
@@ -130,17 +130,17 @@ export const committees: Committee[] = [
         id: "ad-hoc",
         name: "Ad Hoc Crisis Committee",
         abbreviation: "AD HOC",
-        topic1: "Classified - Crisis revealed at conference",
+        topic1: "TOPIC 1 PLACEHOLDER",
         description:
             "The Ad Hoc Crisis Committee responds to rapidly evolving global emergencies in real time. Delegates must think on their feet, adapt policy, and exercise decisive leadership under pressure.",
         difficulty: "Expert",
-        size: "25 delegates",
+        size: "~MAX NUMBER delegates",
         backgroundGuideUrl: "CONFIDENTIAL",
         chairs: [
             {
-                name: "Dr. Sophia Zhang",
-                role: "Crisis Director",
-                intro: "Dr. Zhang designs and moderates dynamic crisis scenarios. Her unpredictable briefings keep delegates sharp and engaged throughout the simulation.",
+                name: "CHAIR NAME PLACEHOLDER",
+                role: "Chair",
+                intro: "CHAIR BIO PLACEHOLDER",
                 imageUrl: undefined
             }
         ]
@@ -149,18 +149,18 @@ export const committees: Committee[] = [
         id: "ga3",
         name: "General Assembly Third Committee",
         abbreviation: "GA3",
-        topic1: "Combating Modern Slavery and Human Trafficking Along Migration Routes",
-        topic2: "Indigenous Rights and Land Sovereignty in the Context of Climate Change",
+        topic1: "TOPIC 1 PLACEHOLDER",
+        topic2: "TOPIC 2 PLACEHOLDER",
         description:
             "GA3 focuses on social, humanitarian, and cultural issues. An ideal committee for delegates developing their resolution-drafting and multilateral negotiation skills.",
         difficulty: "Beginner",
-        size: "100 delegates",
+        size: "~MAX NUMBER delegates",
         backgroundGuideUrl: undefined,
         chairs: [
             {
-                name: "Patricia Nakamura",
+                name: "CHAIR NAME PLACEHOLDER",
                 role: "Chair",
-                intro: "Patricia brings warmth and expertise to complex social issues. Her mentorship style makes GA3 an excellent entry point for new delegates.",
+                intro: "CHAIR BIO PLACEHOLDER",
                 imageUrl: undefined
             }
         ]
