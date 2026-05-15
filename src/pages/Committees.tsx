@@ -88,11 +88,11 @@ export function Committees() {
                             {filteredCommittees.map((committee) => (
                                 <Card
                                     key={committee.id}
-                                    className="overflow-hidden border border-gray-100 bg-white group flex h-full min-h-[33rem] flex-col shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:border-[#f2b652]/40"
+                                    className="overflow-hidden border border-gray-100 bg-white group flex h-full min-h-132 flex-col shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:border-[#f2b652]/40"
                                 >
                                     <div className="h-2 bg-[#2b174f] transition-colors group-hover:bg-[#f2b652]"/>
 
-                                    <CardHeader className="pb-4 pt-6 px-6 flex-shrink-0">
+                                    <CardHeader className="pb-4 pt-6 px-6 shrink-0">
                                         <div className="flex items-start justify-between gap-4 flex-wrap">
                                             <div className="flex-1 min-w-0">
                                                 <div className="flex items-center gap-3 mb-3 flex-wrap">
@@ -116,8 +116,8 @@ export function Committees() {
                                         </div>
                                     </CardHeader>
 
-                                    <CardContent className="px-6 pb-6 flex flex-col flex-grow">
-                                        <p className="text-gray-600 text-sm leading-relaxed mb-5 flex-grow line-clamp-4">
+                                    <CardContent className="px-6 pb-6 flex flex-col grow">
+                                        <p className="text-gray-600 text-sm leading-relaxed mb-5 grow line-clamp-4">
                                             {committee.description}
                                         </p>
 
@@ -158,8 +158,7 @@ export function Committees() {
                                                     asChild
                                                     variant="outline"
                                                     size="sm"
-                                                    className="w-full sm:w-auto border-[#2b174f] text-[#2b174f] hover:bg-[#2b174f] hover:text-white tracking-wider text-xs font-semibold uppercase"
-                                                >
+                                                    className="w-full sm:w-auto border-[#2b174f] text-[#2b174f] hover:bg-[#2b174f]! hover:text-white! transition-colors duration-200 tracking-wider text-xs font-semibold uppercase"                                                >
                                                     <a href={committee.backgroundGuideUrl} download>
                                                         <Download className="size-3.5 mr-1.5"/>
                                                         Background Guide
@@ -181,8 +180,7 @@ export function Committees() {
                                                 asChild
                                                 size="sm"
                                                 variant="outline"
-                                                className="w-full sm:w-auto border-[#2b174f] text-[#2b174f] hover:bg-[#2b174f] hover:text-white tracking-wider text-xs font-semibold uppercase"
-                                            >
+                                                className="w-full sm:w-auto border-[#2b174f] text-[#2b174f] hover:bg-[#2b174f]! hover:text-white! transition-colors duration-200 tracking-wider text-xs font-semibold uppercase"                                            >
                                                 <Link to={`/committees/${committee.id}`}>
                                                     <ChevronRight className="size-3.5 mr-1.5"/>
                                                     View Details
