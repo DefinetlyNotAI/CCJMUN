@@ -46,15 +46,17 @@ export function Committees() {
             </section>
 
             {/* Overview */}
-            <section className="pt-16 pb-1 bg-white border-b border-gray-100">
+            <section className="pt-16 pb-0 bg-white border-b border-gray-100">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="max-w-3xl mb-8">
                         <p className="text-[#f2b652] text-sm tracking-widest uppercase font-semibold mb-3">
                             Committee Directory
                         </p>
+
                         <h2 className="text-3xl md:text-4xl font-bold text-[#2b174f] mb-4">
                             Explore the conference lineup
                         </h2>
+
                         <p className="text-gray-600 leading-relaxed text-lg">
                             Use filters to find the committee that matches your experience level and interests.
                         </p>
@@ -62,12 +64,17 @@ export function Committees() {
                 </div>
             </section>
 
-            {/* Committees Grid */}
-            <section className="py-4 bg-gray-50">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-4 sm:p-6 mb-10">
+            {/* Sticky Filter */}
+            <section className="relative bg-gray-50">
+                <div className="bg-white border-b border-gray-100 py-8 sticky top-16 z-30 shadow-sm">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <CommitteeFilter onFilterChange={setFilters}/>
                     </div>
+                </div>
+
+                {/* Committees Grid */}
+                <div className="py-10">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                     {filteredCommittees.length > 0 ? (
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 auto-rows-fr">
@@ -193,6 +200,7 @@ export function Committees() {
                             <p className="text-gray-600 text-lg">No committees match your search criteria.</p>
                         </div>
                     )}
+                    </div>
                 </div>
             </section>
 
