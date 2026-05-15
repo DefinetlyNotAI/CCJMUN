@@ -49,8 +49,9 @@ export function Team() {
                                 index === 0 ? "" : "mt-8"
                             }`}
                         >
-                            <div className="w-36 h-36 rounded-full bg-[#f2b652]/20 border-4 border-[#f2b652] flex items-center justify-center shrink-0">
-                                <User className="size-16 text-[#f2b652]" />
+                            <div
+                                className="w-36 h-36 rounded-full bg-[#f2b652]/20 border-4 border-[#f2b652] flex items-center justify-center shrink-0">
+                                <User className="size-16 text-[#f2b652]"/>
                             </div>
 
                             <div>
@@ -97,13 +98,15 @@ export function Team() {
                                                 key={member.id}
                                                 className="w-full sm:w-[320px] overflow-hidden border border-gray-100 hover:border-[#f2b652]/40 hover:shadow-lg transition-all duration-300"
                                             >
-                                                <div className="h-40 bg-[#2b174f] flex items-center justify-center relative overflow-hidden">
+                                                <div
+                                                    className="h-40 bg-[#2b174f] flex items-center justify-center relative overflow-hidden">
                                                     <div
                                                         className="absolute inset-0 opacity-10 bg-cover bg-center"
-                                                        style={{ backgroundImage: "url('/bg.jpeg')" }}
+                                                        style={{backgroundImage: "url('/bg.jpeg')"}}
                                                     />
-                                                    <div className="relative w-20 h-20 rounded-full bg-[#f2b652]/20 border-3 border-[#f2b652] flex items-center justify-center">
-                                                        <User className="size-10 text-[#f2b652]" />
+                                                    <div
+                                                        className="relative w-20 h-20 rounded-full bg-[#f2b652]/20 border-3 border-[#f2b652] flex items-center justify-center">
+                                                        <User className="size-10 text-[#f2b652]"/>
                                                     </div>
                                                 </div>
 

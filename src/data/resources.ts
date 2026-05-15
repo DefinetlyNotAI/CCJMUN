@@ -2,14 +2,14 @@ import {BookOpen, FileText, Gavel, Globe} from "lucide-react"
 import type {BackgroundGuide, OnlineResource, StudyMaterial} from "@/types";
 
 export const backgroundGuides: BackgroundGuide[] = [
-    { name: "UNSC Background Guide", committee: "UNSC", size: "? MB", status: "available", path: undefined },
-    { name: "UNHRC Background Guide", committee: "UNHRC", size: "? MB", status: "available", path: undefined },
-    { name: "WHO Background Guide", committee: "WHO", size: "? MB", status: "available", path: undefined },
-    { name: "ECOSOC Background Guide", committee: "ECOSOC", size: "? MB", status: "available", path: undefined },
-    { name: "ICC Background Guide", committee: "ICC", size: "? MB", status: "available", path: undefined },
-    { name: "DISEC Background Guide", committee: "DISEC", size: "? MB", status: "available", path: undefined },
-    { name: "GA3 Background Guide", committee: "GA3", size: "? MB", status: "available", path: undefined },
-    { name: "Ad Hoc Crisis Guide", committee: "AD HOC", size: "n/a", status: "classified", path: undefined },
+    {name: "UNSC Background Guide", committee: "UNSC", size: "? MB", status: "available", path: undefined},
+    {name: "UNHRC Background Guide", committee: "UNHRC", size: "? MB", status: "available", path: undefined},
+    {name: "WHO Background Guide", committee: "WHO", size: "? MB", status: "available", path: undefined},
+    {name: "ECOSOC Background Guide", committee: "ECOSOC", size: "? MB", status: "available", path: undefined},
+    {name: "ICC Background Guide", committee: "ICC", size: "? MB", status: "available", path: undefined},
+    {name: "DISEC Background Guide", committee: "DISEC", size: "? MB", status: "available", path: undefined},
+    {name: "GA3 Background Guide", committee: "GA3", size: "? MB", status: "available", path: undefined},
+    {name: "Ad Hoc Crisis Guide", committee: "AD HOC", size: "n/a", status: "classified", path: undefined},
 ];
 
 export const studyMaterials: StudyMaterial[] = [

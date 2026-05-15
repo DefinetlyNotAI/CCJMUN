@@ -1,14 +1,9 @@
 import {useState} from "react"
 import {faqs} from "@/data/faqs"
-import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger
-} from "@/components/ui/accordion"
+import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/components/ui/accordion"
 import {Badge} from "@/components/ui/badge"
 import {Input} from "@/components/ui/input"
-import {Search, ChevronDown} from "lucide-react"
+import {ChevronDown, Search} from "lucide-react"
 import {Link} from "react-router-dom"
 import {Button} from "@/components/ui/button"
 import type {Category, FAQ, FAQGroup} from "@/types";
@@ -95,7 +90,7 @@ export function FAQs() {
                         {!collapsed && (
                             <div className="mt-4 flex flex-col gap-4">
                                 <div className="relative w-full">
-                                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-gray-400" />
+                                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-gray-400"/>
 
                                     <Input
                                         placeholder="Search questions..."
@@ -183,11 +178,13 @@ export function FAQs() {
                                                     value={`${category}-${i}`}
                                                     className="bg-white border border-gray-100 rounded-lg overflow-hidden px-0 data-[state=open]:border-[#f2b652]/40 data-[state=open]:shadow-sm transition-all"
                                                 >
-                                                    <AccordionTrigger className="px-6 py-4 text-left text-[#2b174f] font-semibold text-sm hover:no-underline hover:text-[#2b174f] leading-snug">
+                                                    <AccordionTrigger
+                                                        className="px-6 py-4 text-left text-[#2b174f] font-semibold text-sm hover:no-underline hover:text-[#2b174f] leading-snug">
                                                         {faq.question}
                                                     </AccordionTrigger>
 
-                                                    <AccordionContent className="px-6 pb-5 text-gray-500 text-sm leading-relaxed">
+                                                    <AccordionContent
+                                                        className="px-6 pb-5 text-gray-500 text-sm leading-relaxed">
                                                         {faq.answer}
                                                     </AccordionContent>
                                                 </AccordionItem>
@@ -214,7 +211,8 @@ export function FAQs() {
                     </p>
 
                     <Link to="/contact">
-                        <Button className="bg-[#f2b652] text-[#2b174f] hover:bg-[#f2b652]/90 font-semibold tracking-wider uppercase px-8">
+                        <Button
+                            className="bg-[#f2b652] text-[#2b174f] hover:bg-[#f2b652]/90 font-semibold tracking-wider uppercase px-8">
                             Contact Us
                         </Button>
                     </Link>

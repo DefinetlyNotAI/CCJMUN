@@ -39,7 +39,7 @@ export function CommitteeCarousel() {
                         key={committee.id}
                         className="h-full flex flex-col overflow-hidden border border-[#f2b652]/20 hover:border-[#f2b652]/60 hover:shadow-lg hover:shadow-[#f2b652]/10 transition-all duration-300 bg-white/5 backdrop-blur-sm group"
                     >
-                        <div className="h-1 bg-[#f2b652] group-hover:h-2 transition-all" />
+                        <div className="h-1 bg-[#f2b652] group-hover:h-2 transition-all"/>
 
                         <CardHeader className="pb-3">
                             <div className="flex items-start justify-between gap-2">
@@ -54,7 +54,7 @@ export function CommitteeCarousel() {
                                 </div>
 
                                 <div className="flex items-center gap-1 text-[#f2b652]/60 text-xs shrink-0">
-                                    <Users className="size-3.5" />
+                                    <Users className="size-3.5"/>
                                     <span>{committee.size}</span>
                                 </div>
                             </div>

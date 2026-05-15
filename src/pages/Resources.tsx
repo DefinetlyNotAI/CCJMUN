@@ -66,16 +66,17 @@ export function Resources() {
                                         asChild={!(guide.status === "classified") && !!guide.path}
                                     >
                                         {!(guide.status === "classified") && !!guide.path ? (
-                                            <a href={guide.path} download className="flex items-center justify-center gap-1.5">
-                                                <Download className="size-3.5" />
+                                            <a href={guide.path} download
+                                               className="flex items-center justify-center gap-1.5">
+                                                <Download className="size-3.5"/>
                                                 <span>Download</span>
                                             </a>
                                         ) : (
                                             <span className="flex items-center justify-center gap-1.5">
                                                 {guide.status === "classified" ? (
-                                                    <Lock className="size-3.5" />
+                                                    <Lock className="size-3.5"/>
                                                 ) : (
-                                                    <Download className="size-3.5" />
+                                                    <Download className="size-3.5"/>
                                                 )}
                                                 <span>
                                                     {guide.status === "classified"
@@ -102,14 +103,16 @@ export function Resources() {
                         <h2 className="text-3xl font-bold text-[#2b174f]">Guides & Handbooks</h2>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        {studyMaterials.map(({ icon: Icon, title, description, type, link }) => (
+                        {studyMaterials.map(({icon: Icon, title, description, type, link}) => (
                             <Card
                                 key={title}
                                 className="border border-gray-100 bg-white transition-all duration-200 ease-out group hover:-translate-y-1 hover:shadow-xl hover:border-[#f2b652]/60"
                             >
                                 <CardContent className="p-6 flex gap-5 items-start">
-                                    <div className="w-12 h-12 rounded-lg bg-[#2b174f] flex items-center justify-center shrink-0 group-hover:bg-[#f2b652] transition-colors">
-                                        <Icon className="size-6 text-white group-hover:text-[#2b174f] transition-colors" />
+                                    <div
+                                        className="w-12 h-12 rounded-lg bg-[#2b174f] flex items-center justify-center shrink-0 group-hover:bg-[#f2b652] transition-colors">
+                                        <Icon
+                                            className="size-6 text-white group-hover:text-[#2b174f] transition-colors"/>
                                     </div>
 
                                     <div className="flex-1">
@@ -136,7 +139,7 @@ export function Resources() {
                                                     rel="noopener noreferrer"
                                                     className="flex items-center"
                                                 >
-                                                    <Download className="size-3.5 mr-1.5" />
+                                                    <Download className="size-3.5 mr-1.5"/>
                                                     Download
                                                 </a>
                                             </Button>
@@ -148,7 +151,7 @@ export function Resources() {
                                                 className="w-full border-gray-200 text-gray-400 text-xs"
                                             >
                                                 <span className="flex items-center justify-center gap-1.5">
-                                                    <Download className="size-3.5" />
+                                                    <Download className="size-3.5"/>
                                                     <span>
                                                         "To be released"
                                                     </span>
@@ -173,7 +176,7 @@ export function Resources() {
                         <h2 className="text-3xl font-bold text-white">Research Starting Points</h2>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                        {onlineResources.map(({ title, desc, url }) => (
+                        {onlineResources.map(({title, desc, url}) => (
                             <a
                                 key={title}
                                 href={url}
@@ -188,11 +191,11 @@ export function Resources() {
                                         <h3 className="text-white font-semibold text-base group-hover:text-[#f2b652] transition-colors">
                                             {title}
                                         </h3>
-                                        <ExternalLink className="size-4 text-[#f2b652] shrink-0 mt-0.5" />
+                                        <ExternalLink className="size-4 text-[#f2b652] shrink-0 mt-0.5"/>
                                     </div>
                                     <p className="text-white/50 text-sm leading-relaxed">
                                         {desc.split("\n").map((line, i) => (
-                                            <span key={i}>{line}<br /></span>
+                                            <span key={i}>{line}<br/></span>
                                         ))}
                                     </p>
                                 </div>

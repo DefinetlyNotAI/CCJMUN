@@ -1,4 +1,5 @@
 import {BrowserRouter, Route, Routes, useLocation} from "react-router-dom"
+import * as React from "react"
 import {useEffect} from "react"
 import {Navbar} from "@/components/Navbar"
 import {Footer} from "@/components/Footer"
@@ -12,7 +13,6 @@ import {Registration} from "@/pages/Registration"
 import {Schedule} from "@/pages/Schedule"
 import {Contact} from "@/pages/Contact"
 import {FAQs} from "@/pages/FAQs"
-import * as React from "react";
 
 function ScrollToTop() {
     const location = useLocation()

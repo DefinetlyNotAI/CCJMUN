@@ -61,7 +61,8 @@ export function Schedule() {
 
                                 {/* Events */}
                                 <div className="relative md:ml-8">
-                                    <div className="hidden md:block absolute left-0 top-0 bottom-0 w-px bg-[#f2b652]/30"/>
+                                    <div
+                                        className="hidden md:block absolute left-0 top-0 bottom-0 w-px bg-[#f2b652]/30"/>
                                     <div className="space-y-4 md:pl-8">
                                         {day.events.map((event, i) => {
                                             const config = typeConfig[event.type]
@@ -76,12 +77,13 @@ export function Schedule() {
                                                 >
                                                     <div
                                                         className="hidden md:block absolute -left-[2.125rem] top-5 w-4 h-4 rounded-full bg-[#f2b652] border-2 border-white"/>
-                                                    <div className="grid grid-cols-1 md:grid-cols-[140px_1fr] gap-4 sm:gap-6 items-start">
+                                                    <div
+                                                        className="grid grid-cols-1 md:grid-cols-[140px_1fr] gap-4 sm:gap-6 items-start">
                                                         <div className="flex justify-start">
                                                             <div
                                                                 className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold border ${config.bg} ${config.text} ${config.border}`}
                                                             >
-                                                                <Icon className="size-3" />
+                                                                <Icon className="size-3"/>
                                                                 {config.label}
                                                             </div>
                                                         </div>

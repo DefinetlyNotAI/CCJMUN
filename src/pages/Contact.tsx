@@ -217,7 +217,7 @@ Representation: ${formData.school || "Self-Represented"}`
                                         <Label className="text-[#2b174f] text-sm font-medium">Inquiry Type</Label>
                                         <Select onValueChange={handleInquiryChange}>
                                             <SelectTrigger className="border-gray-200 focus:ring-[#2b174f]/30">
-                                                <SelectValue placeholder="Select inquiry type" />
+                                                <SelectValue placeholder="Select inquiry type"/>
                                             </SelectTrigger>
 
                                             <SelectContent>
@@ -244,7 +244,8 @@ Representation: ${formData.school || "Self-Represented"}`
                                     </div>
 
                                     <div className="space-y-1.5">
-                                        <Label htmlFor="subject" className="text-[#2b174f] text-sm font-medium">Email Subject</Label>
+                                        <Label htmlFor="subject" className="text-[#2b174f] text-sm font-medium">Email
+                                            Subject</Label>
                                         <Input
                                             id="subject"
                                             placeholder="What is the email for?"

@@ -1,5 +1,5 @@
-import type { LucideIcon } from "lucide-react"
-import type { ComponentType, ReactNode } from "react"
+import type {LucideIcon} from "lucide-react"
+import type {ComponentType, ReactNode} from "react"
 
 interface ClassNameProps {
     className?: string

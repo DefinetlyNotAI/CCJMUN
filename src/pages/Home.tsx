@@ -15,12 +15,12 @@ export function Home() {
                 {/* Background Image */}
                 <div
                     className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
-                    style={{ backgroundImage: "url('/bg.jpeg')" }}
+                    style={{backgroundImage: "url('/bg.jpeg')"}}
                 />
 
                 {/* Overlay */}
-                <div className="absolute inset-0 bg-[#2b174f]/75 z-10" />
-                <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-[#2b174f]/60 z-10" />
+                <div className="absolute inset-0 bg-[#2b174f]/75 z-10"/>
+                <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-[#2b174f]/60 z-10"/>
 
                 {/* Cover Image */}
                 <div className="absolute left-0 top-1/2 -translate-y-1/2 w-full z-20">
@@ -43,12 +43,13 @@ export function Home() {
                         </Badge>
 
                         <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight mb-4 leading-tight">
-                            Where Diplomacy <br />
+                            Where Diplomacy <br/>
                             <span className="text-gold-shimmer">Meets Excellence</span>
                         </h1>
 
                         <p className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-                            CCJ Model United Nations 2026 invites young leaders to debate, negotiate, and resolve the world's most pressing challenges in a prestigious two-day conference.
+                            CCJ Model United Nations 2026 invites young leaders to debate, negotiate, and resolve the
+                            world's most pressing challenges in a prestigious two-day conference.
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
@@ -58,7 +59,7 @@ export function Home() {
                                     className="bg-[#f2b652] text-[#2b174f] hover:bg-[#f2b652]/90 font-semibold tracking-widest uppercase px-10 py-6 text-base shadow-lg shadow-[#f2b652]/20"
                                 >
                                     Register Now
-                                    <ArrowRight className="ml-2 size-4" />
+                                    <ArrowRight className="ml-2 size-4"/>
                                 </Button>
                             </Link>
 
@@ -74,16 +75,16 @@ export function Home() {
                         </div>
 
                         <div className="max-w-lg mx-auto">
-                            <CountdownTimer />
+                            <CountdownTimer/>
                         </div>
 
-                        <br />
+                        <br/>
                     </div>
                 </div>
 
                 {/* Scroll indicator */}
                 <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/40 animate-bounce z-40">
-                    <ChevronDown className="size-6" />
+                    <ChevronDown className="size-6"/>
                 </div>
             </section>
 
@@ -127,9 +128,9 @@ export function Home() {
                             <Link to="/about">
                                 <Button
                                     variant="outline"
-                                    className="border-[#2b174f] text-[#2b174f] bg-transparent tracking-wider uppercase font-semibold hover:bg-[#2b174f]! hover:text-white! hover:border-[#2b174f]!"                                >
+                                    className="border-[#2b174f] text-[#2b174f] bg-transparent tracking-wider uppercase font-semibold hover:bg-[#2b174f]! hover:text-white! hover:border-[#2b174f]!">
                                     Learn More
-                                    <ArrowRight className="ml-2 size-4" />
+                                    <ArrowRight className="ml-2 size-4"/>
                                 </Button>
                             </Link>
                         </div>
@@ -180,7 +181,7 @@ export function Home() {
                         <h2 className="text-4xl font-bold text-[#2b174f]">Mark Your Calendar</h2>
                     </div>
                     <div className="grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-6 justify-center">
-                        {CalendarDates.map(({ date, label, color }) => (
+                        {CalendarDates.map(({date, label, color}) => (
                             <Card
                                 key={date}
                                 className={`border-l-4 ${color} shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300`}

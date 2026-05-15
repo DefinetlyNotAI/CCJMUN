@@ -1,11 +1,6 @@
 import {Button} from "@/components/ui/button"
 import {Card, CardContent} from "@/components/ui/card"
-import {
-    CircleAlert,
-    CircleCheck,
-    ExternalLink,
-    Lock
-} from "lucide-react"
+import {CircleAlert, CircleCheck, ExternalLink, Lock} from "lucide-react"
 import {pricingTiers, steps} from "@/data/registration.ts";
 
 export function Registration() {
@@ -56,11 +51,13 @@ export function Registration() {
                             >
                                 <div className="h-8 flex items-center justify-center">
                                     {tier.highlight ? (
-                                        <div className="bg-[#f2b652] text-[#2b174f] text-xs font-bold tracking-widest uppercase text-center py-2 w-full">
+                                        <div
+                                            className="bg-[#f2b652] text-[#2b174f] text-xs font-bold tracking-widest uppercase text-center py-2 w-full">
                                             Best Value
                                         </div>
                                     ) : (
-                                        <div className="bg-gray-100 text-gray-500 text-xs font-semibold tracking-widest uppercase text-center py-2 w-full">
+                                        <div
+                                            className="bg-gray-100 text-gray-500 text-xs font-semibold tracking-widest uppercase text-center py-2 w-full">
                                             Standard
                                         </div>
                                     )}
@@ -76,7 +73,8 @@ export function Registration() {
                                     </p>
 
                                     <div className="space-y-3 mb-5">
-                                        <div className="flex justify-between items-center py-2 border-b border-gray-100">
+                                        <div
+                                            className="flex justify-between items-center py-2 border-b border-gray-100">
                                             <span className="text-gray-500 text-sm">Per Delegate</span>
                                             <span className="text-[#2b174f] font-bold text-lg">
                             {tier.perDelegate}
@@ -89,7 +87,7 @@ export function Registration() {
 
                                 {tier.isExpired && (
                                     <div className="absolute inset-0 flex items-center justify-center bg-white/70">
-                                        <Lock className="w-10 h-10 text-gray-600" />
+                                        <Lock className="w-10 h-10 text-gray-600"/>
                                     </div>
                                 )}
                             </Card>
@@ -141,7 +139,7 @@ export function Registration() {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <ExternalLink className="size-5 mr-2" />
+                            <ExternalLink className="size-5 mr-2"/>
                             Open Registration Form
                         </a>
                     </Button>
@@ -167,16 +165,18 @@ export function Registration() {
                         <div className="divide-y divide-white/10">
 
                             <div className="flex gap-4 p-6">
-                                <CircleCheck className="size-5 text-green-400 shrink-0 mt-0.5" />
+                                <CircleCheck className="size-5 text-green-400 shrink-0 mt-0.5"/>
                                 <p className="text-white/80 text-sm leading-relaxed">
-                                    Country assignments are allocated on a first-come, first-served basis. Early registration improves selection options.
+                                    Country assignments are allocated on a first-come, first-served basis. Early
+                                    registration improves selection options.
                                 </p>
                             </div>
 
                             <div className="flex gap-4 p-6">
-                                <CircleAlert className="size-5 text-amber-300 shrink-0 mt-0.5" />
+                                <CircleAlert className="size-5 text-amber-300 shrink-0 mt-0.5"/>
                                 <p className="text-white/80 text-sm leading-relaxed">
-                                    Registration fees are non-refundable. Confirm participation before completing payment.
+                                    Registration fees are non-refundable. Confirm participation before completing
+                                    payment.
                                 </p>
                             </div>
                         </div>

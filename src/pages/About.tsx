@@ -51,7 +51,7 @@ export function About() {
                             </p>
                         </div>
                         <div className="relative w-full max-w-10xl">
-                            <div className="absolute -bottom-4 -right-4 w-full h-full bg-[#2b174f]/10 rounded-lg" />
+                            <div className="absolute -bottom-4 -right-4 w-full h-full bg-[#2b174f]/10 rounded-lg"/>
 
                             <img
                                 src="/bg.jpeg"
@@ -78,7 +78,7 @@ export function About() {
                         </p>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {values.map(({ icon: Icon, title, description }) => (
+                        {values.map(({icon: Icon, title, description}) => (
                             <div
                                 key={title}
                                 className="bg-white rounded-lg p-8 shadow-sm border border-gray-100
@@ -92,7 +92,7 @@ export function About() {
                                     className="w-12 h-12 rounded-lg bg-[#2b174f] flex items-center justify-center mb-5
                 group-hover:bg-[#f2b652] transition-colors duration-300"
                                 >
-                                    <Icon className="size-6 text-white group-hover:text-[#2b174f] transition-colors" />
+                                    <Icon className="size-6 text-white group-hover:text-[#2b174f] transition-colors"/>
                                 </div>
 
                                 <h3 className="text-[#2b174f] font-bold text-lg mb-3">
