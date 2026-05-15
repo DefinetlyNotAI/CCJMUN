@@ -8,6 +8,7 @@ import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/c
 import {CircleCheck as CheckCircle, Mail, MapPin, Send} from "lucide-react"
 import {socialLinks} from "../data/socials"
 import type {ContactFormData, InquiryType} from "@/types";
+import {sanitizeUrl} from "@/lib/security";
 
 export function Contact() {
     const [submitted, setSubmitted] = useState(false)
@@ -134,10 +135,14 @@ Representation: ${formData.school || "Self-Represented"}`
                                 <div className="flex gap-3">
                                     {socialLinks.map((social) => {
                                         const Icon = social.icon
+                                        const safeUrl = sanitizeUrl(social.url)
+                                        if (!safeUrl) {
+                                            return null
+                                        }
                                         return (
                                             <a
                                                 key={social.id}
-                                                href={social.url}
+                                                href={safeUrl}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className="w-10 h-10 rounded-lg bg-[#2b174f] flex items-center justify-center hover:bg-[#f2b652] transition-colors group border border-white/10"

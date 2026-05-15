@@ -3,6 +3,7 @@ import {Card, CardContent} from "@/components/ui/card"
 import {Badge} from "@/components/ui/badge"
 import {Download, ExternalLink, Lock} from "lucide-react"
 import {backgroundGuides, onlineResources, studyMaterials} from "@/data/resources.ts";
+import {sanitizeUrl} from "@/lib/security";
 
 export function Resources() {
     return (
@@ -37,7 +38,10 @@ export function Resources() {
                         <h2 className="text-3xl font-bold text-[#2b174f]">Background Guides</h2>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-                        {backgroundGuides.map((guide) => (
+                        {backgroundGuides.map((guide) => {
+                            const safePath = guide.path ? sanitizeUrl(guide.path, {allowRelative: true}) : null
+                            const isUnavailable = guide.status === "classified" || !safePath
+                            return (
                             <Card key={guide.name}
                                   className="border border-gray-100 hover:border-[#f2b652]/60 hover:shadow-xl hover:-translate-y-1 hover:scale-[1.01] transition-all duration-200 ease-out group">
                                 <CardContent className="p-5">
@@ -57,16 +61,16 @@ export function Resources() {
                                     <Button
                                         size="sm"
                                         variant="outline"
-                                        disabled={guide.status === "classified" || !guide.path}
+                                        disabled={isUnavailable}
                                         className={
-                                            guide.status === "classified" || !guide.path
+                                            isUnavailable
                                                 ? "w-full border-gray-200 text-gray-400 text-xs"
                                                 : "w-full border-[#2b174f] text-[#2b174f] bg-transparent text-xs tracking-wider uppercase font-semibold hover:bg-[#2b174f]! hover:text-white! hover:border-[#2b174f]!"
                                         }
-                                        asChild={!(guide.status === "classified") && !!guide.path}
+                                        asChild={!isUnavailable}
                                     >
-                                        {!(guide.status === "classified") && !!guide.path ? (
-                                            <a href={guide.path} download
+                                        {!isUnavailable ? (
+                                            <a href={safePath ?? undefined} download
                                                className="flex items-center justify-center gap-1.5">
                                                 <Download className="size-3.5"/>
                                                 <span>Download</span>
@@ -88,7 +92,7 @@ export function Resources() {
                                     </Button>
                                 </CardContent>
                             </Card>
-                        ))}
+                        )})}
                     </div>
                 </div>
             </section>
@@ -103,7 +107,9 @@ export function Resources() {
                         <h2 className="text-3xl font-bold text-[#2b174f]">Guides & Handbooks</h2>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        {studyMaterials.map(({icon: Icon, title, description, type, link}) => (
+                        {studyMaterials.map(({icon: Icon, title, description, type, link}) => {
+                            const safeLink = link ? sanitizeUrl(link, {allowRelative: true}) : null
+                            return (
                             <Card
                                 key={title}
                                 className="border border-gray-100 bg-white transition-all duration-200 ease-out group hover:-translate-y-1 hover:shadow-xl hover:border-[#f2b652]/60"
@@ -125,7 +131,7 @@ export function Resources() {
 
                                         <p className="text-gray-500 text-sm leading-relaxed mb-4">{description}</p>
 
-                                        {link ? (
+                                        {safeLink ? (
                                             <Button
                                                 size="sm"
                                                 variant="outline"
@@ -133,7 +139,7 @@ export function Resources() {
                                                 asChild
                                             >
                                                 <a
-                                                    href={link}
+                                                    href={safeLink}
                                                     download
                                                     target="_blank"
                                                     rel="noopener noreferrer"
@@ -161,7 +167,7 @@ export function Resources() {
                                     </div>
                                 </CardContent>
                             </Card>
-                        ))}
+                        )})}
                     </div>
                 </div>
             </section>
@@ -176,31 +182,38 @@ export function Resources() {
                         <h2 className="text-3xl font-bold text-white">Research Starting Points</h2>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                        {onlineResources.map(({title, desc, url}) => (
-                            <a
-                                key={title}
-                                href={url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="block"
-                            >
-                                <div
-                                    className="bg-white/5 border border-white/10 rounded-lg p-5 hover:border-[#f2b652]/40 hover:bg-white/10 hover:-translate-y-1 hover:shadow-lg transition-all duration-200 group cursor-pointer"
+                        {onlineResources.map(({title, desc, url}) => {
+                            const safeUrl = sanitizeUrl(url)
+                            if (!safeUrl) {
+                                return null
+                            }
+
+                            return (
+                                <a
+                                    key={title}
+                                    href={safeUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="block"
                                 >
-                                    <div className="flex items-start justify-between gap-3 mb-2">
-                                        <h3 className="text-white font-semibold text-base group-hover:text-[#f2b652] transition-colors">
-                                            {title}
-                                        </h3>
-                                        <ExternalLink className="size-4 text-[#f2b652] shrink-0 mt-0.5"/>
+                                    <div
+                                        className="bg-white/5 border border-white/10 rounded-lg p-5 hover:border-[#f2b652]/40 hover:bg-white/10 hover:-translate-y-1 hover:shadow-lg transition-all duration-200 group cursor-pointer"
+                                    >
+                                        <div className="flex items-start justify-between gap-3 mb-2">
+                                            <h3 className="text-white font-semibold text-base group-hover:text-[#f2b652] transition-colors">
+                                                {title}
+                                            </h3>
+                                            <ExternalLink className="size-4 text-[#f2b652] shrink-0 mt-0.5"/>
+                                        </div>
+                                        <p className="text-white/50 text-sm leading-relaxed">
+                                            {desc.split("\n").map((line, i) => (
+                                                <span key={i}>{line}<br/></span>
+                                            ))}
+                                        </p>
                                     </div>
-                                    <p className="text-white/50 text-sm leading-relaxed">
-                                        {desc.split("\n").map((line, i) => (
-                                            <span key={i}>{line}<br/></span>
-                                        ))}
-                                    </p>
-                                </div>
-                            </a>
-                        ))}
+                                </a>
+                            )
+                        })}
                     </div>
                 </div>
             </section>

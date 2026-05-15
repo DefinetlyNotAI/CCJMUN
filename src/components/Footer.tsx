@@ -3,6 +3,7 @@ import {Mail, MapPin} from "lucide-react"
 import {Separator} from "@/components/ui/separator"
 import {socialLinks} from "../data/socials"
 import {links} from "@/data/footer.ts";
+import {sanitizeUrl} from "@/lib/security";
 
 export function Footer() {
     return (
@@ -28,10 +29,14 @@ export function Footer() {
                         <div className="flex gap-3 mt-6">
                             {socialLinks.map((social) => {
                                 const Icon = social.icon
+                                const safeUrl = sanitizeUrl(social.url)
+                                if (!safeUrl) {
+                                    return null
+                                }
                                 return (
                                     <a
                                         key={social.id}
-                                        href={social.url}
+                                        href={safeUrl}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/50 hover:text-[#f2b652] hover:border-[#f2b652]/50 transition-colors"
