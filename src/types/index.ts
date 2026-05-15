@@ -1,10 +1,6 @@
 import type { LucideIcon } from "lucide-react"
 import type { ComponentType, ReactNode } from "react"
 
-/* =========================
-   Helper Types
-========================= */
-
 interface ClassNameProps {
     className?: string
 }
@@ -12,10 +8,6 @@ interface ClassNameProps {
 interface LucideIconProps {
     icon: LucideIcon
 }
-
-/* =========================
-   Core UI / Generic Types
-========================= */
 
 export interface NavLink {
     label: string
@@ -35,10 +27,6 @@ export interface TimeUnit {
     value: number
 }
 
-/* =========================
-   Stats / Content Blocks
-========================= */
-
 export interface StatItem extends LucideIconProps {
     value: string
     label: string
@@ -48,10 +36,6 @@ export interface ValueItem extends LucideIconProps {
     title: string
     description: string
 }
-
-/* =========================
-   Calendar / Schedule
-========================= */
 
 export interface CalendarDate {
     date: string
@@ -87,10 +71,6 @@ export interface TypeConfigItem {
     icon: LucideIcon
 }
 
-/* =========================
-   Pricing / Steps
-========================= */
-
 export interface PricingTier {
     name: string
     deadline: string
@@ -106,10 +86,6 @@ export interface StepItem {
     desc: string
 }
 
-/* =========================
-   Resources / Materials
-========================= */
-
 export interface StudyMaterial extends LucideIconProps {
     title: string
     description: string
@@ -123,10 +99,6 @@ export interface OnlineResource {
     desc: string
 }
 
-/* =========================
-   Documents / Guides
-========================= */
-
 type BGGuideStatus = "available" | "classified"
 
 export interface BackgroundGuide {
@@ -136,10 +108,6 @@ export interface BackgroundGuide {
     status: BGGuideStatus
     path?: string
 }
-
-/* =========================
-   Committee / Academic
-========================= */
 
 export type DifficultyLevel = "Beginner" | "Intermediate" | "Advanced" | "Expert"
 
@@ -192,10 +160,6 @@ export interface FAQGroup {
     items: FAQ[]
 }
 
-/* =========================
-   Contact / Forms
-========================= */
-
 export type InquiryType =
     | "Registration"
     | "Committees"
@@ -213,10 +177,6 @@ export interface ContactFormData {
     subject: string
     message: string
 }
-
-/* =========================
-   Team / Organization
-========================= */
 
 export type Role =
     | "Secretary General"
@@ -244,10 +204,6 @@ export interface TeamMember {
 }
 
 export type DepartmentMembers = Record<Department, Record<string, TeamMember>>
-
-/* =========================
-   Theme
-========================= */
 
 export type Theme = "dark" | "light" | "system"
 export type ResolvedTheme = "dark" | "light"
