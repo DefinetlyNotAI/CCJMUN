@@ -11,7 +11,7 @@ export const committees: Committee[] = [
             "The UNSC holds primary responsibility for international peace and security. Delegates will grapple with real-time geopolitical crises and the structural tensions within the Council itself.",
         difficulty: "Expert",
         size: "15 delegates",
-        backgroundGuideUrl: "#",
+        backgroundGuideUrl: undefined,
         chairs: [
             {
                 name: "Alexandra Chen",
@@ -37,7 +37,7 @@ export const committees: Committee[] = [
             "The UNHRC addresses the most pressing human rights violations globally. Delegates will draft resolutions that balance state sovereignty with universal human dignity.",
         difficulty: "Intermediate",
         size: "47 delegates",
-        backgroundGuideUrl: "#",
+        backgroundGuideUrl: undefined,
         chairs: [
             {
                 name: "Maria Santos",
@@ -57,7 +57,7 @@ export const committees: Committee[] = [
             "The WHO committee tackles global health challenges requiring coordinated international responses. Delegates will develop comprehensive public health frameworks.",
         difficulty: "Intermediate",
         size: "35 delegates",
-        backgroundGuideUrl: "#",
+        backgroundGuideUrl: undefined,
         chairs: [
             {
                 name: "Dr. Priya Kapoor",
@@ -77,7 +77,7 @@ export const committees: Committee[] = [
             "ECOSOC serves as the principal body for coordination on economic, social, and environmental issues. Delegates will craft policies bridging development gaps globally.",
         difficulty: "Intermediate",
         size: "54 delegates",
-        backgroundGuideUrl: "#",
+        backgroundGuideUrl: undefined,
         chairs: [
             {
                 name: "Ahmed Hassan",
@@ -96,7 +96,7 @@ export const committees: Committee[] = [
             "A specialized committee simulating proceedings of the ICC. Delegates take on roles of prosecution, defense, and judges in a high-stakes international legal drama.",
         difficulty: "Advanced",
         size: "20 delegates",
-        backgroundGuideUrl: "#",
+        backgroundGuideUrl: undefined,
         chairs: [
             {
                 name: "Justice Rebecca Moore",
@@ -116,7 +116,7 @@ export const committees: Committee[] = [
             "DISEC addresses disarmament challenges in a rapidly evolving technological landscape. Delegates will navigate the complex interplay of national security and global stability.",
         difficulty: "Advanced",
         size: "60 delegates",
-        backgroundGuideUrl: "#",
+        backgroundGuideUrl: undefined,
         chairs: [
             {
                 name: "Dr. Mikhail Petrov",
@@ -155,7 +155,7 @@ export const committees: Committee[] = [
             "GA3 focuses on social, humanitarian, and cultural issues. An ideal committee for delegates developing their resolution-drafting and multilateral negotiation skills.",
         difficulty: "Beginner",
         size: "100 delegates",
-        backgroundGuideUrl: "#",
+        backgroundGuideUrl: undefined,
         chairs: [
             {
                 name: "Patricia Nakamura",
