@@ -1,9 +1,14 @@
 import {useState} from "react"
 import {faqs} from "@/data/faqs"
-import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/components/ui/accordion"
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger
+} from "@/components/ui/accordion"
 import {Badge} from "@/components/ui/badge"
 import {Input} from "@/components/ui/input"
-import {Search} from "lucide-react"
+import {Search, ChevronDown} from "lucide-react"
 import {Link} from "react-router-dom"
 import {Button} from "@/components/ui/button"
 import type {Category, FAQ, FAQGroup} from "@/types";
@@ -11,15 +16,23 @@ import type {Category, FAQ, FAQGroup} from "@/types";
 export function FAQs() {
     const [search, setSearch] = useState("")
     const [activeCategory, setActiveCategory] = useState<Category>("All")
+    const [collapsed, setCollapsed] = useState(false)
 
-    const categories: Category[] = ["All", ...Array.from(new Set(faqs.map((f: FAQ) => f.category)))]
+    const categories: Category[] = [
+        "All",
+        ...Array.from(new Set(faqs.map((f: FAQ) => f.category)))
+    ]
 
     const filtered = faqs.filter((faq) => {
         const matchesSearch =
             search === "" ||
             faq.question.toLowerCase().includes(search.toLowerCase()) ||
             faq.answer.toLowerCase().includes(search.toLowerCase())
-        const matchesCategory = activeCategory === "All" || faq.category === activeCategory
+
+        const matchesCategory =
+            activeCategory === "All" ||
+            faq.category === activeCategory
+
         return matchesSearch && matchesCategory
     })
 
@@ -43,10 +56,13 @@ export function FAQs() {
                     <p className="text-[#f2b652] text-sm tracking-widest uppercase font-semibold mb-3">
                         Help Center
                     </p>
+
                     <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
                         Frequently Asked Questions
                     </h1>
+
                     <div className="divider-gold mx-auto w-32 mb-6"/>
+
                     <p className="text-white/75 text-xl leading-relaxed max-w-2xl mx-auto">
                         Everything you need to know about CCJMUN 2026.
                     </p>
@@ -55,36 +71,61 @@ export function FAQs() {
 
             {/* FAQ Section */}
             <section className="relative bg-gray-50">
-                {/* Sticky Search & Filter */}
-                <div className="bg-white border-b border-gray-100 py-8 sticky top-16 z-30 shadow-sm">
+                {/* Sticky header */}
+                <div className="bg-white border-b border-gray-100 py-6 sticky top-16 z-30 shadow-sm">
                     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div className="flex flex-col gap-4">
-                            <div className="relative w-full">
-                                <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-gray-400" />
-                                <Input
-                                    placeholder="Search questions..."
-                                    value={search}
-                                    onChange={(e) => setSearch(e.target.value)}
-                                    className="pl-10 border-gray-200 focus-visible:ring-[#2b174f]/30 focus-visible:border-[#2b174f]"
-                                />
-                            </div>
+                        <div className="flex items-center justify-between">
+                            <p className="text-xs tracking-widest uppercase text-gray-400 font-semibold">
+                                FAQ Filters
+                            </p>
 
-                            <div className="flex flex-wrap gap-2">
-                                {categories.map((cat) => (
-                                    <button
-                                        key={cat}
-                                        onClick={() => setActiveCategory(cat)}
-                                        className={`px-3 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase transition-colors border ${
-                                            activeCategory === cat
-                                                ? "bg-[#2b174f] text-white border-[#2b174f]"
-                                                : "bg-transparent text-gray-500 border-gray-200 hover:border-[#2b174f] hover:text-[#2b174f]"
-                                        }`}
-                                    >
-                                        {cat}
-                                    </button>
-                                ))}
-                            </div>
+                            <button
+                                onClick={() => setCollapsed(!collapsed)}
+                                className="flex items-center gap-1 text-xs font-semibold tracking-wider uppercase text-gray-500 hover:text-[#2b174f] transition-colors"
+                            >
+                                {collapsed ? "Expand" : "Collapse"}
+                                <ChevronDown
+                                    className={`size-3.5 transition-transform ${
+                                        collapsed ? "" : "rotate-180"
+                                    }`}
+                                />
+                            </button>
                         </div>
+
+                        {!collapsed && (
+                            <div className="mt-4 flex flex-col gap-4">
+                                <div className="relative w-full">
+                                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-gray-400" />
+
+                                    <Input
+                                        placeholder="Search questions..."
+                                        value={search}
+                                        onChange={(e) =>
+                                            setSearch(e.target.value)
+                                        }
+                                        className="pl-10 border-gray-200 focus-visible:ring-[#2b174f]/30 focus-visible:border-[#2b174f]"
+                                    />
+                                </div>
+
+                                <div className="flex flex-wrap gap-2">
+                                    {categories.map((cat) => (
+                                        <button
+                                            key={cat}
+                                            onClick={() =>
+                                                setActiveCategory(cat)
+                                            }
+                                            className={`px-3 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase transition-colors border ${
+                                                activeCategory === cat
+                                                    ? "bg-[#2b174f] text-white border-[#2b174f]"
+                                                    : "bg-transparent text-gray-500 border-gray-200 hover:border-[#2b174f] hover:text-[#2b174f]"
+                                            }`}
+                                        >
+                                            {cat}
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
 
@@ -99,8 +140,8 @@ export function FAQs() {
 
                                 <button
                                     onClick={() => {
-                                        setSearch("");
-                                        setActiveCategory("All");
+                                        setSearch("")
+                                        setActiveCategory("All")
                                     }}
                                     className="mt-4 text-[#f2b652] text-sm underline hover:no-underline"
                                 >
@@ -112,9 +153,10 @@ export function FAQs() {
                                 {(activeCategory === "All"
                                         ? grouped
                                         : grouped.filter(
-                                            (g) => g.category === activeCategory
+                                            (g) =>
+                                                g.category === activeCategory
                                         )
-                                ).map(({ category, items }) => (
+                                ).map(({category, items}) => (
                                     <div key={category}>
                                         <div className="flex items-center gap-3 mb-6">
                                             <Badge
@@ -125,9 +167,9 @@ export function FAQs() {
                                             </Badge>
 
                                             <span className="text-gray-300 text-sm">
-                                    {items.length} question
+                                                {items.length} question
                                                 {items.length !== 1 ? "s" : ""}
-                                </span>
+                                            </span>
                                         </div>
 
                                         <Accordion
@@ -159,16 +201,20 @@ export function FAQs() {
                 </div>
             </section>
 
-            {/* Still have questions */}
+            {/* CTA */}
             <section className="py-16 bg-[#2b174f]">
                 <div className="max-w-3xl mx-auto px-4 text-center">
-                    <h2 className="text-2xl font-bold text-white mb-3">Still Have Questions?</h2>
+                    <h2 className="text-2xl font-bold text-white mb-3">
+                        Still Have Questions?
+                    </h2>
+
                     <p className="text-white/60 mb-8">
-                        Can't find what you're looking for? Our team is happy to help.
+                        Can't find what you're looking for? Our team is happy
+                        to help.
                     </p>
+
                     <Link to="/contact">
-                        <Button
-                            className="bg-[#f2b652] text-[#2b174f] hover:bg-[#f2b652]/90 font-semibold tracking-wider uppercase px-8">
+                        <Button className="bg-[#f2b652] text-[#2b174f] hover:bg-[#f2b652]/90 font-semibold tracking-wider uppercase px-8">
                             Contact Us
                         </Button>
                     </Link>
