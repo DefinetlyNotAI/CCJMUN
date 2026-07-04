@@ -15,7 +15,7 @@ export const teamMembers: DepartmentMembers = {
         "deputy-secretary-general": {
             id: "deputy-secretary-general",
             name: "Jenna Awad",
-            role: "Deputy Secretary General",
+            role: "Secretary General",
             bio: "PLACEHOLDER BIO",
             imageUrl: undefined
         }
